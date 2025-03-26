@@ -1,0 +1,38 @@
+bbbbbbbbbbbbbbbbbbbb
+bwbb.............bbb
+bbb....bbbbbbbbbzz.b
+bb....bb...b...b..bb
+bbb..bbb.b.b.b.bb.bb
+bwbb..bb.b...b..b.bb
+bbbb...b.b...b..b.bb
+b.j..b...bbbbbb.b..3
+b.b..bbb..z..z..bbbb
+b.b..bbb.bbb.bb..bbb
+bybb...bbbbb......bb
+bbbbb...bbbb.......b
+b...bb...bwbb......b
+1....f...bbbbbbb..pb
+bbbbbbbbbbbbbbbbbb5b
+
+----------информация----------
+p = игрок
+b = обычный блок
+w = блок с формой квадрата
+z = можно двигать блок форма квадрата
+a = дверь с ключом 1
+d = дверь с ключом 2
+f = дверь с ключом 3
+g = дверь с ключом 4
+h = дверь с ключом 5
+j = дверь с ключом 6
+k = дверь с ключом 7
+l = дверь с ключом 8
+q = ключ 1
+e = ключ 2
+r = ключ 3
+t = ключ 4
+y = ключ 5
+u = ключ 6
+i = ключ 7
+o = ключ 8
+1-9 = подуровни

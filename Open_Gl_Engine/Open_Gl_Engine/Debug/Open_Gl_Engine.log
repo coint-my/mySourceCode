@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\download\мой код\open_gl_engine\open_gl_engine\main.cpp(144): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+          c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(909): см. объявление "itoa"
+  Open_Gl_Engine.vcxproj -> C:\Download\Мой код\Open_Gl_Engine\Debug\Open_Gl_Engine.exe

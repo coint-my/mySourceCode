@@ -1,0 +1,14 @@
+﻿  Source.cpp
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(50,25): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(56,11): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(57,11): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(61,18): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(62,18): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(64,10): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(65,10): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\CameraHandle.h(73,23): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\Shader_Glad.h(68,8): warning C4101: infoLog: неиспользованная локальная переменная
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\Shader_Glad.h(67,7): warning C4101: success: неиспользованная локальная переменная
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\loadLevel.h(81,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Мой код\opengl_glfw_Engine_2018\opengl_glfw_Engine_2018\loadLevel.h(83,24): warning C4018: <: несоответствие типов со знаком и без знака
+  opengl_glfw_Engine_2018.vcxproj -> D:\Мой код\opengl_glfw_Engine_2018\Debug\opengl_glfw_Engine_2018.exe

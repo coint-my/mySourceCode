@@ -1,0 +1,10 @@
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\bin\Debug\windowsFormVovan.exe
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\bin\Debug\windowsFormVovan.pdb
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\ResolveAssemblyReference.cache
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.Form1.resources
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.Properties.Resources.resources
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.csproj.GenerateResource.Cache
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.exe
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.pdb
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\obj\Debug\windowsFormVovan.Form2.resources
+C:\Download\Мой код\windowsFormVovan\windowsFormVovan\bin\Debug\Resources\IMG_0008.JPG

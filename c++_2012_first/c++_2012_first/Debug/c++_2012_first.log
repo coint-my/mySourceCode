@@ -1,0 +1,3 @@
+﻿  source.cpp
+c:\download\мой код\c++_2012_first\c++_2012_first\source.cpp(41): warning C4305: аргумент: усечение из "double" к "GLfloat"
+  c++_2012_first.vcxproj -> C:\Download\Мой код\c++_2012_first\Debug\c++_2012_first.exe

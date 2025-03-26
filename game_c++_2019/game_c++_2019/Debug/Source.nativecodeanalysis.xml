@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>121</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::MyTexture::name' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::MyTexture::{ctor}</FUNCTION>
+    <DECORATED>??0MyTexture@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>121</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::MyTexture::name</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>121</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::MyTexture::tex' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::MyTexture::{ctor}</FUNCTION>
+    <DECORATED>??0MyTexture@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>121</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::MyTexture::tex</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>208</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::bullet::seg' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::bullet::{ctor}</FUNCTION>
+    <DECORATED>??0bullet@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>208</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::bullet::seg</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>208</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::bullet::rad' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::bullet::{ctor}</FUNCTION>
+    <DECORATED>??0bullet@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>208</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::bullet::rad</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>208</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::bullet::t' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::bullet::{ctor}</FUNCTION>
+    <DECORATED>??0bullet@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>208</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::bullet::t</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>208</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::bullet::btime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::bullet::{ctor}</FUNCTION>
+    <DECORATED>??0bullet@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>208</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::bullet::btime</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>256</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::sourceBullet::speed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::sourceBullet::{ctor}</FUNCTION>
+    <DECORATED>??0sourceBullet@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>256</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::sourceBullet::speed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>694</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::unitGoblin::dir' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::unitGoblin::{ctor}</FUNCTION>
+    <DECORATED>??0unitGoblin@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>694</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::unitGoblin::dir</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>694</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::unitGoblin::isPlay' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::unitGoblin::{ctor}</FUNCTION>
+    <DECORATED>??0unitGoblin@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>694</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::unitGoblin::isPlay</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>755</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::unitGuard::state' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::unitGuard::{ctor}</FUNCTION>
+    <DECORATED>??0unitGuard@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>755</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::unitGuard::state</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>805</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::unitCat::var' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::unitCat::{ctor}</FUNCTION>
+    <DECORATED>??0unitCat@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>805</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::unitCat::var</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>855</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::unitHuman::t' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::unitHuman::{ctor}</FUNCTION>
+    <DECORATED>??0unitHuman@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>855</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::unitHuman::t</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>initialize_gl.h</FILENAME>
+      <LINE>947</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'my::menu_gl::id' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>my::menu_gl::{ctor}</FUNCTION>
+    <DECORATED>??0menu_gl@my@@QAE@XZ</DECORATED>
+    <FUNCLINE>947</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>my::menu_gl::id</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>49</LINE>
+      <COLUMN>86</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>sav_and_load::save</FUNCTION>
+    <DECORATED>?save@sav_and_load@@SA_NPBDAAV?$vector@VrenderLayerObjects@my@@V?$allocator@VrenderLayerObjects@my@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>38</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ManagerLogick::button' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ManagerLogick::{ctor}</FUNCTION>
+    <DECORATED>??0ManagerLogick@@QAE@XZ</DECORATED>
+    <FUNCLINE>126</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ManagerLogick::button</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ManagerLogick::state' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ManagerLogick::{ctor}</FUNCTION>
+    <DECORATED>??0ManagerLogick@@QAE@XZ</DECORATED>
+    <FUNCLINE>126</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ManagerLogick::state</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ManagerLogick::menu' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ManagerLogick::{ctor}</FUNCTION>
+    <DECORATED>??0ManagerLogick@@QAE@XZ</DECORATED>
+    <FUNCLINE>126</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ManagerLogick::menu</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ManagerLogick::goblin' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ManagerLogick::{ctor}</FUNCTION>
+    <DECORATED>??0ManagerLogick@@QAE@XZ</DECORATED>
+    <FUNCLINE>126</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ManagerLogick::goblin</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>ManagerLogick.h</FILENAME>
+      <LINE>352</LINE>
+      <COLUMN>39</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>Разыменование пустого указателя "take-&gt;pos". </DESCRIPTION>
+    <FUNCTION>ManagerLogick::update</FUNCTION>
+    <DECORATED>?update@ManagerLogick@@QAEXM@Z</DECORATED>
+    <FUNCLINE>311</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>313</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>315</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>316</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>317</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>317</LINE>
+        <COLUMN>37</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Пропустить этот цикл (предполагается, что "indLayer&lt;listLayer.size()" равно false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>343</LINE>
+        <COLUMN>0</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>345</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>346</LINE>
+        <COLUMN>0</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>348</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>25</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Войти в этот цикл (предполагается "i&lt;gd.bullet.m_bullet.size()")</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>351</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>352</LINE>
+        <COLUMN>39</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Пропустить эту ветвь (предполагается, что "&lt;условие ветви&gt;" равно false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>55</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>25</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Выйти из этого цикла ("i&lt;gd.bullet.m_bullet.size()" равно false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>346</LINE>
+        <COLUMN>0</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>348</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>349</LINE>
+        <COLUMN>25</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Войти в этот цикл (предполагается "i&lt;gd.bullet.m_bullet.size()")</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>351</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>352</LINE>
+        <COLUMN>39</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>ветвь</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Пропустить эту ветвь (предполагается, что "&lt;условие ветви&gt;" равно false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+        <FILENAME>ManagerLogick.h</FILENAME>
+        <LINE>352</LINE>
+        <COLUMN>39</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>использование</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>"take-&gt;pos" разыменовано, но, возможно, по-прежнему равно NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>207</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::textBox::y' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::textBox::{ctor}</FUNCTION>
+    <DECORATED>??0textBox@ed@@QAE@PAUvec2f@my@@U23@@Z</DECORATED>
+    <FUNCLINE>207</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::textBox::y</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>207</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::textBox::x' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::textBox::{ctor}</FUNCTION>
+    <DECORATED>??0textBox@ed@@QAE@PAUvec2f@my@@U23@@Z</DECORATED>
+    <FUNCLINE>207</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::textBox::x</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>212</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::textBox::y' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::textBox::{ctor}</FUNCTION>
+    <DECORATED>??0textBox@ed@@QAE@Uvec2f@my@@00@Z</DECORATED>
+    <FUNCLINE>212</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::textBox::y</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>212</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::textBox::x' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::textBox::{ctor}</FUNCTION>
+    <DECORATED>??0textBox@ed@@QAE@Uvec2f@my@@00@Z</DECORATED>
+    <FUNCLINE>212</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::textBox::x</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>307</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::ScrollBarObject::stat' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::ScrollBarObject::{ctor}</FUNCTION>
+    <DECORATED>??0ScrollBarObject@ed@@QAE@Urectf@my@@Ucolori@3@@Z</DECORATED>
+    <FUNCLINE>307</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::ScrollBarObject::stat</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::textBx' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::textBx</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::bar_texture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::bar_texture</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::textBy' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::textBy</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::textB' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::textB</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::man' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::man</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\Мой код\game_c++_2019\game_c++_2019\</FILEPATH>
+      <FILENAME>EditGame.h</FILENAME>
+      <LINE>485</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ed::EditGame::bar_textBox' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ed::EditGame::{ctor}</FUNCTION>
+    <DECORATED>??0EditGame@ed@@QAE@XZ</DECORATED>
+    <FUNCLINE>485</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>ed::EditGame::bar_textBox</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

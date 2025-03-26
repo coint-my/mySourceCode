@@ -1,0 +1,37 @@
+﻿  Sourse.cpp
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(5): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(6): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(7): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\sourse.cpp(109): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\sourse.cpp(184): warning C4018: <: несоответствие типов со знаком и без знака
+  Pole.cpp
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(5): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(6): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(7): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\pole.cpp(83): warning C4800: int: принудительно задано логическое значение "true" или "false" (предупреждение о производительности)
+  Painter.cpp
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(5): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(6): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(7): warning C4081: требуется "newline"; обнаружен ";"
+  MyRect.cpp
+  Effect.cpp
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(5): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(6): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(7): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\effect.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\effect.cpp(56): warning C4018: <: несоответствие типов со знаком и без знака
+  BattleGame.cpp
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(5): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(6): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\painter.h(7): warning C4081: требуется "newline"; обнаружен ";"
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\battlegame.cpp(515): warning C4552: +: оператор не имеет результата; требуется оператор с побочным действием
+  Создание кода...
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\battlegame.cpp(286): warning C4715: BattleGame::Shoot_Down_Enemy: значение возвращается не при всех путях выполнения
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\battlegame.cpp(648): warning C4715: BattleGame::Set_value_shoot: значение возвращается не при всех путях выполнения
+c:\download\мой код\gamec++_seabattle\gamec++_seabattle\battlegame.cpp(802): warning C4715: BattleGame::Get_Object: значение возвращается не при всех путях выполнения
+BattleGame.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/SAFESEH"
+glaux.lib(image.obj) : error LNK2026: небезопасный модуль для образа SAFESEH.
+glaux.lib(tkimage.obj) : error LNK2026: небезопасный модуль для образа SAFESEH.
+glaux.lib(tkdib.obj) : error LNK2026: небезопасный модуль для образа SAFESEH.
+glaux.lib(tk.obj) : error LNK2026: небезопасный модуль для образа SAFESEH.
+C:\Download\Мой код\GameC++_SeaBattle\Debug\GameC++_SeaBattle.exe : fatal error LNK1281: Не удается создать образ SAFESEH.

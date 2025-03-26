@@ -1,0 +1,27 @@
+﻿  Source.cpp
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(9,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\Мой код\glew_c++_2020\glew_c++_2020\Shader.h(56,41): warning C4101: e: неиспользованная локальная переменная
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(167,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(187,27): warning C4244: =: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(188,27): warning C4244: =: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(189,27): warning C4244: =: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(281,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(282,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(286,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(287,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(289,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(290,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\glew_c++_2020\glew_c++_2020\Source.cpp(299,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  glew_c++_2020.vcxproj -> D:\Мой код\glew_c++_2020\Debug\glew_c++_2020.exe

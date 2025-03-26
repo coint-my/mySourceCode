@@ -1,0 +1,37 @@
+﻿  Source.cpp
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(139,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(140,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(152,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(153,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(165,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(166,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(267,1): warning C4305: =: усечение из "double" в "float"
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(268,1): warning C4305: =: усечение из "double" в "float"
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(289,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(290,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(291,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(293,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(294,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Source.cpp(64,14): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutWarpPointer"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutPassiveMotionFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutKeyboardUpFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutReshapeFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp___glutCreateWindowWithExit"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMouseFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp___glutInitWithExit"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutIgnoreKeyRepeat"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutPostRedisplay"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutKeyboardFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSetCursor"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitDisplayMode"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSpecialFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSpecialUpFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutTimerFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutDisplayFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMainLoop"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitWindowPosition"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMotionFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitWindowSize"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSwapBuffers"
+D:\Мой код\freeglut_2018_c++\x64\Release\freeglut_2018_c++.exe : fatal error LNK1120: неразрешенных внешних элементов: 21

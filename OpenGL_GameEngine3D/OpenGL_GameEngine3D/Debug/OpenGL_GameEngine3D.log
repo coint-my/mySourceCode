@@ -1,0 +1,19 @@
+﻿  AI.cpp
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(20): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(56): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(88): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(103): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(109): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(120): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(139): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(149): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(178): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(184): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(189): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\opengl_gameengine3d\opengl_gameengine3d\ai.cpp(239): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+  Пропуск... (изменения не обнаружены)
+  source.cpp
+  ManagerEditor.cpp
+  OpenGL_GameEngine3D.vcxproj -> C:\Download\Мой код\OpenGL_GameEngine3D\Debug\OpenGL_GameEngine3D.exe

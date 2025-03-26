@@ -1,0 +1,7 @@
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\bin\Debug\console_CSarp_2019_lesson1.exe.config
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\bin\Debug\console_CSarp_2019_lesson1.exe
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\bin\Debug\console_CSarp_2019_lesson1.pdb
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\obj\Debug\console_CSarp_2019_lesson1.csprojAssemblyReference.cache
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\obj\Debug\console_CSarp_2019_lesson1.csproj.CoreCompileInputs.cache
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\obj\Debug\console_CSarp_2019_lesson1.exe
+D:\Мой код\console_CSarp_2019_lesson1\console_CSarp_2019_lesson1\obj\Debug\console_CSarp_2019_lesson1.pdb

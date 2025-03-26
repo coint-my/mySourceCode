@@ -1,0 +1,7 @@
+﻿  EngineClass.cpp
+  EngineForms.cpp
+  source.cpp
+d:\мой код\forms_and_opengl\forms_and_opengl\source.cpp(234): warning C4838: преобразование из "int" в "BYTE" требует сужающего преобразования
+  EngineClass.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
+  EngineClass.obj : юсэрЁєцхэ ьюфєы№ MSIL; фы  MSIL яюёыхфютрЄхы№эр  ъюьяюэютър юЄъы■ўхэр; т√яюыэ хЄё  яюыэр  ъюьяюэютър
+  Forms_and_OpenGL.vcxproj -> D:\Мой код\Forms_and_OpenGL\Debug\Forms_and_OpenGL.exe

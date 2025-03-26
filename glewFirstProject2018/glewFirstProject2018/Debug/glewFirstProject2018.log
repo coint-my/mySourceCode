@@ -1,0 +1,13 @@
+﻿  Source.cpp
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(50): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(56): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(57): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(61): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(62): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(64): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(65): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\camerahandle.h(73): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\shader_glad.h(68): warning C4101: infoLog: неиспользованная локальная переменная
+c:\users\вова\desktop\мой код\glewfirstproject2018\glewfirstproject2018\shader_glad.h(67): warning C4101: success: неиспользованная локальная переменная
+  glewFirstProject2018.vcxproj -> C:\Users\вова\Desktop\Мой код\glewFirstProject2018\Debug\glewFirstProject2018.exe
+  glewFirstProject2018.vcxproj -> C:\Users\вова\Desktop\Мой код\glewFirstProject2018\Debug\glewFirstProject2018.pdb (Full PDB)

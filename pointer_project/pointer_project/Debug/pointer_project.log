@@ -1,0 +1,8 @@
+﻿  Source.cpp
+d:\мой код\pointer_project\pointer_project\source.cpp(42): warning C4018: <: несоответствие типов со знаком и без знака
+d:\мой код\pointer_project\pointer_project\source.cpp(52): warning C4018: <: несоответствие типов со знаком и без знака
+d:\мой код\pointer_project\pointer_project\source.cpp(64): warning C4018: <: несоответствие типов со знаком и без знака
+d:\мой код\pointer_project\pointer_project\source.cpp(106): warning C4018: <: несоответствие типов со знаком и без знака
+d:\мой код\pointer_project\pointer_project\source.cpp(127): warning C4018: <: несоответствие типов со знаком и без знака
+d:\мой код\pointer_project\pointer_project\source.cpp(155): warning C4018: <: несоответствие типов со знаком и без знака
+  pointer_project.vcxproj -> D:\Мой код\pointer_project\Debug\pointer_project.exe

@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>ppp.PNG</Source>
+      <Name>ppp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ppp.xnb</Output>
+      <Time>2013-01-23T09:57:25.1545242+02:00</Time>
+    </Item>
+    <Item>
+      <Source>123.png</Source>
+      <Name>123</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\123.xnb</Output>
+      <Time>2013-01-27T18:49:39.209942+02:00</Time>
+    </Item>
+    <Item>
+      <Source>111.wma</Source>
+      <Name>111</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\111.xnb</Output>
+      <Time>2013-02-10T17:16:42.9525454+02:00</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2013-02-10T17:25:25.0668714+02:00</Time>
+    </Item>
+    <Item>
+      <Source>interface.png</Source>
+      <Name>interface</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\interface.xnb</Output>
+      <Time>2013-02-10T18:08:04.6672562+02:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2013-03-06T19:11:54.2577314+02:00</Time>
+    </Item>
+    <Item>
+      <Source>music\chimeras_soundtrack_1.mp3</Source>
+      <Name>music\chimeras_soundtrack_1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\music\chimeras_soundtrack_1.xnb</Output>
+      <Time>2013-03-02T18:59:19.731471+02:00</Time>
+    </Item>
+    <Item>
+      <Source>music\chimeras_soundtrack_2.mp3</Source>
+      <Name>music\chimeras_soundtrack_2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\music\chimeras_soundtrack_2.xnb</Output>
+      <Time>2013-02-14T11:04:55.7446065+02:00</Time>
+    </Item>
+    <Item>
+      <Source>music\chimeras_soundtrack_3.mp3</Source>
+      <Name>music\chimeras_soundtrack_3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\music\chimeras_soundtrack_3.xnb</Output>
+      <Time>2013-02-14T11:04:55.6354063+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\P_PING.WAV</Source>
+      <Name>effect\P_PING</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\P_PING.xnb</Output>
+      <Time>2013-02-16T10:29:29.9690489+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\autonic.wav</Source>
+      <Name>effect\autonic</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\autonic.xnb</Output>
+      <Time>2013-02-14T16:09:41.0453681+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\back.png</Source>
+      <Name>texture\back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\back.xnb</Output>
+      <Time>2013-02-14T16:39:16.9317658+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\arcotensa.wav</Source>
+      <Name>effect\arcotensa</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\arcotensa.xnb</Output>
+      <Time>2013-02-16T10:31:56.4217511+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\c7.wav</Source>
+      <Name>effect\c7</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\c7.xnb</Output>
+      <Time>2013-02-16T10:39:31.2905549+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\next.png</Source>
+      <Name>texture\next</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\next.xnb</Output>
+      <Time>2013-02-17T16:11:55.8783529+02:00</Time>
+    </Item>
+    <Item>
+      <Source>music\chimeras_soundtrack_4.mp3</Source>
+      <Name>music\chimeras_soundtrack_4</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\music\chimeras_soundtrack_4.xnb</Output>
+      <Time>2013-02-17T16:02:24.0963642+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\helpBox.png</Source>
+      <Name>texture\helpBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\helpBox.xnb</Output>
+      <Time>2013-02-20T18:29:09.668215+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\stopBlock.png</Source>
+      <Name>texture\stopBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\stopBlock.xnb</Output>
+      <Time>2013-03-02T14:14:10.913355+02:00</Time>
+    </Item>
+    <Item>
+      <Source>battle\hero1.png</Source>
+      <Name>battle\hero1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\battle\hero1.xnb</Output>
+      <Time>2013-03-05T10:00:44.2635244+02:00</Time>
+    </Item>
+    <Item>
+      <Source>battle\hero0.png</Source>
+      <Name>battle\hero0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\battle\hero0.xnb</Output>
+      <Time>2013-03-05T10:00:44.2635244+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\bullet.png</Source>
+      <Name>texture\bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\bullet.xnb</Output>
+      <Time>2013-03-06T13:45:45.1416386+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\hpAttak.png</Source>
+      <Name>texture\hpAttak</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\hpAttak.xnb</Output>
+      <Time>2013-03-06T17:37:21.3878309+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\atribute.png</Source>
+      <Name>texture\atribute</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\atribute.xnb</Output>
+      <Time>2013-03-06T22:27:58.6690267+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\enemyZ.png</Source>
+      <Name>texture\enemyZ</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\enemyZ.xnb</Output>
+      <Time>2013-03-07T14:55:49.6475133+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\screenWin.png</Source>
+      <Name>texture\screenWin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\screenWin.xnb</Output>
+      <Time>2013-03-08T15:21:52.9289748+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\BatleMenuExit.png</Source>
+      <Name>texture\BatleMenuExit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\BatleMenuExit.xnb</Output>
+      <Time>2013-03-09T14:46:33.5606603+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\Die1.wav</Source>
+      <Name>effect\Die1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\Die1.xnb</Output>
+      <Time>2013-03-09T18:17:38.7886644+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\Hallelu.wav</Source>
+      <Name>effect\Hallelu</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\Hallelu.xnb</Output>
+      <Time>2013-03-09T18:37:10.8400506+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\ho_tmaj.wav</Source>
+      <Name>effect\ho_tmaj</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\ho_tmaj.xnb</Output>
+      <Time>2013-03-09T18:44:49.7827943+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\StartBattle.png</Source>
+      <Name>texture\StartBattle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\StartBattle.xnb</Output>
+      <Time>2013-03-09T19:15:19.2556072+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\1111.wav</Source>
+      <Name>effect\1111</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\1111.xnb</Output>
+      <Time>2013-03-11T16:05:28.9109364+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\shtop.png</Source>
+      <Name>texture\shtop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\shtop.xnb</Output>
+      <Time>2013-03-25T16:39:33.197588+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\1111.png</Source>
+      <Name>texture\1111</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\1111.xnb</Output>
+      <Time>2013-03-26T10:05:32.1040819+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\boink.wav</Source>
+      <Name>effect\boink</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\boink.xnb</Output>
+      <Time>2013-03-26T12:57:23.4148551+02:00</Time>
+    </Item>
+    <Item>
+      <Source>fontMenu.spritefont</Source>
+      <Name>fontMenu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\fontMenu.xnb</Output>
+      <Time>2013-03-27T15:33:05.3064176+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\tucha1.png</Source>
+      <Name>texture\tucha1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\tucha1.xnb</Output>
+      <Time>2013-03-27T18:14:31.74045+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\tucha2.png</Source>
+      <Name>texture\tucha2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\tucha2.xnb</Output>
+      <Time>2013-03-27T18:14:31.7594511+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\llight_3.png</Source>
+      <Name>texture\llight_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\llight_3.xnb</Output>
+      <Time>2013-03-27T19:24:57.2251339+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\1234.png</Source>
+      <Name>texture\1234</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\1234.xnb</Output>
+      <Time>2013-03-28T20:48:14.0491349+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effect\CHIME.WAV</Source>
+      <Name>effect\CHIME</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\effect\CHIME.xnb</Output>
+      <Time>2013-03-30T18:47:41.6220924+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\Logo.png</Source>
+      <Name>texture\Logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\Logo.xnb</Output>
+      <Time>2013-03-30T19:07:19.4064578+02:00</Time>
+    </Item>
+    <Item>
+      <Source>texture\Single_Particle.PNG</Source>
+      <Name>texture\Single_Particle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\texture\Single_Particle.xnb</Output>
+      <Time>2013-03-30T19:22:39.6860948+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Light.png</Source>
+      <Name>Light</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\Light.xnb</Output>
+      <Time>2013-04-23T11:02:17.4037331+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\background.png</Source>
+      <Name>ObjBonusGameContent\background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\background.xnb</Output>
+      <Time>2013-04-23T11:03:07.6766085+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\textFalse.png</Source>
+      <Name>ObjBonusGameContent\textFalse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\textFalse.xnb</Output>
+      <Time>2013-04-23T11:03:07.8696196+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\textWins.png</Source>
+      <Name>ObjBonusGameContent\textWins</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\textWins.xnb</Output>
+      <Time>2013-04-23T11:03:07.8816203+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\track4.wma</Source>
+      <Name>ObjBonusGameContent\track4</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\track4.xnb</Output>
+      <Extra>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\track4.wma</Extra>
+      <Time>2013-04-23T11:03:07.9166223+03:00</Time>
+    </Item>
+    <Item>
+      <Source>fontScore.spritefont</Source>
+      <Name>fontScore</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\fontScore.xnb</Output>
+      <Time>2013-04-23T11:02:49.4045634+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\COIN.WAV</Source>
+      <Name>ObjBonusGameContent\COIN</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\COIN.xnb</Output>
+      <Time>2013-04-23T11:03:07.6806088+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\FLUB.WAV</Source>
+      <Name>ObjBonusGameContent\FLUB</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\FLUB.xnb</Output>
+      <Time>2013-04-23T11:03:07.8396178+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\JUMP_ON.WAV</Source>
+      <Name>ObjBonusGameContent\JUMP_ON</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\JUMP_ON.xnb</Output>
+      <Time>2013-04-23T11:03:07.842618+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\COMBAT0.MP3</Source>
+      <Name>ObjBonusGameContent\COMBAT0</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\COMBAT0.xnb</Output>
+      <Time>2013-04-23T11:03:07.7426123+03:00</Time>
+    </Item>
+    <Item>
+      <Source>ObjBonusGameContent\COMBAT1.MP3</Source>
+      <Name>ObjBonusGameContent\COMBAT1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\ObjBonusGameContent\COMBAT1.xnb</Output>
+      <Time>2013-04-23T11:03:07.8346176+03:00</Time>
+    </Item>
+    <Item>
+      <Source>anim.png</Source>
+      <Name>anim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\anim.xnb</Output>
+      <Time>2013-04-23T13:17:39.7283035+03:00</Time>
+    </Item>
+    <Item>
+      <Source>textureAnim\Coin.png</Source>
+      <Name>textureAnim\Coin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\textureAnim\Coin.xnb</Output>
+      <Time>2013-04-24T19:46:27.2046478+03:00</Time>
+    </Item>
+    <Item>
+      <Source>textureAnim\fire.png</Source>
+      <Name>textureAnim\fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\textureAnim\fire.xnb</Output>
+      <Time>2013-04-26T15:35:57.7275193+03:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Download\Мой код\testGame\testGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Download\Мой код\testGame\testGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Download\Мой код\testGame\testGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Download\Мой код\testGame\testGame\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-14T12:13:52+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-14T12:13:52+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-14T12:13:52+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-14T12:13:52+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-14T12:13:52+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-01-19T18:38:39.9320332+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

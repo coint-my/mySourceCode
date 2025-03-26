@@ -1,0 +1,7 @@
+D:\Мой код\Balance_My_Server\Server_Balance\bin\Debug\Server_Balance.exe.config
+D:\Мой код\Balance_My_Server\Server_Balance\bin\Debug\Server_Balance.exe
+D:\Мой код\Balance_My_Server\Server_Balance\bin\Debug\Server_Balance.pdb
+D:\Мой код\Balance_My_Server\Server_Balance\obj\Debug\Server_Balance.csprojAssemblyReference.cache
+D:\Мой код\Balance_My_Server\Server_Balance\obj\Debug\Server_Balance.exe
+D:\Мой код\Balance_My_Server\Server_Balance\obj\Debug\Server_Balance.pdb
+D:\Мой код\Balance_My_Server\Server_Balance\obj\Debug\Server_Balance.csproj.CoreCompileInputs.cache

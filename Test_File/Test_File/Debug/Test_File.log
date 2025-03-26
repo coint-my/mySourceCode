@@ -1,0 +1,5 @@
+﻿  source.cpp
+d:\мой код\test_file\test_file\source.cpp(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
+d:\мой код\test_file\test_file\source.cpp(47): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "3" имеет тип "double"
+  Test_File.vcxproj -> D:\Мой код\Test_File\Debug\Test_File.exe

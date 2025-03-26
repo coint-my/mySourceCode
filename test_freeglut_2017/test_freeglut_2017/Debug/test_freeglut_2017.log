@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\вова\desktop\мой код\test_freeglut_2017\test_freeglut_2017\utilites.h(48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\вова\desktop\мой код\test_freeglut_2017\test_freeglut_2017\utilites.h(49): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  test_freeglut_2017.vcxproj -> C:\Users\вова\Desktop\Мой код\test_freeglut_2017\Debug\test_freeglut_2017.exe
+  test_freeglut_2017.vcxproj -> C:\Users\вова\Desktop\Мой код\test_freeglut_2017\Debug\test_freeglut_2017.pdb (Partial PDB)

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="physix">
+      <UniqueIdentifier>{5548290f-5609-465e-8a5f-9449e1d7c437}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Body.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Clock.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Collision.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\main.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Manifold.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Precompiled.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Render.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+    <ClCompile Include="physix\Scene.cpp">
+      <Filter>physix</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="physix\Body.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Clock.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Collision.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\glut.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\IEMath.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Manifold.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Precompiled.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Render.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Scene.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+    <ClInclude Include="physix\Shape.h">
+      <Filter>physix</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

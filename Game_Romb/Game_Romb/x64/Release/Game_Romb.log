@@ -1,0 +1,154 @@
+﻿Сборка начата 10.11.2015 20:56:52.
+     1>Проект "C:\Users\Вова\Documents\Мой код\Game_Romb\Game_Romb\Game_Romb.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /GL /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt enemy.cpp entity.cpp figure.cpp manager_game.cpp Menu.cpp player.cpp renderer.cpp Source.cpp table.cpp
+         enemy.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(13): warning C4091: typedef : пропускается слева от "s_index", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(24): warning C4091: typedef : пропускается слева от "best_ind", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>enemy.cpp(13): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(14): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+     1>enemy.cpp(27): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(27): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(29): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(30): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+     1>enemy.cpp(42): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(42): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(44): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(59): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(64): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(64): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(66): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(67): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+     1>enemy.cpp(79): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(79): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(81): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(94): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+     1>enemy.cpp(95): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+     1>enemy.cpp(102): warning C4244: аргумент: преобразование "const int" в "const float", возможна потеря данных
+     1>enemy.cpp(154): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(154): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(156): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(157): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+     1>enemy.cpp(221): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+     1>enemy.cpp(222): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+     1>enemy.cpp(244): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>enemy.cpp(244): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(246): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(247): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>enemy.cpp(266): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+         entity.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>entity.cpp(44): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\corecrt_wstring.h(121): note:  см. объявление "wcscpy"
+         figure.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>figure.cpp(68): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\corecrt_wstring.h(121): note:  см. объявление "wcscpy"
+         manager_game.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(13): warning C4091: typedef : пропускается слева от "s_index", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(24): warning C4091: typedef : пропускается слева от "best_ind", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(6): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(19): warning C4091: typedef : пропускается слева от "menu_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\manager_game.h(7): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>manager_game.cpp(108): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>manager_game.cpp(110): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>manager_game.cpp(150): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>manager_game.cpp(151): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>manager_game.cpp(153): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>manager_game.cpp(168): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>manager_game.cpp(249): warning C4477: 'wprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+         manager_game.cpp(249): note: consider using '%zi' in the format string
+     1>manager_game.cpp(253): warning C4477: 'wprintf' : format string '%ls' requires an argument of type 'wchar_t *', but variadic argument 1 has type 'const char *'
+         manager_game.cpp(253): note: consider using '%hs' in the format string
+         manager_game.cpp(253): note: consider using '%Ts' in the format string
+     1>manager_game.cpp(253): warning C4477: 'wprintf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+         manager_game.cpp(253): note: consider using '%zi' in the format string
+     1>manager_game.cpp(264): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+         Menu.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(6): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(19): warning C4091: typedef : пропускается слева от "menu_buff", когда ни одна переменная не объявлена
+     1>Menu.cpp(32): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+         player.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>player.cpp(14): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(128): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(132): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(139): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(144): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(148): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(150): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(153): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(155): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(171): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(175): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(181): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(182): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(183): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(190): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(191): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(192): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+     1>player.cpp(199): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(201): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(237): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(238): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(262): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(265): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(291): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(292): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+     1>player.cpp(315): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+         renderer.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>renderer.cpp(38): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdlib.h(1316): note:  см. объявление "itoa"
+         Source.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(13): warning C4091: typedef : пропускается слева от "s_index", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(24): warning C4091: typedef : пропускается слева от "best_ind", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(6): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\Menu.h(19): warning C4091: typedef : пропускается слева от "menu_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\manager_game.h(7): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+         table.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>table.cpp(80): warning C4244: аргумент: преобразование "size_t" в "float", возможна потеря данных
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Вова\Documents\Мой код\Game_Romb\x64\Release\Game_Romb.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Вова\Documents\Мой код\Game_Romb\x64\Release\Game_Romb.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Вова\Documents\Мой код\Game_Romb\x64\Release\Game_Romb.lib" /MACHINE:X64 x64\Release\enemy.obj
+         x64\Release\entity.obj
+         x64\Release\figure.obj
+         x64\Release\manager_game.obj
+         x64\Release\Menu.obj
+         x64\Release\player.obj
+         x64\Release\renderer.obj
+         x64\Release\Source.obj
+         x64\Release\table.obj
+     1>LINK : fatal error LNK1104: не удается открыть файл "glut32.lib"
+     1>Сборка проекта "C:\Users\Вова\Documents\Мой код\Game_Romb\Game_Romb\Game_Romb.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+
+Затраченное время: 00:00:07.85

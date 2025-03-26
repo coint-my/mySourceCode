@@ -1,0 +1,17 @@
+﻿  Source.cpp
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(50,25): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(56,11): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(57,11): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(61,18): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(62,18): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(64,10): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(65,10): warning C4244: =: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CameraHandle.h(73,23): warning C4244: инициализация: преобразование "double" в "GLfloat", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\Shader_Glad.h(68,8): warning C4101: infoLog: неиспользованная локальная переменная
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\Shader_Glad.h(67,7): warning C4101: success: неиспользованная локальная переменная
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CopyModel.h(22,20): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CopyModel.h(27,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CopyModel.h(29,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CopyModel.h(31,26): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\vovab\Desktop\glewFirstProject2018\glewFirstProject2018\CopyModel.h(54,21): warning C4018: <: несоответствие типов со знаком и без знака
+  glewFirstProject2018.vcxproj -> C:\Users\vovab\Desktop\glewFirstProject2018\Debug\glewFirstProject2018.exe

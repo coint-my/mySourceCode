@@ -1,0 +1,5 @@
+C:\Download\Мой код\TestInterfase\TestInterfase\obj\Debug\ResolveAssemblyReference.cache
+C:\Download\Мой код\TestInterfase\TestInterfase\obj\Debug\TestInterfase.exe
+C:\Download\Мой код\TestInterfase\TestInterfase\bin\Debug\TestInterfase.exe
+C:\Download\Мой код\TestInterfase\TestInterfase\bin\Debug\TestInterfase.pdb
+C:\Download\Мой код\TestInterfase\TestInterfase\obj\Debug\TestInterfase.pdb

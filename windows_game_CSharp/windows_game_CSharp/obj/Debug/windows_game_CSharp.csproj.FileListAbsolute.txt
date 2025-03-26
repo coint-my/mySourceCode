@@ -1,0 +1,11 @@
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\bin\Debug\windows_game_CSharp.exe.config
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\bin\Debug\windows_game_CSharp.exe
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\bin\Debug\windows_game_CSharp.pdb
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.csprojAssemblyReference.cache
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.Form1.resources
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.Properties.Resources.resources
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.csproj.GenerateResource.cache
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.csproj.CoreCompileInputs.cache
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.exe
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.pdb
+D:\Мой код\windows_game_CSharp\windows_game_CSharp\obj\Debug\windows_game_CSharp.MainMenu.resources

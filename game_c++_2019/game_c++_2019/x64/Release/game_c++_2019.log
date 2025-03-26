@@ -1,0 +1,65 @@
+﻿  Source.cpp
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(163,32): warning C4227:  устаревший элемент: пропуск квалификаторов для ссылки
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(163,49): warning C4227:  устаревший элемент: пропуск квалификаторов для ссылки
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(206,17): warning C4244:  инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(259,1): warning C4244:  +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(483,21): warning C4244:  аргумент: преобразование "const int" в "GLfloat", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(483,16): warning C4244:  аргумент: преобразование "const int" в "GLfloat", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(535,73): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(535,61): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(712,75): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(712,63): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(764,90): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(764,78): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(784,21): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(904,32): warning C4305:  аргумент: усечение из "double" в "GLclampf"
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(93,71): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(93,56): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(139,50): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(139,33): warning C4244:  аргумент: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(145,44): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(145,36): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(204,19): warning C4244:  =: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(206,27): warning C4244:  =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(208,15): warning C4244:  инициализация: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(217,15): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(265,38): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(265,34): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(301,86): warning C4244:  аргумент: преобразование "const float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(301,68): warning C4244:  аргумент: преобразование "const float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(358,75): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(358,61): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(15,33): warning C4305:  аргумент: усечение из "double" в "GLclampf"
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(84,12): warning C4244:  =: преобразование "clock_t" в "GLfloat", возможна потеря данных
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutKeyboardUpFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutReshapeFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp___glutCreateWindowWithExit"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMouseFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp___glutInitWithExit"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutAddMenuEntry"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutStrokeString"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutCreateSubWindow"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutAttachMenu"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutPostRedisplay"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutKeyboardFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutReshapeWindow"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp___glutCreateMenuWithExit"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutDestroyWindow"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSetWindow"
+Source.obj : error LNK2001: неразрешенный внешний символ "SOIL_free_image_data"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutCloseFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "SOIL_load_image"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutBitmapString"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitDisplayMode"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutDestroyMenu"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMainLoopEvent"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMouseWheelFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutDetachMenu"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutPositionWindow"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutTimerFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutDisplayFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitWindowPosition"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutMotionFunc"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutInitWindowSize"
+Source.obj : error LNK2001: неразрешенный внешний символ "__imp_glutSwapBuffers"
+D:\Мой код\game_c++_2019\x64\Release\game_c++_2019.exe : fatal error LNK1120: неразрешенных внешних элементов: 31

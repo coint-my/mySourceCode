@@ -1,0 +1,7 @@
+D:\Мой код\TestServer\TestServer\bin\Debug\TestServer.exe.config
+D:\Мой код\TestServer\TestServer\bin\Debug\TestServer.exe
+D:\Мой код\TestServer\TestServer\bin\Debug\TestServer.pdb
+D:\Мой код\TestServer\TestServer\obj\Debug\TestServer.csprojAssemblyReference.cache
+D:\Мой код\TestServer\TestServer\obj\Debug\TestServer.csproj.CoreCompileInputs.cache
+D:\Мой код\TestServer\TestServer\obj\Debug\TestServer.exe
+D:\Мой код\TestServer\TestServer\obj\Debug\TestServer.pdb

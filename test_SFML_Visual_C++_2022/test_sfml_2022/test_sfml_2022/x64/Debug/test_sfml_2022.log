@@ -1,0 +1,60 @@
+﻿  myMain.cpp
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(79,27): warning C4305: +=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(80,37): warning C4305: -=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,58): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,58): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,58): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,58): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,58): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,48): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,48): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,48): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,48): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(124,48): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(150,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(150,46): warning C4305: +=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(150,81): warning C4305: -=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(160,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(165,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(185,36): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(190,36): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(216,48): warning C4305: +=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(216,83): warning C4305: -=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(219,17): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(221,45): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(222,17): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(226,42): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(227,31): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(233,61): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(233,61): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(233,61): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(233,61): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(233,61): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(236,61): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(236,61): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(236,61): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(236,61): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(236,61): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(239,61): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(239,61): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(239,61): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(239,61): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(239,61): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(242,61): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(242,61): warning C4244:         with
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(242,61): warning C4244:         [
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(242,61): warning C4244:             T=float
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(242,61): warning C4244:         ]
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(247,35): warning C4244: аргумент: преобразование "float" в "size_t", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(249,9): warning C4305: +=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(249,35): warning C4305: +=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(249,70): warning C4305: -=: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(259,10): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(259,41): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(259,79): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(260,10): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(260,41): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(260,79): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(262,46): warning C4305: аргумент: усечение из "double" в "float"
+D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\test_sfml_2022\myMain.cpp(263,46): warning C4305: аргумент: усечение из "double" в "float"
+  test_sfml_2022.vcxproj -> D:\Мой код\test_SFML_Visual_C++_2022\test_sfml_2022\x64\Debug\test_sfml_2022.exe

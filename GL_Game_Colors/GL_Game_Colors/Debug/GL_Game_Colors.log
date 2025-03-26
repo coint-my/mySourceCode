@@ -1,0 +1,4 @@
+﻿  GameManager.cpp
+c:\download\мой код\gl_game_colors\gl_game_colors\gamemanager.cpp(44): warning C4305: аргумент: усечение из "double" к "float"
+c:\download\мой код\gl_game_colors\gl_game_colors\gamemanager.cpp(133): warning C4800: int: принудительно задано логическое значение "true" или "false" (предупреждение о производительности)
+  GL_Game_Colors.vcxproj -> C:\Download\Мой код\GL_Game_Colors\Debug\GL_Game_Colors.exe

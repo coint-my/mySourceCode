@@ -1,0 +1,44 @@
+﻿Сборка начата 10.11.2015 20:42:50.
+     1>Проект "C:\Users\Вова\Documents\Мой код\Game_Romb\Game_Romb\Game_Romb.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt enemy.cpp
+         enemy.cpp
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(13): warning C4091: typedef : пропускается слева от "Position", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\figure.h(22): warning C4091: typedef : пропускается слева от "Color", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(13): warning C4091: typedef : пропускается слева от "s_index", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.h(24): warning C4091: typedef : пропускается слева от "best_ind", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(5): warning C4091: typedef : пропускается слева от "", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\player.h(46): warning C4091: typedef : пропускается слева от "p_buff", когда ни одна переменная не объявлена
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(27): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(42): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(59): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(64): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(79): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(94): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(95): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(102): warning C4244: аргумент: преобразование "const int" в "const float", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(154): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(221): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(222): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(244): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(266): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(138): warning C4172: возвращение адреса локальной или временной переменной : val
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(166): warning C4172: возвращение адреса локальной или временной переменной : val
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(97): warning C4172: возвращение адреса локальной или временной переменной : r
+     1>c:\users\вова\documents\мой код\game_romb\game_romb\enemy.cpp(104): warning C4172: возвращение адреса локальной или временной переменной : r
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Вова\Documents\Мой код\Game_Romb\Debug\Game_Romb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Вова\Documents\Мой код\Game_Romb\Debug\Game_Romb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Вова\Documents\Мой код\Game_Romb\Debug\Game_Romb.lib" /MACHINE:X86 Debug\enemy.obj
+         Debug\entity.obj
+         Debug\figure.obj
+         Debug\manager_game.obj
+         Debug\Menu.obj
+         Debug\player.obj
+         Debug\renderer.obj
+         Debug\Source.obj
+         Debug\table.obj
+         Game_Romb.vcxproj -> C:\Users\Вова\Documents\Мой код\Game_Romb\Debug\Game_Romb.exe
+     1>Сборка проекта "C:\Users\Вова\Documents\Мой код\Game_Romb\Game_Romb\Game_Romb.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:01.53

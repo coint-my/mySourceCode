@@ -1,0 +1,4 @@
+﻿  ManagerEff.cpp
+c:\download\мой код\test_dll\test_dll\managereff.cpp(50): warning C4018: <: несоответствие типов со знаком и без знака
+c:\download\мой код\test_dll\test_dll\managereff.cpp(57): warning C4018: <: несоответствие типов со знаком и без знака
+  Test_DLL.vcxproj -> C:\Download\Мой код\Test_DLL\Debug\Test_DLL.exe

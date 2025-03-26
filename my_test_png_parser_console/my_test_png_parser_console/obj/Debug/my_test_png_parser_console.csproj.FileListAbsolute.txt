@@ -1,0 +1,7 @@
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\bin\Debug\my_test_png_parser_console.exe.config
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\bin\Debug\my_test_png_parser_console.exe
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\bin\Debug\my_test_png_parser_console.pdb
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\obj\Debug\my_test_png_parser_console.csproj.AssemblyReference.cache
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\obj\Debug\my_test_png_parser_console.csproj.CoreCompileInputs.cache
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\obj\Debug\my_test_png_parser_console.exe
+D:\Мой код\my_test_png_parser_console\my_test_png_parser_console\obj\Debug\my_test_png_parser_console.pdb

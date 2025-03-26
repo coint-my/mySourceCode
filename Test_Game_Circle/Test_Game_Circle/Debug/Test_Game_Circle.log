@@ -1,0 +1,4 @@
+﻿  source.cpp
+d:\мой код\test_game_circle\test_game_circle\source.cpp(80): warning C4838: преобразование из "double" в "const float" требует сужающего преобразования
+d:\мой код\test_game_circle\test_game_circle\source.cpp(93): warning C4018: <: несоответствие типов со знаком и без знака
+  Test_Game_Circle.vcxproj -> D:\Мой код\Test_Game_Circle\Debug\Test_Game_Circle.exe

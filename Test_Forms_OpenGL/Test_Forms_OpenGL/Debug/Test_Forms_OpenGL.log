@@ -1,0 +1,6 @@
+﻿  forms_1.cpp
+  source.cpp
+d:\мой код\test_forms_opengl\test_forms_opengl\source.cpp(9): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  forms_1.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
+  Test_Forms_OpenGL.vcxproj -> D:\Мой код\Test_Forms_OpenGL\Debug\Test_Forms_OpenGL.exe

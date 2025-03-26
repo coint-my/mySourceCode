@@ -1,0 +1,8 @@
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\bin\Debug\Witcher_Disck.exe.config
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\bin\Debug\Witcher_Disck.exe
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\bin\Debug\Witcher_Disck.pdb
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\obj\Debug\Witcher_Disck.csprojResolveAssemblyReference.cache
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\obj\Debug\Witcher_Disck.exe
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\obj\Debug\Witcher_Disck.pdb
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\obj\Debug\Witcher_Disck.Form1.resources
+C:\Users\вова\Desktop\Мой код\Witcher_Disck\Witcher_Disck\obj\Debug\Witcher_Disck.csproj.GenerateResource.Cache

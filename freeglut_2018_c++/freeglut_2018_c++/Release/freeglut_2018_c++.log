@@ -1,0 +1,21 @@
+﻿  Source.cpp
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(139,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(140,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(152,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(153,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(165,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(166,14): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(267,1): warning C4305: =: усечение из "double" в "float"
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(268,1): warning C4305: =: усечение из "double" в "float"
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(289,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(290,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(291,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(293,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Utilites.h(294,1): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\freeglut_2018_c++\freeglut_2018_c++\Source.cpp(67,14): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+  Создание кода
+  3 of 51 functions ( 5.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  freeglut_2018_c++.vcxproj -> D:\Мой код\freeglut_2018_c++\Release\freeglut_2018_c++.exe

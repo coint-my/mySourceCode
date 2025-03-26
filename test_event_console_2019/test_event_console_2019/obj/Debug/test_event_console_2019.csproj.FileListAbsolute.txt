@@ -1,0 +1,7 @@
+D:\Мой код\test_event_console_2019\test_event_console_2019\bin\Debug\test_event_console_2019.exe.config
+D:\Мой код\test_event_console_2019\test_event_console_2019\bin\Debug\test_event_console_2019.exe
+D:\Мой код\test_event_console_2019\test_event_console_2019\bin\Debug\test_event_console_2019.pdb
+D:\Мой код\test_event_console_2019\test_event_console_2019\obj\Debug\test_event_console_2019.csprojAssemblyReference.cache
+D:\Мой код\test_event_console_2019\test_event_console_2019\obj\Debug\test_event_console_2019.csproj.CoreCompileInputs.cache
+D:\Мой код\test_event_console_2019\test_event_console_2019\obj\Debug\test_event_console_2019.exe
+D:\Мой код\test_event_console_2019\test_event_console_2019\obj\Debug\test_event_console_2019.pdb

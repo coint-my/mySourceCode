@@ -1,0 +1,75 @@
+﻿  Source.cpp
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(208,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(217,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(226,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(256,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(267,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(276,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(314,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(322,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(362,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(368,23): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(388,32): warning C4227:  устаревший элемент: пропуск квалификаторов для ссылки
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(388,49): warning C4227:  устаревший элемент: пропуск квалификаторов для ссылки
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(429,25): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(431,17): warning C4244:  инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(484,1): warning C4244:  +=: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(715,21): warning C4244:  аргумент: преобразование "const int" в "GLfloat", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(715,16): warning C4244:  аргумент: преобразование "const int" в "GLfloat", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(767,73): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(767,61): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(944,75): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(944,63): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(996,90): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(996,78): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(1016,21): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(1137,32): warning C4305:  аргумент: усечение из "double" в "GLclampf"
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(237,71): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(237,56): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(318,50): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(318,33): warning C4244:  аргумент: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(339,50): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(339,33): warning C4244:  аргумент: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(414,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(502,22): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(512,21): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\ManagerLogick.h(513,26): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(85,82): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(85,40): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(131,82): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(131,40): warning C4244:  аргумент: преобразование "float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(184,11): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(185,11): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(196,11): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(197,11): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(207,49): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(207,45): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(261,15): warning C4244:  =: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(316,19): warning C4244:  =: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(323,16): warning C4244:  инициализация: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(332,16): warning C4244:  инициализация: преобразование "float" в "int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(349,26): warning C4244:  =: преобразование "GLint" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(401,38): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(401,34): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(421,19): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(421,15): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(442,86): warning C4244:  аргумент: преобразование "const float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(442,68): warning C4244:  аргумент: преобразование "const float" в "const int", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(506,83): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(506,69): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(510,97): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(510,83): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(510,63): warning C4244:  аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(15,33): warning C4305:  аргумент: усечение из "double" в "GLclampf"
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244:  =: преобразование "clock_t" в "GLfloat", возможна потеря данных
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244: D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(379) : warning C4715: ed::ScrollBarObject::gete: значение возвращается не при всех путях выполнения
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244: D:\Мой код\game_c++_2019\game_c++_2019\EditGame.h(371) : warning C4715: ed::ScrollBarObject::getf: значение возвращается не при всех путях выполнения
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244: D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(145) : warning C4172: возвращение адреса локальной или временной переменной
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244: D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(1038) : warning C4715: my::unitCat::choiceAnim: значение возвращается не при всех путях выполнения
+D:\Мой код\game_c++_2019\game_c++_2019\Source.cpp(89,12): warning C4244: D:\Мой код\game_c++_2019\game_c++_2019\initialize_gl.h(936) : warning C4715: my::unitGoblin::choiceAnim: значение возвращается не при всех путях выполнения
+  soil.lib(SOIL.obj) : найден .netmodule MSIL или модуль, откомпилированный с параметром /GL; перезапускается компоновка с параметром /LTCG; добавьте /LTCG в командную строку компоновки для повышения производительности компоновщика
+LINK : warning LNK4075: эх єўшЄ√трхЄё  "/INCREMENTAL" шч-чр ёяхЎшЇшърЎшш "/LTCG"
+LINK : warning LNK4098: сшсышюЄхър яю єьюыўрэш■ "MSVCRT" яЁюЄштюЁхўшЄ шёяюы№чютрэш■ фЁєушї сшсышюЄхъ; шёяюы№чєщЄх ярЁрьхЄЁ /NODEFAULTLIB:library
+  ╤ючфрэшх ъюфр
+  ╤ючфрэшх ъюфр чртхЁ°хэю
+  game_c++_2019.vcxproj -> D:\Мой код\game_c++_2019\Debug\game_c++_2019.exe
