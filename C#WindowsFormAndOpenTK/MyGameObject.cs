@@ -1,10 +1,7 @@
 ﻿using OpenTK;
+using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -14,6 +11,12 @@ namespace C_WindowsFormAndOpenTK
 
         private List<MyComponent> myComponents;
 
+        public List<MyComponent> MyGetComponents { get { return myComponents; } }
+
+        public bool myIsVisible { get; set; }
+
+        public bool myIsWireframe { get; set; }
+
         public MyGameObject()
         {
             myCounter++;
@@ -21,6 +24,8 @@ namespace C_WindowsFormAndOpenTK
             myName = "GameObject_" + myCounter;
             myTransform = new MyTransform();
             myComponents = new List<MyComponent>();
+            myIsVisible = true;
+            myIsWireframe = false;
         }
 
         public override string ToString()
@@ -43,8 +48,13 @@ namespace C_WindowsFormAndOpenTK
             for (int i = 0; i < myComponents.Count; i++)
             {
                 MyIDrawable tmpObj = myComponents[i] as MyIDrawable;
-                if (tmpObj != null)
+                if (tmpObj != null && myIsVisible)
                 {
+                    if (myIsWireframe)
+                        GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+                    else
+                        GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+                    
                     tmpObj.MySetTransform(myTransform);
                     tmpObj.MyDraw(_view, _projection);
                 }
@@ -55,8 +65,14 @@ namespace C_WindowsFormAndOpenTK
             for (int i = 0; i < myComponents.Count; i++)
             {
                 MyIDrawable tmpObj = myComponents[i] as MyIDrawable;
-                if (tmpObj != null)
+
+                if (tmpObj != null && myIsVisible)
                 {
+                    if(myIsWireframe)
+                        GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+                    else
+                        GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+
                     tmpObj.MySetTransform(myTransform);
                     tmpObj.MyDrawOutline(_cam);
                 }

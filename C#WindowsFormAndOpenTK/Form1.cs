@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -334,9 +335,77 @@ namespace C_WindowsFormAndOpenTK
         {
             if (((MyGameObject)listBoxGameObjects.SelectedItem) != null)
             {
-                myBufferTransform = ((MyGameObject)listBoxGameObjects.SelectedItem).myTransform;
+                MyGameObject myGameObject = ((MyGameObject)listBoxGameObjects.SelectedItem);
+                myBufferTransform = myGameObject.myTransform;
                 MyUpdateNumericUpDown();
+
+                MyCheckParameterModel(myGameObject);
             }
+        }
+
+        private void MyCheckParameterModel(MyGameObject _myGameObject)
+        {
+            if (flowLayoutPanelMyParameters.Controls.Count > 0)
+                flowLayoutPanelMyParameters.Controls.Clear();
+
+            MyModel model = ((MyModel)_myGameObject.MyGetComponents[0]);
+            GroupBox gBox = MyCreateGroupBox(_myGameObject.myName, "Model " + model.MyGetDirectory);
+            FlowLayoutPanel flow = MyCreateFlowLayoutPanel();
+            gBox.Controls.Add(flow);
+            CheckBox checkBoxVisible = MyCreateCheckBox("IsVisible", _myGameObject, 
+                _myGameObject.myIsVisible, CheckBox_IsVisible);
+            CheckBox checkBoxWireframe = MyCreateCheckBox("IsWireframe", _myGameObject,
+                _myGameObject.myIsWireframe, CheckBox_IsWireframe);
+            Button button = new Button();
+            flow.Controls.Add(checkBoxVisible);
+            flow.Controls.Add(checkBoxWireframe);
+            flow.Controls.Add(button);
+        }
+
+        private CheckBox MyCreateCheckBox(string _text, MyGameObject _myGameObject, bool _myIsWireframe,
+            EventHandler _eventMethod)
+        {
+            CheckBox checkBox = new CheckBox();
+            checkBox.Text = _text;
+            checkBox.Checked = _myIsWireframe;
+            checkBox.CheckedChanged += _eventMethod;
+            checkBox.Tag = _myGameObject;
+            return checkBox;
+        }
+
+        private void CheckBox_IsWireframe(object sender, EventArgs e)
+        {
+            CheckBox checkBox = ((CheckBox)sender);
+            ((MyGameObject)checkBox.Tag).myIsWireframe = checkBox.Checked;
+        }
+
+        private void CheckBox_IsVisible(object sender, EventArgs e)
+        {
+            CheckBox checkBox = ((CheckBox)sender);
+            ((MyGameObject)checkBox.Tag).myIsVisible = checkBox.Checked;
+        }
+
+        private GroupBox MyCreateGroupBox(string _nameGameObject, string _nameComponent)
+        {
+            GroupBox groupBox = new GroupBox();
+            groupBox.Text = "(" + _nameGameObject + ") Model " + 
+                _nameComponent.Substring(_nameComponent.LastIndexOf('/') + 1);
+            groupBox.MinimumSize = new Size(220, 50);
+            groupBox.AutoSize = true;
+
+            flowLayoutPanelMyParameters.Controls.Add(groupBox);
+            return groupBox;
+        }
+
+        private FlowLayoutPanel MyCreateFlowLayoutPanel()
+        {
+            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+            flowLayoutPanel.AutoSize = true;
+            flowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel.Location = new Point(1, 40);
+            flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
+            return flowLayoutPanel;
         }
 
         private void numericUpDownX_ValueChanged(object sender, EventArgs e)

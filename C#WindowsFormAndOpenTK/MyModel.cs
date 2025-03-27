@@ -43,7 +43,8 @@ namespace C_WindowsFormAndOpenTK
         private MyShader myShaderOutline;
         private MyTransform myTransform;
 
-        //public MyTransform myTransform { get { return myTransform; } set { myTransform = value; } }
+        public bool myIsVisible { get; set; }
+        public string MyGetDirectory { get { return directory; } }
 
         public MyModel(string path)
         {
@@ -107,7 +108,7 @@ namespace C_WindowsFormAndOpenTK
             myShader.Use();
 
             MyTransformUpdate();
-
+            
             myShader.SetMatrix4("model", myModel);
             myShader.SetMatrix4("view", _view);
             myShader.SetMatrix4("projection", _projection);
@@ -123,10 +124,10 @@ namespace C_WindowsFormAndOpenTK
             myShaderOutline.Use();
             float len = Vector3.Distance(myTransform.myPosition, _cam.MyGetCamera.Position) * 0.001f;
             //GL.Uniform3(GL.GetUniformLocation(myShaderOutline.Handle, "outLine"), scale);
-            
+
             MyTransformUpdate();
             Matrix4 myNewScaleModel = Matrix4.Identity;
-            myNewScaleModel = myNewScaleModel * Matrix4.CreateScale(myTransform.myScale * 
+            myNewScaleModel = myNewScaleModel * Matrix4.CreateScale(myTransform.myScale *
                 new Vector3(1.005f + len, 1.005f + len, 1.005f + len));
             myNewScaleModel = myNewScaleModel * Matrix4.CreateFromQuaternion(
                 OpenTK.Quaternion.FromEulerAngles(myTransform.myRotation));
