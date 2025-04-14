@@ -1,32 +1,30 @@
 ﻿using OpenTK;
 using System;
-//using static C_WindowsFormAndOpenTK.MyCamera;
 
 namespace C_WindowsFormAndOpenTK
 {
-    public class MyHandleCamera
+    public class MyHandleCamera : MyCamera
     {
-        public MyCamera MyGetCamera { get { return myCamera; } }
+        //public MyCamera MyGetCamera { get { return myCamera; } }
 
-        private MyCamera myCamera;
+        //private MyCamera myCamera;
 
         private Vector2 lastPos;
 
-        private float myLastFrame, myDeltaTime;
+        private float myDeltaTime;
 
         private long myTime;
 
         private float mySensitivity, myCameraSpeed;
 
-        public MyHandleCamera(Vector3 _startPos, float _aspectRatio)
+        public MyHandleCamera(Vector3 _startPos, float _aspectRatio) : base(_startPos, _aspectRatio)
         {
-            myCamera = new MyCamera(_startPos, _aspectRatio);
+            //myCamera = new MyCamera(_startPos, _aspectRatio);
             lastPos = new Vector2(0f, 0f);
             mySensitivity = 0.2f;
-            myCameraSpeed = 2.5f;
+            myCameraSpeed = 4.5f;
             myTime = DateTime.Now.Ticks;
             myDeltaTime = 0;
-            myLastFrame = 0;
         }
 
         public void MyMousePress(float _x, float _y)
@@ -40,8 +38,8 @@ namespace C_WindowsFormAndOpenTK
             float yOffset = _y - lastPos.Y;
             lastPos = new Vector2(_x, _y);
 
-            myCamera.Yaw += xOffset * mySensitivity;
-            myCamera.Pitch -= yOffset * mySensitivity;
+            /*myCamera.*/Yaw += xOffset * mySensitivity;
+            /*myCamera.*/Pitch -= yOffset * mySensitivity;
         }
 
         public void MyUpdateCamera()
@@ -57,22 +55,22 @@ namespace C_WindowsFormAndOpenTK
             switch (_direction)
             {
                 case MyDirection.FORWARD:
-                    myCamera.Position += myCamera.Front * myCameraSpeed * myDeltaTime;
+                    /*myCamera.*/myPosition += /*myCamera.*/Front * myCameraSpeed * myDeltaTime;
                     break;
                 case MyDirection.BACKWARD:
-                    myCamera.Position -= myCamera.Front * myCameraSpeed * myDeltaTime;
+                    /*myCamera.*/myPosition -= /*myCamera.*/Front * myCameraSpeed * myDeltaTime;
                     break;
                 case MyDirection.LEFT:
-                    myCamera.Position -= myCamera.Right * myCameraSpeed * myDeltaTime;
+                    /*myCamera.*/myPosition -= /*myCamera.*/Right * myCameraSpeed * myDeltaTime;
                     break;
                 case MyDirection.RIGHT:
-                    myCamera.Position += myCamera.Right * myCameraSpeed * myDeltaTime;
+                    myPosition += /*myCamera.*/Right * myCameraSpeed * myDeltaTime;
                     break;
                 case MyDirection.UP:
-                    myCamera.Position += myCamera.Up * myCameraSpeed * myDeltaTime;
+                    myPosition += /*myCamera.*/Up * myCameraSpeed * myDeltaTime;
                     break;
                 case MyDirection.DOWN:
-                    myCamera.Position -= myCamera.Up * myCameraSpeed * myDeltaTime;
+                    myPosition -= /*myCamera.*/Up * myCameraSpeed * myDeltaTime;
                     break;
                 default:
                     break;

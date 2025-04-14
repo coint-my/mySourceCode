@@ -5,9 +5,11 @@ namespace C_WindowsFormAndOpenTK
 {
     public enum MyDirection { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN }
 
-    public class MyCamera
+    public class MyCamera : MyGameObject
     {
         private Vector3 _front = -Vector3.UnitZ;
+
+        public Vector3 MyGetFront { get { return _front; } }
 
         private Vector3 _up = Vector3.UnitY;
 
@@ -21,12 +23,12 @@ namespace C_WindowsFormAndOpenTK
 
         public MyCamera(Vector3 position, float aspectRatio)
         {
-            Position = position;
+            myPosition = position;
             AspectRatio = aspectRatio;
         }
 
         // The position of the camera
-        public Vector3 Position { get; set; }
+        //public Vector3 Position { get; set; }
 
         // This is simply the aspect ratio of the viewport, used for the projection matrix.
         public float AspectRatio { private get; set; }
@@ -73,7 +75,7 @@ namespace C_WindowsFormAndOpenTK
         // Get the view matrix using the amazing LookAt function described more in depth on the web tutorials
         public Matrix4 GetViewMatrix()
         {
-            return Matrix4.LookAt(Position, Position + _front, _up);
+            return Matrix4.LookAt(myPosition, myPosition + _front, _up);
         }
 
         // Get the projection matrix using the same method we have used up until this point

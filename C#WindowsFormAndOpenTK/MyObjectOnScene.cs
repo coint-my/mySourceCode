@@ -9,17 +9,16 @@ namespace C_WindowsFormAndOpenTK
 {
     public interface MyIDrawable
     {
-        void MySetTransform(MyTransform _tr);
-        void MyDraw(Matrix4 _view, Matrix4 _projection);
-        void MyDrawOutline(MyHandleCamera _cam);
+        void MyDraw(Matrix4 _myModel, MyHandleCamera _cam);
+        void MyDrawOutline(MyGameObject _myGo, MyHandleCamera _cam);
     }
 
-    public abstract class MyObjectOnScene
+    public abstract class MyObjectOnScene : MyTransform
     {
         public int myId;
         public string myName {  get; set; }
-        public MyTransform myTransform {  get; set; }
-        public abstract void MyDraw(Matrix4 _view, Matrix4 _projection);
+        public bool myIsDestroy { get; protected set; }
+        public abstract void MyDraw(MyHandleCamera _cam);
         public abstract void MyDrawOutline(MyHandleCamera _cam);
         public abstract void MyUpdate();
         public abstract void MyInitialize();

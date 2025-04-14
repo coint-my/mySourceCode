@@ -57,6 +57,10 @@
     <Reference Include="AssimpNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d51b391f59f42a6, processorArchitecture=MSIL">
       <HintPath>packages\AssimpNet.4.1.0\lib\net40\AssimpNet.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MimeTypesMap, Version=1.0.9.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>packages\MimeTypesMap.1.0.9\lib\netstandard2.0\MimeTypesMap.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=3.3.3.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>packages\OpenTK.3.3.3\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -107,7 +111,15 @@
     <Compile Include="MyMesh.cs" />
     <Compile Include="MyModel.cs" />
     <Compile Include="MyObjectOnScene.cs" />
+    <Compile Include="MyRenameFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyRenameFolder.Designer.cs">
+      <DependentUpon>MyRenameFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyShader.cs" />
+    <Compile Include="MySimplePolygonColor.cs" />
+    <Compile Include="MyTestCamera.cs" />
     <Compile Include="MyTestTexture.cs" />
     <Compile Include="MyTexture.cs" />
     <Compile Include="MyWindowOpenTK.cs" />
@@ -115,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyRenameFolder.resx">
+      <DependentUpon>MyRenameFolder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +142,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\Resources\Shaders\shaderOutline.vert" />
+    <None Include="bin\Debug\Resources\Shaders\simpleShaderColor.vert" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,6 +170,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\Shaders\simpleShaderColor.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\SystemImage\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\SystemImage\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\SystemImage\fileImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\AssimpNet.4.1.0\build\AssimpNet.targets" Condition="Exists('packages\AssimpNet.4.1.0\build\AssimpNet.targets')" />

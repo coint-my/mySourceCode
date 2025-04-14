@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
+using HeyRed.Mime;
+using Microsoft.VisualBasic.FileIO;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace C_WindowsFormAndOpenTK
@@ -31,21 +33,28 @@ namespace C_WindowsFormAndOpenTK
         private int _vertexBufferObject;
         private int _vertexArrayObject;
         private int _elementBufferObject;
+        private long myTimeDoubleClick = DateTime.Now.Ticks;
+        private string myPathDirectory;
         private MyShader _shader;
         private MyTexture _texture;
         private MyTexture _texture2;
-        private MyHandleCamera myCamera;
+        //private MyTexture myTextureWhite_8_8;
+        private MyHandleCamera myCameraFly;
+        //private MyTestCamera myTestCamera;
+        MyObjectOnScene testDepth = null;
+        //private MySimplePolygonColor myTestPolygon;
 
         MyModel myModel;
         MyShader myShaderOutline;
         MyModel myPrefabSphere;
-        MyShader myShaderLight;
         MyModel myPrefabCube;
+        MyModel myPrefabPlane;
+        MyShader myShaderLight;
         List<MyObjectOnScene> myListObjects;
-        MyTransform myBufferTransform;
+        //MyTransform myBufferTransform;
 
         private Timer myTimer = null;
-        private float myAngle;
+        //private float myAngle;
         private GLControl glControl;
 
         private Vector3 VecPos = new Vector3(0, 0, -2);
@@ -91,20 +100,25 @@ namespace C_WindowsFormAndOpenTK
 
         private void GlControl_MouseDown(object sender, MouseEventArgs e)
         {
-            myCamera.MyMousePress(e.X, e.Y);
+            myCameraFly.MyMousePress(e.X, e.Y);
         }
 
         private void GlControl_MouseMove(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Right)
             {
-                myCamera.MyMouseMove(e.X, e.Y);                
+                myCameraFly.MyMouseMove(e.X, e.Y);                
             }
         }
 
         private void MyUpdate(object sender, EventArgs e)
         {
-            myCamera.MyUpdateCamera();
+            for (int ind = 0; ind < myListObjects.Count; ind++)
+            {
+                myListObjects[ind].MyUpdate();
+            }
+
+            myCameraFly.MyUpdateCamera();
 
             MyKeyDown();
 
@@ -118,47 +132,44 @@ namespace C_WindowsFormAndOpenTK
 
             _texture.Use(TextureUnit.Texture0);
             _texture2.Use(TextureUnit.Texture1);
-            _shader.Use();
+            //_shader.Use();
 
-            var model = Matrix4.Identity;
-            myAngle += 0.1f;
-            model = model * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(myAngle));
-            model = model * Matrix4.CreateScale(1.1f);
-            model = model * Matrix4.CreateTranslation(VecPos);
-            _shader.SetMatrix4("model", model);
-            _shader.SetMatrix4("view", myCamera.MyGetCamera.GetViewMatrix());
-            _shader.SetMatrix4("projection", myCamera.MyGetCamera.GetProjectionMatrix());
+            //var model = Matrix4.Identity;
+            //myAngle += 0.1f;
+            //model = model * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(myAngle));
+            //model = model * Matrix4.CreateScale(1.1f);
+            //model = model * Matrix4.CreateTranslation(VecPos);
+            //_shader.SetMatrix4("model", model);
+            //_shader.SetMatrix4("view", myCamera.MyGetCamera.GetViewMatrix());
+            //_shader.SetMatrix4("projection", myCamera.MyGetCamera.GetProjectionMatrix());
 
-            float greenValue = ((float)Math.Sin(MathHelper.DegreesToRadians(myAngle * 20)) / 2) + 0.6f;
-            int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
-            GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+            //float greenValue = ((float)Math.Sin(MathHelper.DegreesToRadians(myAngle * 20)) / 2) + 0.6f;
+            //int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
+            //GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
-            GL.BindVertexArray(_vertexArrayObject);
+            //GL.BindVertexArray(_vertexArrayObject);
 
-            GL.Enable(EnableCap.DepthTest);
+            //GL.Enable(EnableCap.DepthTest);
             //GL.StencilFunc(StencilFunction.Always, 1, 0xFF);
             //GL.StencilMask(0xFF);
 
-            myShaderOutline.Use();
-            GL.Uniform1(GL.GetUniformLocation(myShaderOutline.Handle, "outLine"), 1.05f);
-            myShaderOutline.SetMatrix4("model", model);
-            myShaderOutline.SetMatrix4("view", myCamera.MyGetCamera.GetViewMatrix());
-            myShaderOutline.SetMatrix4("projection", myCamera.MyGetCamera.GetProjectionMatrix());
-            GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
+            //myShaderOutline.Use();
+            //GL.Uniform1(GL.GetUniformLocation(myShaderOutline.Handle, "outLine"), 1.05f);
+            //myShaderOutline.SetMatrix4("model", model);
+            //myShaderOutline.SetMatrix4("view", myCamera.MyGetCamera.GetViewMatrix());
+            //myShaderOutline.SetMatrix4("projection", myCamera.MyGetCamera.GetProjectionMatrix());
+            //GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
 
             //GL.StencilFunc(StencilFunction.Notequal, 1, 0xFF);
             //GL.StencilMask(0x00);
-            GL.Disable(EnableCap.DepthTest);
+            //GL.Disable(EnableCap.DepthTest);
 
-            _shader.Use();
-            GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
+            //_shader.Use();
+            //GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
 
             //GL.StencilMask(0xFF);
             //GL.StencilFunc(StencilFunction.Always, 0, 0xFF);
             GL.Enable(EnableCap.DepthTest);
-
-            //myModel.myTransform.myRotation = new Vector3(0, myAngle, 0);
-            //myModel.Draw(myCamera.MyGetCamera.GetViewMatrix(), myCamera.MyGetCamera.GetProjectionMatrix());
 
             myShaderLight.SetVector3("viewPos", VecPos);
 
@@ -173,27 +184,22 @@ namespace C_WindowsFormAndOpenTK
             myShaderLight.SetVector3("light.diffuse", new Vector3(0.5f));
             myShaderLight.SetVector3("light.specular", new Vector3(0.0f));
 
-            MyObjectOnScene testDepth = null;
-
             for (int i = 0; i < myListObjects.Count; i++)
             {
-                MyObjectOnScene temp = (MyObjectOnScene)listBoxGameObjects.SelectedItem;
-                if (temp == myListObjects[i] && temp.myId == myListObjects[i].myId)
+                if (testDepth != null && testDepth == myListObjects[i])
                 {
-                    testDepth = temp;
+                    testDepth = myListObjects[i];
                 }
                 else
-                    myListObjects[i].MyDraw(myCamera.MyGetCamera.GetViewMatrix(),
-                        myCamera.MyGetCamera.GetProjectionMatrix());
+                    myListObjects[i].MyDraw(myCameraFly);
             }
 
             if (testDepth != null)
             {
                 GL.Disable(EnableCap.DepthTest);
-                testDepth.MyDrawOutline(myCamera);
+                testDepth.MyDrawOutline(myCameraFly);
                 GL.Enable(EnableCap.DepthTest);
-                testDepth.MyDraw(myCamera.MyGetCamera.GetViewMatrix(),
-                    myCamera.MyGetCamera.GetProjectionMatrix());
+                testDepth.MyDraw(myCameraFly);
             }
 
             glControl.SwapBuffers();
@@ -201,45 +207,49 @@ namespace C_WindowsFormAndOpenTK
 
         private void MyKeyDown()
         {
+            MyUpdateNumericUpDown();
             if (myKeyPress[87])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.FORWARD);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.FORWARD);
             }
             if (myKeyPress[83])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.BACKWARD);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.BACKWARD);
             }
             if (myKeyPress[65])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.LEFT);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.LEFT);
             }
             if (myKeyPress[68])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.RIGHT);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.RIGHT);
             }
             if (myKeyPress[32])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.UP);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.UP);
             }
             if (myKeyPress[17])
             {
-                myCamera.MyDoMovementKeyboard(MyDirection.DOWN);
+                myCameraFly.MyDoMovementKeyboard(MyDirection.DOWN);
             }
         }
 
         private void MyUpdateNumericUpDown()
         {
-            numericPositionX.Value = (decimal)myBufferTransform.myPosition.X;
-            numericPositionY.Value = (decimal)myBufferTransform.myPosition.Y;
-            numericPositionZ.Value = (decimal)myBufferTransform.myPosition.Z;
+            if (testDepth != null)
+            {
+                numericPositionX.Value = (decimal)testDepth.myPosition.X;
+                numericPositionY.Value = (decimal)testDepth.myPosition.Y;
+                numericPositionZ.Value = (decimal)testDepth.myPosition.Z;
 
-            numericRotationX.Value = (decimal)myBufferTransform.myRotation.X;
-            numericRotationY.Value = (decimal)myBufferTransform.myRotation.Y;
-            numericRotationZ.Value = (decimal)myBufferTransform.myRotation.Z;
+                numericRotationX.Value = (decimal)testDepth.myRotation.X;
+                numericRotationY.Value = (decimal)testDepth.myRotation.Y;
+                numericRotationZ.Value = (decimal)testDepth.myRotation.Z;
 
-            numericScaleX.Value = (decimal)myBufferTransform.myScale.X;
-            numericScaleY.Value = (decimal)myBufferTransform.myScale.Y;
-            numericScaleZ.Value = (decimal)myBufferTransform.myScale.Z;
+                numericScaleX.Value = (decimal)testDepth.myScale.X;
+                numericScaleY.Value = (decimal)testDepth.myScale.Y;
+                numericScaleZ.Value = (decimal)testDepth.myScale.Z;
+            }
         }
 
         private void GlControl_Load(object sender, EventArgs e)
@@ -286,7 +296,15 @@ namespace C_WindowsFormAndOpenTK
             _shader.SetInt("texture0", 0);
             _shader.SetInt("texture1", 1);
 
-            myCamera = new MyHandleCamera(Vector3.UnitZ * 3, glControl.Width / (float)glControl.Height);
+            myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, glControl.Width / (float)glControl.Height);
+            myCameraFly.myName = "Camera";
+            //myTestCamera = new MyTestCamera();
+            //myTestCamera.myPosition = new Vector3(0, 0, 10);
+
+            //myTextureWhite_8_8 = MyTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg");
+            //myTextureWhite_8_8.Use(TextureUnit.Texture2);
+            //myTestPolygon = new MySimplePolygonColor(ref myTextureWhite_8_8, 2);
+            //myTestPolygon = new MySimplePolygonColor();
 
             myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert", 
                                     "Resources/Shaders/shaderOutline.frag");
@@ -295,26 +313,229 @@ namespace C_WindowsFormAndOpenTK
             myModel = new MyModel("Resources/Models/rock/rock.obj", myShaderLight, myShaderOutline);
             myPrefabSphere = new MyModel("Resources/Models/sphere/sphere1.FBX", myShaderLight, myShaderOutline);
             myPrefabCube = new MyModel("Resources/Models/cub/cub.FBX", myShaderLight, myShaderOutline);
+            myPrefabPlane = new MyModel("Resources/Models/plane/plane.FBX", myShaderLight, myShaderOutline);
 
-            myBufferTransform = new MyTransform();
             myListObjects = new List<MyObjectOnScene>();
-            MyGameObject go = new MyGameObject();
-            MyGameObject go2 = new MyGameObject();
-            MyGameObject go3 = new MyGameObject();
-            MyGameObject go4 = new MyGameObject();
-            go.MyAddComponent(myModel);
-            go2.myTransform.myPosition = new Vector3(0, 2, 0);
-            go2.MyAddComponent(myModel);
-            go3.MyAddComponent(myPrefabSphere);
-            go4.MyAddComponent(myPrefabCube);
-            myListObjects.Add(go);
-            myListObjects.Add(go2);
-            myListObjects.Add(go3);
-            myListObjects.Add(go4);
-            for (int i = 0; i < myListObjects.Count; i++)
+
+            MyAddTreeViewGameObject(MyInstantiateInScene(myCameraFly));
+            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myModel));
+            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabSphere));
+            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
+
+            MyInitializeExplorer("Resources");
+        }
+
+        private void MyInitializeExplorer(string _nameDir)
+        {
+            myPathDirectory = _nameDir;
+            DirectoryInfo dirInfo = new DirectoryInfo(myPathDirectory);
+            if (dirInfo.Exists)
             {
-                myListObjects[i].MyInitialize();
-                listBoxGameObjects.Items.Add(myListObjects[i]);
+                groupBoxExplorer.Text = myPathDirectory;
+                flowLayoutExplorer.Controls.Clear();
+
+                if (myPathDirectory != "Resources")
+                    flowLayoutExplorer.Controls.Add(MyCreateFolder("...", true));
+
+                foreach (var item in dirInfo.EnumerateDirectories())
+                {
+                    flowLayoutExplorer.Controls.Add(MyCreateFolder(item.Name));
+                }
+
+                foreach (var item in dirInfo.EnumerateFiles())
+                {
+                    string typeName = MimeTypesMap.GetMimeType(item.FullName);
+                    string type = typeName.Substring(0, typeName.LastIndexOf('/'));
+                    Debug.WriteLine("name" + item.Name + " type = " + typeName);
+
+                    if (type == "image")
+                        flowLayoutExplorer.Controls.Add(MyCreateFile(item.Name, Properties.Resources.fileImage));
+                    else
+                        flowLayoutExplorer.Controls.Add(MyCreateFile(item.Name, Properties.Resources.file));
+                }
+            }
+            else
+                Debug.WriteLine("Wrong Directory = " + myPathDirectory);
+        }
+
+        private Button MyCreateFile(string _name, Bitmap _image)
+        {
+            Button button = new Button();
+            button.Text = _name;
+            button.ImageAlign = ContentAlignment.TopCenter;
+            button.TextAlign = ContentAlignment.BottomCenter;
+            button.TextImageRelation = TextImageRelation.ImageAboveText;
+            button.AutoEllipsis = true;
+            button.UseCompatibleTextRendering = true;
+            button.Image = _image;
+            button.Margin = new Padding();
+            button.Size = new Size(60, 60);
+            button.Tag = false;
+
+            return button;
+        }
+
+        private Button MyCreateFolder(string _name, bool _isLocked = false)
+        {
+            Button button = new Button();
+            button.Text = _name;
+            button.ImageAlign = ContentAlignment.TopCenter;
+            button.TextAlign = ContentAlignment.BottomCenter;
+            button.TextImageRelation = TextImageRelation.ImageAboveText;
+            button.AutoEllipsis = true;
+            button.UseCompatibleTextRendering = true;
+            button.Image = Properties.Resources.folder;
+            button.Margin = new Padding();
+            button.Size = new Size(60, 60);
+            button.Tag = _isLocked;
+            button.Click += ButtonFolder_Click;
+
+            return button;
+        }
+
+        private void createFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo directory = Directory.CreateDirectory(myPathDirectory + "//newFolder");
+            if (directory.Exists)
+            {
+                Debug.WriteLine("create folder " + directory.FullName + " local dir = " + myPathDirectory);
+                MyInitializeExplorer(myPathDirectory);
+            }
+        }
+
+        private void deleteToolStrip_Click(object sender, EventArgs e)
+        {
+            Button btn = MyFindSelectFolder();
+            DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + btn.Text);
+
+            try
+            {
+                Directory.Delete(myPathDirectory + "//" + btn.Text, true);
+                MyInitializeExplorer(myPathDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Delete wrong " + ex.Message, "Exeption", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void rename_Click(object sender, EventArgs e)
+        {
+            Button btn = MyFindSelectFolder();
+
+            using(MyRenameFolder rename = new MyRenameFolder(btn.Text))
+            {
+                if (rename.ShowDialog(this) == DialogResult.OK)
+                {
+                    FileSystem.RenameDirectory(myPathDirectory + "//" + btn.Text, rename.MyTextRename);
+                    
+                    btn.Text = rename.MyTextRename;
+                }
+            }
+        }
+
+        private void contextMenuStripExplorer_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ToolStripItem itemRename = contextMenuStripExplorer.Items.Find("Rename", false)[0];
+            itemRename.Enabled = false;
+            ToolStripItem itemDelete = contextMenuStripExplorer.Items.Find("deleteToolStrip", false)[0];
+            itemDelete.Enabled = false;
+
+            Button btn = MyFindSelectFolder();
+            if (btn != null && (bool)btn.Tag == false)
+            {
+                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + btn.Text);
+                if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+                {
+                    itemRename = contextMenuStripExplorer.Items.Find("Rename", false)[0];
+                    itemRename.Enabled = true;
+                    itemDelete = contextMenuStripExplorer.Items.Find("deleteToolStrip", false)[0];
+                    itemDelete.Enabled = true;
+                }
+            }
+        }
+
+        private Button MyFindSelectFolder()
+        {
+            for (int i = 0; i < flowLayoutExplorer.Controls.Count; i++)
+            {
+                if (((Button)flowLayoutExplorer.Controls[i]).Focused)
+                    return ((Button)flowLayoutExplorer.Controls[i]);
+            }
+
+            return null;
+        }
+
+        private void ButtonFolder_Click(object sender, EventArgs e)
+        {
+            long t = (DateTime.Now.Ticks - myTimeDoubleClick) / 1000000;
+
+            if(t <= 2)
+            {
+                Console.WriteLine("time " + t);
+
+                Button button = (Button)sender;
+
+                string nameFolder = button.Text;
+
+                if (button.Text == "...")
+                    nameFolder = myPathDirectory.Substring(0, myPathDirectory.LastIndexOf('/') - 1);
+                else
+                    nameFolder = myPathDirectory + "//" + nameFolder;
+
+                MyInitializeExplorer(nameFolder);
+            }
+
+            myTimeDoubleClick = DateTime.Now.Ticks;
+        }
+
+        private void MyAddTreeViewGameObject(MyObjectOnScene _object)
+        {
+            if (treeViewGameObjects.SelectedNode == null)
+            {
+                _object.MyInitialize();
+                int index = treeViewGameObjects.Nodes.Add(new TreeNode(_object.myName));
+                treeViewGameObjects.Nodes[index].Tag = _object;
+            }
+            else
+            {
+                _object.MyInitialize();
+                MyGameObject target = (MyGameObject)treeViewGameObjects.SelectedNode.Tag;
+                target.MyAddChild(_object);
+                _object.myParent = target;
+                TreeNode node = new TreeNode(_object.myName);
+                node.Tag = _object;
+                treeViewGameObjects.SelectedNode.Nodes.Add(node);
+            }
+        }
+
+        private MyGameObject MyInstantiateInScene(MyGameObject _gameObject, MyComponent _component)
+        {
+            MyGameObject _go = _gameObject;
+            _go.MyAddComponent(_component);
+            myListObjects.Add(_go);
+            return _go;
+        }
+        private MyGameObject MyInstantiateInScene(MyGameObject _gameObject)
+        {
+            MyGameObject _go = _gameObject;
+            myListObjects.Add(_go);
+            return _go;
+        }
+
+        private void MyDestroy(MyGameObject _go)
+        {
+            _go.MyDestroy();
+
+            for (int i = myListObjects.Count - 1; i >= 0; i--)
+            {
+                Debug.WriteLine(myListObjects[i] + " isDestroy = " + myListObjects[i].myIsDestroy);
+
+                if (myListObjects[i].myIsDestroy)
+                    myListObjects.RemoveAt(i);
+
+                Debug.WriteLine("end index = " + i);
             }
         }
 
@@ -327,18 +548,39 @@ namespace C_WindowsFormAndOpenTK
         {
             GL.Viewport(0, 0, glControl.Width, glControl.Height);
 
-            if (myCamera != null)
-                myCamera.MyGetCamera.AspectRatio = glControl.Width / (float)glControl.Height;
+            if (myCameraFly != null)
+                myCameraFly/*.MyGetCamera*/.AspectRatio = glControl.Width / (float)glControl.Height;
         }
 
-        private void listBoxGameObjects_SelectedValueChanged(object sender, EventArgs e)
+        private void treeViewGameObjects_MouseDown(object sender, MouseEventArgs e)
         {
-            if (((MyGameObject)listBoxGameObjects.SelectedItem) != null)
-            {
-                MyGameObject myGameObject = ((MyGameObject)listBoxGameObjects.SelectedItem);
-                myBufferTransform = myGameObject.myTransform;
-                MyUpdateNumericUpDown();
+            Point point = e.Location;
 
+            if(treeViewGameObjects.GetNodeAt(point) == null)
+            {
+                flowLayoutPanelMyParameters.Controls.Clear();
+                treeViewGameObjects.SelectedNode = null;
+                testDepth = null;
+            }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                //TreeNode node = treeViewGameObjects.GetNodeAt(point);
+                //MyGameObject gameObject = (MyGameObject)node.Tag;
+
+                //Debug.WriteLine(gameObject.myName + ".parent = " + gameObject.myParent + "|" +
+                //    gameObject.myName + ".child count = " + gameObject.myChild.Count);
+            }
+        }
+
+        private void treeViewGameObjects_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.IsSelected)
+            {
+                MyGameObject myGameObject = e.Node.Tag as MyGameObject;
+                testDepth = myGameObject;
+
+                MyUpdateNumericUpDown();
                 MyCheckParameterModel(myGameObject);
             }
         }
@@ -348,18 +590,185 @@ namespace C_WindowsFormAndOpenTK
             if (flowLayoutPanelMyParameters.Controls.Count > 0)
                 flowLayoutPanelMyParameters.Controls.Clear();
 
-            MyModel model = ((MyModel)_myGameObject.MyGetComponents[0]);
-            GroupBox gBox = MyCreateGroupBox(_myGameObject.myName, "Model " + model.MyGetDirectory);
-            FlowLayoutPanel flow = MyCreateFlowLayoutPanel();
+            if (_myGameObject.MyGetComponent<MyModel>() != null)
+            {
+                MyModel model = _myGameObject.MyGetComponent<MyModel>();
+                GroupBox gBox = MyCreateGroupBox(_myGameObject.myName, "Model " + model.MyGetDirectory);
+                MyCreatePivotVector(_myGameObject);
+                FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.TopDown);
+                gBox.Controls.Add(flow);
+                CheckBox checkBoxVisible = MyCreateCheckBox("IsVisible", _myGameObject,
+                    _myGameObject.myIsVisible, CheckBox_IsVisible);
+                CheckBox checkBoxWireframe = MyCreateCheckBox("IsWireframe", _myGameObject,
+                    _myGameObject.myIsWireframe, CheckBox_IsWireframe);
+                flow.Controls.Add(checkBoxVisible);
+                flow.Controls.Add(checkBoxWireframe);
+
+                MyShowTextureParameter(model);
+            }
+        }
+
+        private void MyShowTextureParameter(MyModel _model)
+        {
+            GroupBox gBox = MyCreateGroupBox("Texture", "Model " + _model.MyGetDirectory);
+            FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.TopDown);
             gBox.Controls.Add(flow);
-            CheckBox checkBoxVisible = MyCreateCheckBox("IsVisible", _myGameObject, 
-                _myGameObject.myIsVisible, CheckBox_IsVisible);
-            CheckBox checkBoxWireframe = MyCreateCheckBox("IsWireframe", _myGameObject,
-                _myGameObject.myIsWireframe, CheckBox_IsWireframe);
-            Button button = new Button();
-            flow.Controls.Add(checkBoxVisible);
-            flow.Controls.Add(checkBoxWireframe);
-            flow.Controls.Add(button);
+            System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
+            textBox.Size = new Size(220, 70);
+            textBox.Multiline = true;
+            textBox.Text = _model.MyGetTexture != null ? _model.MyGetTexture.path : "None";
+            flow.Controls.Add(textBox);
+            flow.Controls.Add(MyAddLabelAndVector2("Tex Coords", _model, MyEventU_ValueChanged,
+                MyEventV_ValueChanged));
+        }
+
+        private void MyEventV_ValueChanged(object _sender, EventArgs _e)
+        {
+            NumericUpDown nud = (NumericUpDown)_sender;
+            MyModel model = (MyModel)nud.Tag;
+            Vector3 newUV = new Vector3(model.myTexCoord.X, (float)nud.Value, 0);
+            model.myTexCoord = newUV;
+        }
+
+        private void MyEventU_ValueChanged(object _sender, EventArgs _e)
+        {
+            NumericUpDown nud = (NumericUpDown)_sender;
+            MyModel model = (MyModel)nud.Tag;
+            Vector3 newUV = new Vector3((float)nud.Value, model.myTexCoord.Y, 0);
+            model.myTexCoord = newUV;
+        }
+
+        private Panel MyAddLabelAndVector2(string _label, MyModel _model, EventHandler _U, EventHandler _V)
+        {
+            Label name = new Label();
+            name.AutoSize = true;
+            name.Text = _label;
+
+            NumericUpDown numericV = new NumericUpDown();
+            numericV.Size = new Size(38, 20);
+            numericV.Increment = 0.1m;
+            numericV.DecimalPlaces = 1;
+            numericV.Maximum = 100;
+            numericV.Minimum = 0.1m;
+            numericV.Value = (decimal)_model.myTexCoord.Y;
+            numericV.Tag = _model;
+            numericV.ValueChanged += _V;
+            NumericUpDown numericU = new NumericUpDown();
+            numericU.Size = new Size(38, 20);
+            numericU.Increment = 0.1m;
+            numericU.DecimalPlaces = 1;
+            numericU.Maximum = 100;
+            numericU.Minimum = 0.1m;
+            numericU.Value = (decimal)_model.myTexCoord.X;
+            numericU.Tag = _model;
+            numericU.ValueChanged += _U;
+            Label labelU = new Label();
+            labelU.AutoSize = true;
+            labelU.Text = "U";
+            Label labelV = new Label();
+            labelV.AutoSize = true;
+            labelV.Text = "V";
+
+            FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.LeftToRight);
+            flow.Size = new Size(220, 70);
+            flow.Controls.Add(name);
+            flow.Controls.Add(labelU);
+            flow.Controls.Add(numericU);
+            flow.Controls.Add(labelV);
+            flow.Controls.Add(numericV);
+            return flow;
+        }
+
+        private GroupBox MyCreatePivotVector(MyGameObject _gameObject)
+        {
+            GroupBox gBox = MyCreateGroupBox("Pivot ", "");
+            FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.LeftToRight);
+            flow.AutoSize = false;
+            flow.Size = new Size(240, 70);
+            gBox.Controls.Add(flow);
+            Label labelX = new Label();
+            labelX.AutoSize = true;
+            labelX.Text = "X";
+            Label labelY = new Label();
+            labelY.AutoSize = true;
+            labelY.Text = "Y";
+            Label labelZ = new Label();
+            labelZ.AutoSize = true;
+            labelZ.Text = "Z";
+            NumericUpDown nx = new NumericUpDown();
+            nx.Size = new Size(50, 20);
+            nx.Increment = 0.1m;
+            nx.DecimalPlaces = 2;
+            nx.Maximum = 1000;
+            nx.Minimum = -1000;
+            nx.Value = (decimal)_gameObject.myPivot.X;
+            nx.Tag = _gameObject;
+            nx.ValueChanged += Nx_ValueChanged;
+            NumericUpDown ny = new NumericUpDown();
+            ny.Size = new Size(50, 20);
+            ny.Increment = 0.1m;
+            ny.DecimalPlaces = 2;
+            ny.Maximum = 1000;
+            ny.Minimum = -1000;
+            ny.Value = (decimal)_gameObject.myPivot.Y;
+            ny.Tag = _gameObject;
+            ny.ValueChanged += Ny_ValueChanged;
+            NumericUpDown nz = new NumericUpDown();
+            nz.Size = new Size(50, 20);
+            nz.Increment = 0.1m;
+            nz.DecimalPlaces = 2;
+            nz.Maximum = 1000;
+            nz.Minimum = -1000;
+            nz.Value = (decimal)_gameObject.myPivot.Z;
+            nz.Tag = _gameObject;
+            nz.ValueChanged += Nz_ValueChanged;
+            CheckBox checkBoxShowPivot = new CheckBox();
+            checkBoxShowPivot.AutoSize = true;
+            checkBoxShowPivot.Text = "Show Pivot";
+            checkBoxShowPivot.Checked = _gameObject.MyIsShowPivot;
+            checkBoxShowPivot.Tag = _gameObject;
+            checkBoxShowPivot.CheckedChanged += CheckBoxShowPivot_CheckedChanged;
+            flow.Controls.Add(labelX);
+            flow.Controls.Add(nx);
+            flow.Controls.Add(labelY);
+            flow.Controls.Add(ny);
+            flow.Controls.Add(labelZ);
+            flow.Controls.Add(nz);
+            flow.Controls.Add(checkBoxShowPivot);
+
+            return gBox;
+        }
+
+        private void CheckBoxShowPivot_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox box = (CheckBox)sender;
+            MyGameObject gameObject = (MyGameObject)box.Tag;
+            gameObject.MyIsShowPivot = box.Checked;
+        }
+
+        private void Nx_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nud = (NumericUpDown)sender;
+            MyGameObject gameObject = (MyGameObject)nud.Tag;
+            Vector3 tempPivot = gameObject.myPivot;
+            Vector3 newPivot = new Vector3((float)nud.Value, tempPivot.Y, tempPivot.Z);
+            gameObject.myPivot = newPivot;
+        }
+        private void Ny_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nud = (NumericUpDown)sender;
+            MyGameObject gameObject = (MyGameObject)nud.Tag;
+            Vector3 tempPivot = gameObject.myPivot;
+            Vector3 newPivot = new Vector3(tempPivot.X, (float)nud.Value, tempPivot.Z);
+            gameObject.myPivot = newPivot;
+        }
+        private void Nz_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nud = (NumericUpDown)sender;
+            MyGameObject gameObject = (MyGameObject)nud.Tag;
+            Vector3 tempPivot = gameObject.myPivot;
+            Vector3 newPivot = new Vector3(tempPivot.X, tempPivot.Y, (float)nud.Value);
+            gameObject.myPivot = newPivot;
         }
 
         private CheckBox MyCreateCheckBox(string _text, MyGameObject _myGameObject, bool _myIsWireframe,
@@ -375,20 +784,21 @@ namespace C_WindowsFormAndOpenTK
 
         private void CheckBox_IsWireframe(object sender, EventArgs e)
         {
-            CheckBox checkBox = ((CheckBox)sender);
+            CheckBox checkBox = (CheckBox)sender;
             ((MyGameObject)checkBox.Tag).myIsWireframe = checkBox.Checked;
         }
 
         private void CheckBox_IsVisible(object sender, EventArgs e)
         {
-            CheckBox checkBox = ((CheckBox)sender);
-            ((MyGameObject)checkBox.Tag).myIsVisible = checkBox.Checked;
+            CheckBox checkBox = (CheckBox)sender;
+            MyGameObject go = (MyGameObject)checkBox.Tag;
+            go.MySetVisible(checkBox.Checked);
         }
 
         private GroupBox MyCreateGroupBox(string _nameGameObject, string _nameComponent)
         {
             GroupBox groupBox = new GroupBox();
-            groupBox.Text = "(" + _nameGameObject + ") Model " + 
+            groupBox.Text = "(" + _nameGameObject + ") " + 
                 _nameComponent.Substring(_nameComponent.LastIndexOf('/') + 1);
             groupBox.MinimumSize = new Size(220, 50);
             groupBox.AutoSize = true;
@@ -397,78 +807,232 @@ namespace C_WindowsFormAndOpenTK
             return groupBox;
         }
 
-        private FlowLayoutPanel MyCreateFlowLayoutPanel()
+        private FlowLayoutPanel MyCreateFlowLayoutPanel(FlowDirection _direcion)
         {
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
             flowLayoutPanel.AutoSize = true;
             flowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel.Location = new Point(1, 40);
+            flowLayoutPanel.FlowDirection = _direcion;
+            flowLayoutPanel.Location = new Point(1, 30);
             flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
             return flowLayoutPanel;
         }
 
         private void numericUpDownX_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myPosition;
-            v3.X = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myPosition = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myPosition;
+                v3.X = (float)((NumericUpDown)sender).Value;
+                testDepth.myPosition = v3;
+            }
         }
 
         private void numericUpDownY_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myPosition;
-            v3.Y = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myPosition = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myPosition;
+                v3.Y = (float)((NumericUpDown)sender).Value;
+                testDepth.myPosition = v3;
+            }
         }
 
         private void numericUpDownZ_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myPosition;
-            v3.Z = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myPosition = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myPosition;
+                v3.Z = (float)((NumericUpDown)sender).Value;
+                testDepth.myPosition = v3;
+            }
         }
 
         private void numericRotationX_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myRotation;
-            v3.X = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myRotation = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myRotation;
+                v3.X = (float)((NumericUpDown)sender).Value;
+                testDepth.myRotation = v3;
+            }
         }
 
         private void numericRotationY_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myRotation;
-            v3.Y = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myRotation = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myRotation;
+                v3.Y = (float)((NumericUpDown)sender).Value;
+                testDepth.myRotation = v3;
+            }
         }
 
         private void numericRotationZ_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myRotation;
-            v3.Z = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myRotation = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myRotation;
+                v3.Z = (float)((NumericUpDown)sender).Value;
+                testDepth.myRotation = v3;
+            }
         }
 
         private void numericScaleX_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myScale;
-            v3.X = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myScale = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myScale;
+                v3.X = (float)((NumericUpDown)sender).Value;
+                testDepth.myScale = v3;
+            }
         }
 
         private void numericScaleY_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myScale;
-            v3.Y = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myScale = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myScale;
+                v3.Y = (float)((NumericUpDown)sender).Value;
+                testDepth.myScale = v3;
+            }
         }
 
         private void numericScaleZ_ValueChanged(object sender, EventArgs e)
         {
-            Vector3 v3 = myBufferTransform.myScale;
-            v3.Z = (float)((NumericUpDown)sender).Value;
-            myBufferTransform.myScale = v3;
+            if (testDepth != null)
+            {
+                Vector3 v3 = testDepth.myScale;
+                v3.Z = (float)((NumericUpDown)sender).Value;
+                testDepth.myScale = v3;
+            }
+        }
+
+        private void treeViewGameObjects_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(e.Item, DragDropEffects.Move);
+            }
+        }
+
+        private void treeViewGameObjects_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = e.AllowedEffect;
+        }
+
+        private void treeViewGameObjects_DragOver(object sender, DragEventArgs e)
+        {
+            Point targetPoint = treeViewGameObjects.PointToClient(new Point(e.X, e.Y));
+            treeViewGameObjects.SelectedNode = treeViewGameObjects.GetNodeAt(targetPoint);
+        }
+
+        private void treeViewGameObjects_DragDrop(object sender, DragEventArgs e)
+        {
+            Point targetPoint = treeViewGameObjects.PointToClient(new Point(e.X, e.Y));
+            TreeNode targetNode = treeViewGameObjects.GetNodeAt(targetPoint);
+
+            TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
+
+            if (targetNode == null)
+            {
+                draggedNode.Remove();
+                MyGameObject goDrag = (MyGameObject)draggedNode.Tag;
+
+                if(goDrag.myParent != null)
+                    goDrag.myParent.MyRemoveChild(goDrag);
+
+                goDrag.myParent = null;
+
+                treeViewGameObjects.Nodes.Add((TreeNode)draggedNode.Clone());
+                return;
+            }
+
+            if (!draggedNode.Equals(targetNode) && !MyContainsNode(draggedNode, targetNode))
+            {
+                Debug.WriteLine("drop parent");
+                if (e.Effect == DragDropEffects.Move)
+                {
+                    draggedNode.Remove();
+
+                    MyGameObject goDrag = (MyGameObject)draggedNode.Tag;
+                    MyGameObject goTarget = (MyGameObject)targetNode.Tag;
+
+                    if (goDrag.myParent != null)
+                        goDrag.myParent.MyRemoveChild(goDrag);
+
+                    goDrag.myParent = goTarget;
+                    goTarget.MyAddChild(goDrag);
+
+                    targetNode.Nodes.Add(draggedNode);
+                }
+
+                targetNode.Expand();
+            }
+        }
+
+        private bool MyContainsNode(TreeNode node1, TreeNode node2)
+        {
+            if (node2.Parent == null) 
+                return false;
+            if (node2.Parent.Equals(node1)) 
+                return true;
+
+            return MyContainsNode(node1, node2.Parent);
+        }
+
+        private void contextMenuStripHierarhy_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (treeViewGameObjects.SelectedNode != null)
+                contextMenuStripHierarhy.Items["Delete"].Enabled = true;
+            else
+                contextMenuStripHierarhy.Items["Delete"].Enabled = false;
+        }
+
+        private void contextMenuStripHierarhy_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            Debug.WriteLine("empty " + e.ClickedItem);
+            
+            if (e.ClickedItem.ToString() == "Delete")
+            {
+                MyGameObject goDelete = (MyGameObject)treeViewGameObjects.SelectedNode.Tag;
+                MyDestroy(goDelete);
+                treeViewGameObjects.SelectedNode.Remove();
+                Debug.WriteLine(e.ClickedItem.ToString() + " = " + goDelete.myName + " listObject.Count = " +
+                    myListObjects.Count);
+
+                flowLayoutPanelMyParameters.Controls.Clear();
+                treeViewGameObjects.SelectedNode = null;
+                testDepth = null;
+            }
+        }
+
+        private void CreateGameObjectEmpty_Click(object sender, EventArgs e)
+        {
+            MyGameObject gameObject = new MyGameObject();
+            gameObject.MySetName("Empty obj");
+            MyAddTreeViewGameObject(MyInstantiateInScene(gameObject));
+        }
+
+        private void cubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyGameObject gameObject = new MyGameObject();
+            gameObject.MySetName("Cube");
+            MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabCube));
+        }
+
+        private void sphereToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyGameObject gameObject = new MyGameObject();
+            gameObject.MySetName("Sphere");
+            MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabSphere));
+        }
+
+        private void planeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyGameObject gameObject = new MyGameObject();
+            gameObject.MySetName("Plane");
+            MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabPlane));
         }
     }
 }

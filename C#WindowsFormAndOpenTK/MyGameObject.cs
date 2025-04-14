@@ -2,18 +2,63 @@
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Web.UI.WebControls;
 
 namespace C_WindowsFormAndOpenTK
 {
+    public class MyTransform
+    {
+        private List<MyTransform> myListChildren;
+
+        public Vector3 myPosition;
+        public Vector3 myRotation { get; set; }
+        public Vector3 myScale { get; set; }
+
+        public MyTransform myParent { get; set; }
+        public List<MyTransform> myChild { get { return myListChildren; } }
+        public Vector3 myPivot { get; set; }
+
+        public MyTransform()
+        {
+            myPosition = new Vector3(); myRotation = new Vector3(); myScale = Vector3.One;
+            myParent = null;
+            myPivot = new Vector3();
+            myListChildren = new List<MyTransform>();
+        }
+
+        public void MyAddChild(MyTransform _child)
+        {
+            myListChildren.Add(_child);
+        }
+
+        public void MyRemoveChild(int _index)
+        {
+            myListChildren.RemoveAt(_index);
+        }
+
+        public void MyRemoveChild(MyTransform _child)
+        {
+            myListChildren.Remove(_child);
+        }
+    }
+
     public class MyGameObject : MyObjectOnScene
     {
         public static int myCounter = 0;
+
+        protected Matrix4 myModel;
+        private Vector3 myPositionPivot;
+        public Matrix4 MyGetModel {  get { return myModel; } }
+        private MySimplePolygonColor myPolygonColorPivot;
 
         private List<MyComponent> myComponents;
 
         public List<MyComponent> MyGetComponents { get { return myComponents; } }
 
-        public bool myIsVisible { get; set; }
+        public bool MyIsShowPivot { get; set; }
+
+        public bool myIsVisible { get; private set; }
 
         public bool myIsWireframe { get; set; }
 
@@ -22,10 +67,52 @@ namespace C_WindowsFormAndOpenTK
             myCounter++;
             myId++;
             myName = "GameObject_" + myCounter;
-            myTransform = new MyTransform();
+            myPolygonColorPivot = new MySimplePolygonColor();
+            myModel = Matrix4.Identity;
             myComponents = new List<MyComponent>();
             myIsVisible = true;
             myIsWireframe = false;
+            MyIsShowPivot = false;
+            myIsDestroy = false;
+        }
+        public MyGameObject(string _name) : this()
+        {
+            myName = _name + "_" + myCounter;
+        }
+
+        ~MyGameObject()
+        {
+            myComponents.Clear();
+        }
+
+        public void MySetName(string _name)
+        {
+            myName = _name + "_" + myCounter;
+        }
+
+        public T MyGetComponent<T>()
+        {
+            MyComponent component = null;
+            for (int i = 0; i < myComponents.Count; i++)
+            {
+                if (myComponents[i] is T)
+                    component = myComponents[i];
+            }
+
+            return (T)component;
+        }
+
+        public void MySetVisible(bool _visible)
+        {
+            myIsVisible = _visible;
+
+            if (myChild.Count > 0)
+            {
+                for (int i = 0; i < myChild.Count; i++)
+                {
+                    ((MyGameObject)myChild[i]).MySetVisible(_visible);
+                }
+            }
         }
 
         public override string ToString()
@@ -40,11 +127,21 @@ namespace C_WindowsFormAndOpenTK
 
         public override void MyDestroy()
         {
-            myComponents.Clear();
+            myIsDestroy = true;
+
+            if (myChild.Count > 0)
+            {
+                for (int i = 0; i < myChild.Count; i++)
+                {
+                    ((MyGameObject)myChild[i]).MyDestroy();
+                }
+            }
         }
 
-        public override void MyDraw(Matrix4 _view, Matrix4 _projection)
+        public override void MyDraw(MyHandleCamera _cam)
         {
+            MyTransformUpdate();
+
             for (int i = 0; i < myComponents.Count; i++)
             {
                 MyIDrawable tmpObj = myComponents[i] as MyIDrawable;
@@ -55,9 +152,20 @@ namespace C_WindowsFormAndOpenTK
                     else
                         GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
                     
-                    tmpObj.MySetTransform(myTransform);
-                    tmpObj.MyDraw(_view, _projection);
+
+                    tmpObj.MyDraw(myModel, _cam);
                 }
+            }
+
+            if (MyIsShowPivot)
+            {
+                GL.Disable(EnableCap.DepthTest);
+
+                myPolygonColorPivot.MySetPosition(
+                    myParent != null ? myPositionPivot : myPivot + myPosition);
+
+                myPolygonColorPivot.MyDraw(_cam, new Vector4(0.9f, 0.9f, 0.0f, 1.0f));
+                GL.Enable(EnableCap.DepthTest);
             }
         }
         public override void MyDrawOutline(MyHandleCamera _cam)
@@ -73,9 +181,76 @@ namespace C_WindowsFormAndOpenTK
                     else
                         GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
 
-                    tmpObj.MySetTransform(myTransform);
-                    tmpObj.MyDrawOutline(_cam);
+                    tmpObj.MyDrawOutline(this, _cam);
                 }
+            }
+        }
+
+        public void MyTransformUpdate(out Matrix4 _myModel, Vector3 _myScale, Vector3 _myRotation,
+            Vector3 _myPosition, Vector3 _myPivot)
+        {
+            if (myParent == null)
+            {
+                _myModel = Matrix4.Identity;
+                _myModel = _myModel * Matrix4.CreateScale(_myScale);
+                _myModel = _myModel * Matrix4.CreateTranslation(-_myPivot);
+                _myModel = _myModel * Matrix4.CreateFromQuaternion(
+                    OpenTK.Quaternion.FromEulerAngles(_myRotation));
+                _myModel = _myModel * Matrix4.CreateTranslation(_myPivot);
+                _myModel = _myModel * Matrix4.CreateTranslation(_myPosition);
+            }
+            else
+            {
+                MyGameObject parentObj = (MyGameObject)myParent;
+                Matrix4 parentModel = parentObj.MyGetModel;
+                _myModel = Matrix4.Identity;
+                _myModel = _myModel * Matrix4.CreateScale(_myScale);
+                _myModel = _myModel * Matrix4.CreateTranslation(-_myPivot);
+                _myModel = _myModel * Matrix4.CreateFromQuaternion(
+                   OpenTK.Quaternion.FromEulerAngles(_myRotation));
+                _myModel = _myModel * Matrix4.CreateTranslation(_myPivot);
+                _myModel = _myModel * Matrix4.CreateTranslation(_myPosition);
+
+                _myModel *= Matrix4.CreateFromQuaternion(parentModel.ExtractRotation());
+                _myModel *= Matrix4.CreateTranslation(parentModel.ExtractTranslation());
+            }
+        }
+
+        public void MyTransformUpdate()
+        {
+            if (myParent == null)
+            {
+                myModel = Matrix4.Identity;
+                myModel = myModel * Matrix4.CreateScale(myScale);
+                myModel = myModel * Matrix4.CreateTranslation(-myPivot);
+                myModel = myModel * Matrix4.CreateFromQuaternion(
+                   OpenTK.Quaternion.FromEulerAngles(myRotation));
+                myModel = myModel * Matrix4.CreateTranslation(myPivot);
+                myModel = myModel * Matrix4.CreateTranslation(myPosition);
+            }
+            else
+            {
+                MyGameObject parentObj = (MyGameObject)myParent;
+                Matrix4 parentModel = parentObj.MyGetModel;
+                myModel = Matrix4.Identity;
+                myModel = myModel * Matrix4.CreateScale(myScale);
+                myModel = myModel * Matrix4.CreateTranslation(-myPivot);
+                myModel = myModel * Matrix4.CreateFromQuaternion(
+                   OpenTK.Quaternion.FromEulerAngles(myRotation));
+                myModel = myModel * Matrix4.CreateTranslation(myPivot);
+                myModel = myModel * Matrix4.CreateTranslation(myPosition);
+
+                myModel *= Matrix4.CreateFromQuaternion(parentModel.ExtractRotation());
+                myModel *= Matrix4.CreateTranslation(parentModel.ExtractTranslation());
+
+                Matrix4 test = Matrix4.Identity;
+                test *= Matrix4.CreateTranslation(myPosition);
+                test *= Matrix4.CreateTranslation(myPivot);
+                
+                test *= Matrix4.CreateFromQuaternion(parentModel.ExtractRotation());
+                test *= Matrix4.CreateTranslation(parentModel.ExtractTranslation());
+
+                myPositionPivot = test.ExtractTranslation();
             }
         }
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL;
+using System.Diagnostics;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -24,35 +25,33 @@ namespace C_WindowsFormAndOpenTK
         }
     }
 
-    public class MyTransform
-    {
-        public Vector3 myPosition { get; set; }
-        public Vector3 myRotation { get; set; }
-        public Vector3 myScale { get; set; }
-
-        public MyTransform() { myPosition = new Vector3(); myRotation = new Vector3(); myScale = Vector3.One; }
-    }
-
     public class MyModel : MyComponent, IDisposable, MyIDrawable
     {
         private List<MyMesh> meshes;
         private string directory;
         private List<MyTestTexture> textures_loaded;
-        private Matrix4 myModel;
+
         private MyShader myShader;
         private MyShader myShaderOutline;
-        private MyTransform myTransform;
-
-        public bool myIsVisible { get; set; }
+        public Vector3 myTexCoord { get; set; }
+        public bool MyIsVisible { get; set; }
         public string MyGetDirectory { get { return directory; } }
+        public MyTestTexture MyGetTexture 
+        { 
+            get 
+            {
+                if (meshes[0].textures.Count > 0)
+                    return meshes[0].textures[0];
+                return null;
+            } 
+        }
 
         public MyModel(string path)
         {
             textures_loaded = new List<MyTestTexture>();
 
             loadModel(path);
-            myModel = Matrix4.Identity;
-            myTransform = new MyTransform();
+            myTexCoord = Vector3.One;
         }
 
         public MyModel(string path, MyShader _myShader, MyShader _myShaderOutline) : base()
@@ -62,17 +61,7 @@ namespace C_WindowsFormAndOpenTK
             loadModel(path);
             myShader = _myShader;
             myShaderOutline = _myShaderOutline;
-            myTransform = new MyTransform();
-            myModel = Matrix4.Identity;
-        }
-
-        private void MyTransformUpdate() 
-        {
-            myModel = Matrix4.Identity;
-            myModel = myModel * Matrix4.CreateScale(myTransform.myScale);
-            myModel = myModel * Matrix4.CreateFromQuaternion(
-                OpenTK.Quaternion.FromEulerAngles(myTransform.myRotation));
-            myModel = myModel * Matrix4.CreateTranslation(myTransform.myPosition);
+            myTexCoord = Vector3.One;
         }
 
         public void loadModel(string path)
@@ -103,15 +92,15 @@ namespace C_WindowsFormAndOpenTK
             importer.Dispose();
         }
 
-        public void MyDraw(Matrix4 _view, Matrix4 _projection)
+        public void MyDraw(Matrix4 _myModel, MyHandleCamera _cam)
         {
             myShader.Use();
 
-            MyTransformUpdate();
+            myShader.SetVector3("myUV", myTexCoord);
             
-            myShader.SetMatrix4("model", myModel);
-            myShader.SetMatrix4("view", _view);
-            myShader.SetMatrix4("projection", _projection);
+            myShader.SetMatrix4("model", _myModel);
+            myShader.SetMatrix4("view", _cam/*.MyGetCamera*/.GetViewMatrix());
+            myShader.SetMatrix4("projection", _cam/*.MyGetCamera*/.GetProjectionMatrix());
 
             foreach (MyMesh mesh in meshes)
             {
@@ -119,23 +108,20 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
-        public void MyDrawOutline(MyHandleCamera _cam)
+        public void MyDrawOutline(MyGameObject _myGo, MyHandleCamera _cam)
         {
             myShaderOutline.Use();
-            float len = Vector3.Distance(myTransform.myPosition, _cam.MyGetCamera.Position) * 0.001f;
+            float len = Vector3.Distance(_myGo.myPosition, _cam/*.MyGetCamera*/.myPosition) * 0.001f;
             //GL.Uniform3(GL.GetUniformLocation(myShaderOutline.Handle, "outLine"), scale);
 
-            MyTransformUpdate();
-            Matrix4 myNewScaleModel = Matrix4.Identity;
-            myNewScaleModel = myNewScaleModel * Matrix4.CreateScale(myTransform.myScale *
-                new Vector3(1.005f + len, 1.005f + len, 1.005f + len));
-            myNewScaleModel = myNewScaleModel * Matrix4.CreateFromQuaternion(
-                OpenTK.Quaternion.FromEulerAngles(myTransform.myRotation));
-            myNewScaleModel = myNewScaleModel * Matrix4.CreateTranslation(myTransform.myPosition);
+            Matrix4 myNewScaleModel;
+            Vector3 newScale = new Vector3(1.005f + len, 1.005f + len, 1.005f + len);
+            _myGo.MyTransformUpdate(out myNewScaleModel, _myGo.myScale * newScale, 
+                _myGo.myRotation, _myGo.myPosition, _myGo.myPivot);
 
             myShaderOutline.SetMatrix4("model", myNewScaleModel);
-            myShaderOutline.SetMatrix4("view", _cam.MyGetCamera.GetViewMatrix());
-            myShaderOutline.SetMatrix4("projection", _cam.MyGetCamera.GetProjectionMatrix());
+            myShaderOutline.SetMatrix4("view", _cam/*.MyGetCamera*/.GetViewMatrix());
+            myShaderOutline.SetMatrix4("projection", _cam/*.MyGetCamera*/.GetProjectionMatrix());
 
             foreach (MyMesh mesh in meshes)
             {
@@ -208,7 +194,30 @@ namespace C_WindowsFormAndOpenTK
             List<MyTestTexture> heightMaps = loadMaterialTextures(material, TextureType.Ambient, "texture_height");
             textures.AddRange(heightMaps);
 
+            CenterModelPivot(vertices);
+
             return new MyMesh(vertices.ToArray(), indices.ToArray(), textures);
+        }
+
+        public void CenterModelPivot(List<Vertex> _listVert)
+        {
+            Vector3 min = _listVert[0].Position;
+            Vector3 max = _listVert[0].Position;
+
+            foreach (var vertex in _listVert)
+            {
+                min = Vector3.ComponentMin(min, vertex.Position);
+                max = Vector3.ComponentMax(max, vertex.Position);
+            }
+
+            Vector3 center = (min + max) / 2;
+
+            for (int i = 0; i < _listVert.Count; i++)
+            {
+                Vertex vert = _listVert[i];
+                vert.Position -= center;
+                _listVert[i] = vert;
+            }
         }
 
         private List<MyTestTexture> loadMaterialTextures(Material mat, TextureType type, string typeName)
@@ -244,11 +253,6 @@ namespace C_WindowsFormAndOpenTK
         {
             textures_loaded.Clear();
             meshes.Clear();
-        }
-
-        public void MySetTransform(MyTransform _tr)
-        {
-            myTransform = _tr;
         }
     }
 }
