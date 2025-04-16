@@ -10,8 +10,11 @@ namespace C_WindowsFormAndOpenTK
     {
         public readonly int Handle;
 
+        public static int myCurrentIndex;
+
         public static MyTexture LoadFromFile(string path)
         {
+            myCurrentIndex++;
             int handle = GL.GenTexture();
 
             GL.ActiveTexture(TextureUnit.Texture0);

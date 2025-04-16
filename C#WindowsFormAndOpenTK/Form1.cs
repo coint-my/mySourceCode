@@ -9,8 +9,6 @@ using Microsoft.VisualBasic.FileIO;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -39,6 +37,7 @@ namespace C_WindowsFormAndOpenTK
         private MyTexture _texture;
         private MyTexture _texture2;
         //private MyTexture myTextureWhite_8_8;
+        private MyHandleCamera myCameraCurrent;
         private MyHandleCamera myCameraFly;
         //private MyTestCamera myTestCamera;
         MyObjectOnScene testDepth = null;
@@ -100,14 +99,14 @@ namespace C_WindowsFormAndOpenTK
 
         private void GlControl_MouseDown(object sender, MouseEventArgs e)
         {
-            myCameraFly.MyMousePress(e.X, e.Y);
+            myCameraCurrent.MyMousePress(e.X, e.Y);
         }
 
         private void GlControl_MouseMove(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Right)
             {
-                myCameraFly.MyMouseMove(e.X, e.Y);                
+                myCameraCurrent.MyMouseMove(e.X, e.Y);                
             }
         }
 
@@ -118,7 +117,7 @@ namespace C_WindowsFormAndOpenTK
                 myListObjects[ind].MyUpdate();
             }
 
-            myCameraFly.MyUpdateCamera();
+            myCameraCurrent.MyUpdateCamera();
 
             MyKeyDown();
 
@@ -191,15 +190,15 @@ namespace C_WindowsFormAndOpenTK
                     testDepth = myListObjects[i];
                 }
                 else
-                    myListObjects[i].MyDraw(myCameraFly);
+                    myListObjects[i].MyDraw(myCameraCurrent);
             }
 
             if (testDepth != null)
             {
                 GL.Disable(EnableCap.DepthTest);
-                testDepth.MyDrawOutline(myCameraFly);
+                testDepth.MyDrawOutline(myCameraCurrent);
                 GL.Enable(EnableCap.DepthTest);
-                testDepth.MyDraw(myCameraFly);
+                testDepth.MyDraw(myCameraCurrent);
             }
 
             glControl.SwapBuffers();
@@ -210,27 +209,27 @@ namespace C_WindowsFormAndOpenTK
             MyUpdateNumericUpDown();
             if (myKeyPress[87])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.FORWARD);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.FORWARD);
             }
             if (myKeyPress[83])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.BACKWARD);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.BACKWARD);
             }
             if (myKeyPress[65])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.LEFT);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.LEFT);
             }
             if (myKeyPress[68])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.RIGHT);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.RIGHT);
             }
             if (myKeyPress[32])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.UP);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.UP);
             }
             if (myKeyPress[17])
             {
-                myCameraFly.MyDoMovementKeyboard(MyDirection.DOWN);
+                myCameraCurrent.MyDoMovementKeyboard(MyDirection.DOWN);
             }
         }
 
@@ -296,10 +295,9 @@ namespace C_WindowsFormAndOpenTK
             _shader.SetInt("texture0", 0);
             _shader.SetInt("texture1", 1);
 
-            myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, glControl.Width / (float)glControl.Height);
-            myCameraFly.myName = "Camera";
-            //myTestCamera = new MyTestCamera();
-            //myTestCamera.myPosition = new Vector3(0, 0, 10);
+            myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, MyGetAspectRatio());
+            myCameraCurrent = myCameraFly;
+            myCameraCurrent.myIsFly = true;
 
             //myTextureWhite_8_8 = MyTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg");
             //myTextureWhite_8_8.Use(TextureUnit.Texture2);
@@ -317,13 +315,15 @@ namespace C_WindowsFormAndOpenTK
 
             myListObjects = new List<MyObjectOnScene>();
 
-            MyAddTreeViewGameObject(MyInstantiateInScene(myCameraFly));
+            MyAddTreeViewGameObject(MyInstantiateInScene(new MyHandleCamera(Vector3.Zero, MyGetAspectRatio())));
             MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myModel));
             MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabSphere));
             MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
 
             MyInitializeExplorer("Resources");
         }
+
+        private float MyGetAspectRatio() => glControl.Width / (float)glControl.Height;
 
         private void MyInitializeExplorer(string _nameDir)
         {
@@ -530,12 +530,8 @@ namespace C_WindowsFormAndOpenTK
 
             for (int i = myListObjects.Count - 1; i >= 0; i--)
             {
-                Debug.WriteLine(myListObjects[i] + " isDestroy = " + myListObjects[i].myIsDestroy);
-
                 if (myListObjects[i].myIsDestroy)
                     myListObjects.RemoveAt(i);
-
-                Debug.WriteLine("end index = " + i);
             }
         }
 
@@ -548,8 +544,15 @@ namespace C_WindowsFormAndOpenTK
         {
             GL.Viewport(0, 0, glControl.Width, glControl.Height);
 
-            if (myCameraFly != null)
-                myCameraFly/*.MyGetCamera*/.AspectRatio = glControl.Width / (float)glControl.Height;
+            if (myCameraCurrent != null)
+            {
+                myCameraCurrent.AspectRatio = MyGetAspectRatio();
+                myCameraFly.AspectRatio = MyGetAspectRatio();
+
+                for (int i = 0; i < myListObjects.Count; i++)
+                    if (myListObjects[i] is MyHandleCamera)
+                        ((MyHandleCamera)myListObjects[i]).AspectRatio = MyGetAspectRatio();
+            }
         }
 
         private void treeViewGameObjects_MouseDown(object sender, MouseEventArgs e)
@@ -561,6 +564,7 @@ namespace C_WindowsFormAndOpenTK
                 flowLayoutPanelMyParameters.Controls.Clear();
                 treeViewGameObjects.SelectedNode = null;
                 testDepth = null;
+                myCameraCurrent = myCameraFly;
             }
 
             if (e.Button == MouseButtons.Left)
@@ -589,6 +593,11 @@ namespace C_WindowsFormAndOpenTK
         {
             if (flowLayoutPanelMyParameters.Controls.Count > 0)
                 flowLayoutPanelMyParameters.Controls.Clear();
+
+            MyHandleCamera myCam = _myGameObject as MyHandleCamera;
+            if (myCam != null)
+                myCameraCurrent = myCam;
+            else myCameraCurrent = myCameraFly;
 
             if (_myGameObject.MyGetComponent<MyModel>() != null)
             {
@@ -984,9 +993,15 @@ namespace C_WindowsFormAndOpenTK
         private void contextMenuStripHierarhy_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (treeViewGameObjects.SelectedNode != null)
+            {
                 contextMenuStripHierarhy.Items["Delete"].Enabled = true;
+                contextMenuStripHierarhy.Items["renameToolStripMenuItem"].Enabled = true;
+            }
             else
+            {
                 contextMenuStripHierarhy.Items["Delete"].Enabled = false;
+                contextMenuStripHierarhy.Items["renameToolStripMenuItem"].Enabled = false;
+            }
         }
 
         private void contextMenuStripHierarhy_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -1009,30 +1024,45 @@ namespace C_WindowsFormAndOpenTK
 
         private void CreateGameObjectEmpty_Click(object sender, EventArgs e)
         {
-            MyGameObject gameObject = new MyGameObject();
-            gameObject.MySetName("Empty obj");
+            MyGameObject gameObject = new MyGameObject("Empty obj");
             MyAddTreeViewGameObject(MyInstantiateInScene(gameObject));
         }
 
         private void cubeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyGameObject gameObject = new MyGameObject();
-            gameObject.MySetName("Cube");
+            MyGameObject gameObject = new MyGameObject("Cube");
             MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabCube));
         }
 
         private void sphereToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyGameObject gameObject = new MyGameObject();
-            gameObject.MySetName("Sphere");
+            MyGameObject gameObject = new MyGameObject("Sphere");
             MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabSphere));
         }
 
         private void planeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyGameObject gameObject = new MyGameObject();
-            gameObject.MySetName("Plane");
+            MyGameObject gameObject = new MyGameObject("Plane");
             MyAddTreeViewGameObject(MyInstantiateInScene(gameObject, myPrefabPlane));
+        }
+
+        private void cameraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyGameObject gameObject = new MyHandleCamera(Vector3.Zero, MyGetAspectRatio());
+            MyAddTreeViewGameObject(MyInstantiateInScene(gameObject));
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            treeViewGameObjects.SelectedNode.BeginEdit();
+        }
+
+        private void treeViewGameObjects_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            if (e.Label != null && e.Label.Length > 0)
+                ((MyGameObject)treeViewGameObjects.SelectedNode.Tag).myName = e.Label;
+            else
+                e.CancelEdit = true;
         }
     }
 }

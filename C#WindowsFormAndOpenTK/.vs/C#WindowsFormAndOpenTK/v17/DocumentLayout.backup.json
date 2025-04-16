@@ -7,32 +7,28 @@
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mycamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mycamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mytestcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mytestcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myhandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myhandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mygameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mygameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|d:\\\u043C\u043E\u0439 \u043A\u043E\u0434\\c#windowsformandopentk\\mycamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mycamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myhandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myhandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,30 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyTestCamera.cs",
-              "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestCamera.cs",
-              "RelativeDocumentMoniker": "MyTestCamera.cs",
-              "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestCamera.cs",
-              "RelativeToolTip": "MyTestCamera.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T07:38:41.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MyCamera.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyCamera.cs",
               "RelativeDocumentMoniker": "MyCamera.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyCamera.cs",
               "RelativeToolTip": "MyCamera.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAE0AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAH0AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-10T09:39:57.488Z",
               "EditorCaption": ""
@@ -78,14 +61,13 @@
               "RelativeDocumentMoniker": "MyHandleCamera.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyHandleCamera.cs",
               "RelativeToolTip": "MyHandleCamera.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T09:39:11.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T09:39:11.951Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MyObjectOnScene.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyObjectOnScene.cs",
               "RelativeDocumentMoniker": "MyObjectOnScene.cs",
@@ -93,31 +75,30 @@
               "RelativeToolTip": "MyObjectOnScene.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T12:22:49.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T12:22:49.733Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "MyGameObject.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyGameObject.cs",
               "RelativeDocumentMoniker": "MyGameObject.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyGameObject.cs",
               "RelativeToolTip": "MyGameObject.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAAAKYAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAqwJgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T08:46:14.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MyModel.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyModel.cs",
               "RelativeDocumentMoniker": "MyModel.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyModel.cs",
               "RelativeToolTip": "MyModel.cs",
-              "ViewState": "AgIAAOQAAAAAAAAAAAAAAHsAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAqwHEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T19:49:32.032Z",
               "EditorCaption": ""
@@ -130,14 +111,14 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAEkCAAAAAAAAAAAAAF8CAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAB8BAAAAAAAAAADwvx8EAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T10:41:16.208Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

@@ -12,6 +12,7 @@ out vec2 texCoord;
 void main()
 {
     mat4 modelView = model * view;
+    
     modelView[0][0] = model[0][0];
     modelView[0][1] = model[0][1];
     modelView[0][2] = model[0][2];

@@ -99,8 +99,8 @@ namespace C_WindowsFormAndOpenTK
             myShader.SetVector3("myUV", myTexCoord);
             
             myShader.SetMatrix4("model", _myModel);
-            myShader.SetMatrix4("view", _cam/*.MyGetCamera*/.GetViewMatrix());
-            myShader.SetMatrix4("projection", _cam/*.MyGetCamera*/.GetProjectionMatrix());
+            myShader.SetMatrix4("view", _cam.GetViewMatrix());
+            myShader.SetMatrix4("projection", _cam.GetProjectionMatrix());
 
             foreach (MyMesh mesh in meshes)
             {

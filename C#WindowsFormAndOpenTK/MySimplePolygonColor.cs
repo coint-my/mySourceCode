@@ -1,5 +1,6 @@
 ﻿using OpenTK.Graphics.OpenGL;
 using OpenTK;
+using System.Diagnostics;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -31,7 +32,7 @@ namespace C_WindowsFormAndOpenTK
         {
             myTransform = new MyTransform();
             myTransform.myPosition = new Vector3(0.0f, 0.0f, 2.0f);
-            myTransform.myScale = new Vector3(0.1f, 0.1f, 0.1f);
+            myTransform.myScale = new Vector3(0.1f);
 
             myVertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(myVertexArrayObject);
@@ -58,9 +59,10 @@ namespace C_WindowsFormAndOpenTK
 
         public MySimplePolygonColor(ref MyTexture _texure, int _textureData) 
         {
+            Debug.WriteLine("texture = " + MyTexture.myCurrentIndex);
             myTransform = new MyTransform();
             myTransform.myPosition = new Vector3(0.0f, 0.0f, 2.0f);
-            myTransform.myScale = new Vector3(0.1f, 0.1f, 0.1f);
+            myTransform.myScale = new Vector3(0.1f);
             //myTransform.myRotation = new Vector3(0.0f, 0.0f, 0.0f);
 
             myVertexArrayObject = GL.GenVertexArray();
@@ -93,6 +95,8 @@ namespace C_WindowsFormAndOpenTK
             mySimpleShader.SetInt("texture0", _textureData);
         }
 
+        public void MySetScale(Vector3 _scale) => myTransform.myScale = _scale;
+
         public void MySetPosition(Vector3 _position)
         {
             myTransform.myPosition = _position;
@@ -101,14 +105,23 @@ namespace C_WindowsFormAndOpenTK
         public void MyDraw(MyHandleCamera _camera, Vector4 _color)
         {
             Matrix4 model = Matrix4.Identity;
-            model = model * Matrix4.CreateScale(myTransform.myScale);
+
+            float scale = 0;
+            if (_camera.myParent == null)
+                scale = (_camera.myPosition - myTransform.myPosition).Length * 0.1f;
+            else
+                scale = (_camera.MyGetModel.ExtractTranslation() - myTransform.myPosition).Length * 0.1f;
+
+            model = model * Matrix4.CreateScale(myTransform.myScale * scale);
             model = model * Matrix4.CreateFromQuaternion(Quaternion.FromEulerAngles(myTransform.myRotation));
             model = model * Matrix4.CreateTranslation(myTransform.myPosition);
 
+            GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+
             mySimpleShader.Use();
             GL.Uniform4(GL.GetUniformLocation(mySimpleShader.Handle, "Color"), _color);
-            mySimpleShader.SetMatrix4("view", _camera/*.MyGetCamera*/.GetViewMatrix());
-            mySimpleShader.SetMatrix4("projection", _camera/*.MyGetCamera*/.GetProjectionMatrix());
+            mySimpleShader.SetMatrix4("view", _camera.GetViewMatrix());
+            mySimpleShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
             mySimpleShader.SetMatrix4("model", model);
 
             GL.BindVertexArray(myVertexArrayObject);

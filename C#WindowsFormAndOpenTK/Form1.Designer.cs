@@ -70,6 +70,8 @@
             this.cubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sphereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleZ)).BeginInit();
@@ -528,14 +530,14 @@
             this.rename,
             this.deleteToolStrip});
             this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
-            this.contextMenuStripExplorer.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 70);
             this.contextMenuStripExplorer.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripExplorer_Opening);
             // 
             // createFolderToolStripMenuItem
             // 
             this.createFolderToolStripMenuItem.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
             this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
-            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.createFolderToolStripMenuItem.Text = "Create Folder";
             this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
             // 
@@ -543,14 +545,14 @@
             // 
             this.rename.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
             this.rename.Name = "rename";
-            this.rename.Size = new System.Drawing.Size(180, 22);
+            this.rename.Size = new System.Drawing.Size(144, 22);
             this.rename.Text = "Rename";
             this.rename.Click += new System.EventHandler(this.rename_Click);
             // 
             // deleteToolStrip
             // 
             this.deleteToolStrip.Name = "deleteToolStrip";
-            this.deleteToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
             this.deleteToolStrip.Text = "Delete";
             this.deleteToolStrip.Click += new System.EventHandler(this.deleteToolStrip_Click);
             // 
@@ -592,10 +594,13 @@
             this.treeViewGameObjects.AllowDrop = true;
             this.treeViewGameObjects.ContextMenuStrip = this.contextMenuStripHierarhy;
             this.treeViewGameObjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.treeViewGameObjects.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.treeViewGameObjects.LabelEdit = true;
             this.treeViewGameObjects.Location = new System.Drawing.Point(3, 18);
             this.treeViewGameObjects.Name = "treeViewGameObjects";
             this.treeViewGameObjects.Size = new System.Drawing.Size(257, 165);
             this.treeViewGameObjects.TabIndex = 10;
+            this.treeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewGameObjects_AfterLabelEdit);
             this.treeViewGameObjects.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeViewGameObjects_ItemDrag);
             this.treeViewGameObjects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewGameObjects_AfterSelect);
             this.treeViewGameObjects.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeViewGameObjects_DragDrop);
@@ -607,10 +612,12 @@
             // 
             this.contextMenuStripHierarhy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.delete,
-            this.toolStripMenuItem1});
+            this.renameToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.cameraToolStripMenuItem});
             this.contextMenuStripHierarhy.Name = "contextMenuStripHierarhy";
             this.contextMenuStripHierarhy.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStripHierarhy.Size = new System.Drawing.Size(178, 48);
+            this.contextMenuStripHierarhy.Size = new System.Drawing.Size(178, 92);
             this.contextMenuStripHierarhy.Text = "test";
             this.contextMenuStripHierarhy.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripHierarhy_Opening);
             this.contextMenuStripHierarhy.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripHierarhy_ItemClicked);
@@ -635,30 +642,44 @@
             // CreateGameObjectEmpty
             // 
             this.CreateGameObjectEmpty.Name = "CreateGameObjectEmpty";
-            this.CreateGameObjectEmpty.Size = new System.Drawing.Size(110, 22);
+            this.CreateGameObjectEmpty.Size = new System.Drawing.Size(180, 22);
             this.CreateGameObjectEmpty.Text = "Empty";
             this.CreateGameObjectEmpty.Click += new System.EventHandler(this.CreateGameObjectEmpty_Click);
             // 
             // cubeToolStripMenuItem
             // 
             this.cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
-            this.cubeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.cubeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cubeToolStripMenuItem.Text = "Cube";
             this.cubeToolStripMenuItem.Click += new System.EventHandler(this.cubeToolStripMenuItem_Click);
             // 
             // sphereToolStripMenuItem
             // 
             this.sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
-            this.sphereToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.sphereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sphereToolStripMenuItem.Text = "Sphere";
             this.sphereToolStripMenuItem.Click += new System.EventHandler(this.sphereToolStripMenuItem_Click);
             // 
             // planeToolStripMenuItem
             // 
             this.planeToolStripMenuItem.Name = "planeToolStripMenuItem";
-            this.planeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.planeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.planeToolStripMenuItem.Text = "Plane";
             this.planeToolStripMenuItem.Click += new System.EventHandler(this.planeToolStripMenuItem_Click);
+            // 
+            // cameraToolStripMenuItem
+            // 
+            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.cameraToolStripMenuItem.Text = "Create Camera";
+            this.cameraToolStripMenuItem.Click += new System.EventHandler(this.cameraToolStripMenuItem_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -740,6 +761,8 @@
         private System.Windows.Forms.ToolStripMenuItem createFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rename;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
     }
 }
 

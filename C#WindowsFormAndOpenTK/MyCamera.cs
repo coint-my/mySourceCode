@@ -1,15 +1,18 @@
 ﻿using OpenTK;
 using System;
+using System.Diagnostics;
 
 namespace C_WindowsFormAndOpenTK
 {
     public enum MyDirection { FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN }
 
     public class MyCamera : MyGameObject
-    {
+    {       
         private Vector3 _front = -Vector3.UnitZ;
 
         public Vector3 MyGetFront { get { return _front; } }
+
+        public bool myIsFly { get; set; }
 
         private Vector3 _up = Vector3.UnitY;
 
@@ -19,19 +22,20 @@ namespace C_WindowsFormAndOpenTK
 
         private float _yaw = -MathHelper.PiOver2;
 
+        private float myRoll = 0;
+
         private float _fov = MathHelper.DegreesToRadians(60);
+
+        private Matrix4 myMatrixView;
 
         public MyCamera(Vector3 position, float aspectRatio)
         {
             myPosition = position;
             AspectRatio = aspectRatio;
+            myName = "Camera";
         }
-
-        // The position of the camera
-        //public Vector3 Position { get; set; }
-
         // This is simply the aspect ratio of the viewport, used for the projection matrix.
-        public float AspectRatio { private get; set; }
+        public float AspectRatio { get; set; }
 
         public Vector3 Front => _front;
 
@@ -75,7 +79,10 @@ namespace C_WindowsFormAndOpenTK
         // Get the view matrix using the amazing LookAt function described more in depth on the web tutorials
         public Matrix4 GetViewMatrix()
         {
-            return Matrix4.LookAt(myPosition, myPosition + _front, _up);
+            if (myIsFly)
+                return Matrix4.LookAt(myPosition, myPosition + _front, _up);
+            else
+                return myMatrixView;
         }
 
         // Get the projection matrix using the same method we have used up until this point
@@ -95,6 +102,31 @@ namespace C_WindowsFormAndOpenTK
 
             _right = Vector3.Normalize(Vector3.Cross(_front, Vector3.UnitY));
             _up = Vector3.Normalize(Vector3.Cross(_right, _front));
+        }
+
+        public void MyUpdateVectors()
+        {
+            // Повороты в радианах
+            //float yawRad = MathHelper.DegreesToRadians(myRotation.X);
+            //float pitchRad = MathHelper.DegreesToRadians(myRotation.Y);
+            //float rollRad = MathHelper.DegreesToRadians(myRotation.Z);
+
+
+            // Матрица поворота с учетом yaw, pitch и roll
+            //Matrix4 rotation = Matrix4.CreateRotationZ(myRotation.Z) *
+            //                   Matrix4.CreateRotationX(myRotation.X) *
+            //                   Matrix4.CreateRotationY(myRotation.Y);
+
+            //rotation = MyGetModel;
+            Vector3 pos = myModel.ExtractTranslation();
+
+            Vector3 forward = Vector3.Transform(Vector3.UnitZ, new Matrix3(myModel));
+            Vector3 up = Vector3.Transform(Vector3.UnitY, new Matrix3(myModel));
+
+            myMatrixView = Matrix4.LookAt(pos, pos + forward, up);
+
+            //Debug.WriteLine("pos world x = " + pos.X + " y = " + pos.Y + " z = " + pos.Z);
+            //Debug.WriteLine("pos local x = " + myPosition.X + " y = " + myPosition.Y + " z = " + myPosition.Z);
         }
     }
 }
