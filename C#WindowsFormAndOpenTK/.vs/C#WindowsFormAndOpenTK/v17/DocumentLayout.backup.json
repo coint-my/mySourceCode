@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|d:\\\u043C\u043E\u0439 \u043A\u043E\u0434\\c#windowsformandopentk\\mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -54,8 +54,7 @@
               "RelativeToolTip": "MyTestTexture.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAC8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T07:34:04.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T07:34:04.921Z"
             },
             {
               "$type": "Document",
@@ -115,8 +114,7 @@
               "RelativeToolTip": "MyModel.cs",
               "ViewState": "AgIAABUAAAAAAAAAAADwv8kAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T19:49:32.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T19:49:32.032Z"
             },
             {
               "$type": "Document",
@@ -126,7 +124,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAADoEAAAAAAAAAADwv1AEAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAANABAAAAAAAAAADwv+IBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T10:41:16.208Z",
               "EditorCaption": ""
@@ -140,8 +138,7 @@
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T16:39:32.889Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-04-26T16:39:32.889Z"
             }
           ]
         }

@@ -466,12 +466,12 @@ namespace C_WindowsFormAndOpenTK
             itemDelete.Enabled = false;
 
             int count = listView1.SelectedIndices.Count;
-            Debug.WriteLine("index = " + count);
 
             if (count == 1)
             {
                 string path = listView1.SelectedItems[0].Text;
                 DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
+                if (path == "...") return;
                 if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
                 {
                     itemRename = contextMenuStripExplorer.Items.Find("Rename", false)[0];
@@ -485,6 +485,7 @@ namespace C_WindowsFormAndOpenTK
                 foreach (var item in listView1.SelectedItems)
                 {
                     DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + ((ListViewItem)item).Text);
+                    if (((ListViewItem)item).Text == "...") return;
                     if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
                         continue;
                     else
