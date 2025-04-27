@@ -4,15 +4,17 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using HeyRed.Mime;
 using Microsoft.VisualBasic.FileIO;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
+using static System.Net.WebRequestMethods;
 
 namespace C_WindowsFormAndOpenTK
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
         bool[] myKeyPress = new bool[256];
         private readonly float[] _vertices =
@@ -31,7 +33,6 @@ namespace C_WindowsFormAndOpenTK
         private int _vertexBufferObject;
         private int _vertexArrayObject;
         private int _elementBufferObject;
-        private long myTimeDoubleClick = DateTime.Now.Ticks;
         private string myPathDirectory;
         private MyShader _shader;
         private MyTexture _texture;
@@ -50,6 +51,7 @@ namespace C_WindowsFormAndOpenTK
         MyModel myPrefabPlane;
         MyShader myShaderLight;
         List<MyObjectOnScene> myListObjects;
+        static Dictionary<string, MyTestTexture> myDictionaryTextures;
         //MyTransform myBufferTransform;
 
         private Timer myTimer = null;
@@ -59,7 +61,7 @@ namespace C_WindowsFormAndOpenTK
         private Vector3 VecPos = new Vector3(0, 0, -2);
 
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
             InitGLControl();
@@ -321,9 +323,38 @@ namespace C_WindowsFormAndOpenTK
             MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
 
             MyInitializeExplorer("Resources");
+            MyInitializeTextures();
         }
 
         private float MyGetAspectRatio() => glControl.Width / (float)glControl.Height;
+
+        private void MyInitializeTextures()
+        {
+            DirectoryInfo baseDirectory = new DirectoryInfo("Resources");
+            myDictionaryTextures = new Dictionary<string, MyTestTexture>();
+
+            foreach(var dir in baseDirectory.GetDirectories("*", System.IO.SearchOption.AllDirectories))
+            {
+                foreach (var files in dir.GetFiles())
+                {
+                    string typeName = MimeTypesMap.GetMimeType(files.Name);
+                    string type = typeName.Substring(0, typeName.LastIndexOf('/'));
+
+                    if (type == "image")
+                    {
+                        string nameDirectory = dir.FullName.Substring(dir.FullName.LastIndexOf("Resources"));
+                        string myFormatDirectory = nameDirectory.Replace("\\", "//");
+                        myDictionaryTextures.Add(myFormatDirectory + "//" + files.Name,
+                            MyTestTexture.LoadFromFile(nameDirectory + "//" + files.Name));
+                    }
+                }
+            }
+
+            foreach (var item in myDictionaryTextures)
+            {
+                Debug.WriteLine("file name = " + item.Key + " type = " + item.Value);
+            }
+        }
 
         private void MyInitializeExplorer(string _nameDir)
         {
@@ -332,107 +363,99 @@ namespace C_WindowsFormAndOpenTK
             if (dirInfo.Exists)
             {
                 groupBoxExplorer.Text = myPathDirectory;
-                flowLayoutExplorer.Controls.Clear();
+                listView1.Items.Clear();
+                ImageList listImg = new ImageList();
+                listImg.ImageSize = new Size(32, 32);
+                listImg.Images.Add("folder", Properties.Resources.folder);
+                listImg.Images.Add("file", Properties.Resources.file);
+                listImg.Images.Add("fileImage", Properties.Resources.fileImage);
+                listView1.LargeImageList = listImg;
 
                 if (myPathDirectory != "Resources")
-                    flowLayoutExplorer.Controls.Add(MyCreateFolder("...", true));
+                {
+                    listView1.Items.Add("...", "folder");
+                }
 
                 foreach (var item in dirInfo.EnumerateDirectories())
                 {
-                    flowLayoutExplorer.Controls.Add(MyCreateFolder(item.Name));
+                    listView1.Items.Add(item.Name, "folder");
                 }
 
                 foreach (var item in dirInfo.EnumerateFiles())
                 {
                     string typeName = MimeTypesMap.GetMimeType(item.FullName);
                     string type = typeName.Substring(0, typeName.LastIndexOf('/'));
-                    Debug.WriteLine("name" + item.Name + " type = " + typeName);
 
                     if (type == "image")
-                        flowLayoutExplorer.Controls.Add(MyCreateFile(item.Name, Properties.Resources.fileImage));
+                    {
+                        listView1.Items.Add(item.Name, "fileImage");
+                    }
                     else
-                        flowLayoutExplorer.Controls.Add(MyCreateFile(item.Name, Properties.Resources.file));
+                    {
+                        listView1.Items.Add(item.Name, "file");
+                    }
                 }
             }
             else
                 Debug.WriteLine("Wrong Directory = " + myPathDirectory);
         }
 
-        private Button MyCreateFile(string _name, Bitmap _image)
+        private bool MyIsEqualDirectory(string _name)
         {
-            Button button = new Button();
-            button.Text = _name;
-            button.ImageAlign = ContentAlignment.TopCenter;
-            button.TextAlign = ContentAlignment.BottomCenter;
-            button.TextImageRelation = TextImageRelation.ImageAboveText;
-            button.AutoEllipsis = true;
-            button.UseCompatibleTextRendering = true;
-            button.Image = _image;
-            button.Margin = new Padding();
-            button.Size = new Size(60, 60);
-            button.Tag = false;
+            DirectoryInfo directoryCheck = new DirectoryInfo(myPathDirectory);
 
-            return button;
-        }
+            foreach (var item in directoryCheck.GetDirectories())
+            {
+                if(item.Name.ToLower() == _name.ToLower())
+                    return true;
+            }
 
-        private Button MyCreateFolder(string _name, bool _isLocked = false)
-        {
-            Button button = new Button();
-            button.Text = _name;
-            button.ImageAlign = ContentAlignment.TopCenter;
-            button.TextAlign = ContentAlignment.BottomCenter;
-            button.TextImageRelation = TextImageRelation.ImageAboveText;
-            button.AutoEllipsis = true;
-            button.UseCompatibleTextRendering = true;
-            button.Image = Properties.Resources.folder;
-            button.Margin = new Padding();
-            button.Size = new Size(60, 60);
-            button.Tag = _isLocked;
-            button.Click += ButtonFolder_Click;
-
-            return button;
+            return false;
         }
 
         private void createFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DirectoryInfo directory = Directory.CreateDirectory(myPathDirectory + "//newFolder");
-            if (directory.Exists)
+            try
             {
-                Debug.WriteLine("create folder " + directory.FullName + " local dir = " + myPathDirectory);
-                MyInitializeExplorer(myPathDirectory);
+                string newName = "newFolder";
+                for (int i = 1; i < 10000; i++)
+                {
+                    string tempName = newName + i;
+                    if (!MyIsEqualDirectory(tempName))
+                    {
+                        newName = tempName;
+                        break;
+                    }
+                }
+                DirectoryInfo directory = Directory.CreateDirectory(myPathDirectory + "//" + newName);
+
+                ListViewItem item = listView1.Items.Add(newName, "folder");
+                item.BeginEdit();
             }
+            catch(Exception ex) { Debug.WriteLine(ex); }
         }
 
         private void deleteToolStrip_Click(object sender, EventArgs e)
         {
-            Button btn = MyFindSelectFolder();
-            DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + btn.Text);
-
-            try
+            foreach (var item in listView1.SelectedItems)
             {
-                Directory.Delete(myPathDirectory + "//" + btn.Text, true);
-                MyInitializeExplorer(myPathDirectory);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Delete wrong " + ex.Message, "Exeption", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + ((ListViewItem)item).Text);
+                try
+                {
+                    Directory.Delete(myPathDirectory + "//" + ((ListViewItem)item).Text, true);
+                    MyInitializeExplorer(myPathDirectory);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Delete wrong " + ex.Message, "Exeption", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
 
         private void rename_Click(object sender, EventArgs e)
         {
-            Button btn = MyFindSelectFolder();
-
-            using(MyRenameFolder rename = new MyRenameFolder(btn.Text))
-            {
-                if (rename.ShowDialog(this) == DialogResult.OK)
-                {
-                    FileSystem.RenameDirectory(myPathDirectory + "//" + btn.Text, rename.MyTextRename);
-                    
-                    btn.Text = rename.MyTextRename;
-                }
-            }
+            listView1.SelectedItems[0].BeginEdit();
         }
 
         private void contextMenuStripExplorer_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -442,10 +465,13 @@ namespace C_WindowsFormAndOpenTK
             ToolStripItem itemDelete = contextMenuStripExplorer.Items.Find("deleteToolStrip", false)[0];
             itemDelete.Enabled = false;
 
-            Button btn = MyFindSelectFolder();
-            if (btn != null && (bool)btn.Tag == false)
+            int count = listView1.SelectedIndices.Count;
+            Debug.WriteLine("index = " + count);
+
+            if (count == 1)
             {
-                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + btn.Text);
+                string path = listView1.SelectedItems[0].Text;
+                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
                 if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
                 {
                     itemRename = contextMenuStripExplorer.Items.Find("Rename", false)[0];
@@ -454,40 +480,20 @@ namespace C_WindowsFormAndOpenTK
                     itemDelete.Enabled = true;
                 }
             }
-        }
+            else if (count > 1)
+            {               
+                foreach (var item in listView1.SelectedItems)
+                {
+                    DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + ((ListViewItem)item).Text);
+                    if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+                        continue;
+                    else
+                        return;
+                }
 
-        private Button MyFindSelectFolder()
-        {
-            for (int i = 0; i < flowLayoutExplorer.Controls.Count; i++)
-            {
-                if (((Button)flowLayoutExplorer.Controls[i]).Focused)
-                    return ((Button)flowLayoutExplorer.Controls[i]);
+                itemDelete = contextMenuStripExplorer.Items.Find("deleteToolStrip", false)[0];
+                itemDelete.Enabled = true;
             }
-
-            return null;
-        }
-
-        private void ButtonFolder_Click(object sender, EventArgs e)
-        {
-            long t = (DateTime.Now.Ticks - myTimeDoubleClick) / 1000000;
-
-            if(t <= 2)
-            {
-                Console.WriteLine("time " + t);
-
-                Button button = (Button)sender;
-
-                string nameFolder = button.Text;
-
-                if (button.Text == "...")
-                    nameFolder = myPathDirectory.Substring(0, myPathDirectory.LastIndexOf('/') - 1);
-                else
-                    nameFolder = myPathDirectory + "//" + nameFolder;
-
-                MyInitializeExplorer(nameFolder);
-            }
-
-            myTimeDoubleClick = DateTime.Now.Ticks;
         }
 
         private void MyAddTreeViewGameObject(MyObjectOnScene _object)
@@ -622,11 +628,14 @@ namespace C_WindowsFormAndOpenTK
             GroupBox gBox = MyCreateGroupBox("Texture", "Model " + _model.MyGetDirectory);
             FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.TopDown);
             gBox.Controls.Add(flow);
-            System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
-            textBox.Size = new Size(220, 70);
-            textBox.Multiline = true;
-            textBox.Text = _model.MyGetTexture != null ? _model.MyGetTexture.path : "None";
-            flow.Controls.Add(textBox);
+            Button buttonTexture = new Button();
+            buttonTexture.Size = new Size(220, 30);
+            buttonTexture.Text = _model.MyGetTexture != null ? _model.MyGetTexture.myName : "None";
+            buttonTexture.AllowDrop = true;
+            buttonTexture.Tag = _model;
+            buttonTexture.DragEnter += ButtonTextureMyParameters_DragEnter;
+            buttonTexture.DragDrop += ButtonTextureMyParameters_DragDrop;
+            flow.Controls.Add(buttonTexture);
             flow.Controls.Add(MyAddLabelAndVector2("Tex Coords", _model, MyEventU_ValueChanged,
                 MyEventV_ValueChanged));
         }
@@ -1063,6 +1072,76 @@ namespace C_WindowsFormAndOpenTK
                 ((MyGameObject)treeViewGameObjects.SelectedNode.Tag).myName = e.Label;
             else
                 e.CancelEdit = true;
+        }
+
+        private void ButtonTextureMyParameters_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((ListViewItem)e.Data.GetData(typeof(ListViewItem)) != null)
+            {
+                string nameData = ((ListViewItem)e.Data.GetData(typeof(ListViewItem))).Text;
+                string typeName = MimeTypesMap.GetMimeType(nameData);
+                string type = typeName.Substring(0, typeName.LastIndexOf('/'));
+
+                if(type == "image")
+                {
+                    Control currControl = sender as Control;
+                    currControl.Select();
+                    e.Effect = e.AllowedEffect;
+                }
+            }
+        }
+
+        private void ButtonTextureMyParameters_DragDrop(object sender, DragEventArgs e)
+        {
+            string fileNameTexture = myPathDirectory + "//" + 
+                (e.Data.GetData(typeof(ListViewItem)) as ListViewItem).Text;
+            Debug.WriteLine("full name = " + fileNameTexture);
+
+            MyTestTexture texture = myDictionaryTextures[fileNameTexture];
+            MyModel model = ((Button)sender).Tag as MyModel;
+            Button boxTexture = sender as Button;
+            string nameTexture = System.IO.Path.GetFileNameWithoutExtension((e.Data.GetData(typeof(ListViewItem))
+                as ListViewItem).Text);
+            boxTexture.Text = nameTexture;
+            model.MyGetTexture = texture;
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            string nameFolder = listView1.SelectedItems[0].Text;
+
+            if (listView1.SelectedItems[0].Text == "...")
+                nameFolder = myPathDirectory.Substring(0, myPathDirectory.LastIndexOf('/') - 1);
+            else
+                nameFolder = myPathDirectory + "//" + nameFolder;
+
+            MyInitializeExplorer(nameFolder);
+        }
+
+        private void listView1_BeforeLabelEdit(object sender, LabelEditEventArgs e)
+        {
+            bool isNotPossible = true;
+            string path = listView1.SelectedItems[0].Text;
+            DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
+            if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+                isNotPossible = false;
+
+            e.CancelEdit = isNotPossible;
+        }
+
+        private void listView1_AfterLabelEdit(object sender, LabelEditEventArgs e)
+        {
+            if (e.Label != null && !MyIsEqualDirectory(e.Label))
+                FileSystem.RenameDirectory(myPathDirectory + "//" + listView1.SelectedItems[0].Text,
+                    e.Label);
+            else
+                e.CancelEdit = true;
+        }
+
+        private void listView1_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            DoDragDrop(e.Item, DragDropEffects.Move);
+            //Debug.WriteLine("item = " + e.Item);
         }
     }
 }

@@ -1,0 +1,11 @@
+﻿  myRayCasting.cpp
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutInitWindowPosition в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutInitWindowSize в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutInitDisplayMode в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutMainLoop в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutReshapeFunc в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glutDisplayFunc в функции main.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp___glutInitWithExit в функции glutInit_ATEXIT_HACK.
+myRayCasting.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp___glutCreateWindowWithExit в функции glutCreateWindow_ATEXIT_HACK.
+freeglut.lib : warning LNK4272: тип компьютера библиотеки "x86" конфликтует с типом целевого компьютера "x64"
+D:\Мой код\myRayCasting\x64\Debug\myRayCasting.exe : fatal error LNK1120: неразрешенных внешних элементов: 8

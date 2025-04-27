@@ -9,6 +9,7 @@ namespace C_WindowsFormAndOpenTK
         public readonly int Handle;
         public string type;
         public string path;
+        public string myName;
 
         public static MyTestTexture LoadFromFile(string filename, string type = "texture_diffuse")
         {
@@ -41,11 +42,12 @@ namespace C_WindowsFormAndOpenTK
             return new MyTestTexture(handle, filename, type);
         }
 
-        public MyTestTexture(int glHandle, string path, string type)
+        public MyTestTexture(int _glHandle, string _path, string _type)
         {
-            Handle = glHandle;
-            this.path = path;
-            this.type = type;
+            Handle = _glHandle;
+            path = _path;
+            type = _type;
+            myName = Path.GetFileNameWithoutExtension(_path);
         }
 
         public void Use(TextureUnit unit)

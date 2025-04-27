@@ -43,7 +43,8 @@ namespace C_WindowsFormAndOpenTK
                 if (meshes[0].textures.Count > 0)
                     return meshes[0].textures[0];
                 return null;
-            } 
+            }
+            set { meshes[0].textures[0] = value; }
         }
 
         public MyModel(string path)
@@ -195,6 +196,11 @@ namespace C_WindowsFormAndOpenTK
             textures.AddRange(heightMaps);
 
             CenterModelPivot(vertices);
+
+            if(textures.Count == 0)
+            {
+                textures.Add(MyTestTexture.LoadFromFile("Resources//Textures//myWhite_8_8.jpg"));
+            }
 
             return new MyMesh(vertices.ToArray(), indices.ToArray(), textures);
         }

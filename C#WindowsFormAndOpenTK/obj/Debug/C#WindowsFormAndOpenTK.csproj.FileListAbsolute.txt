@@ -14,7 +14,6 @@ D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.csproj.
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#Window.017E02A4.Up2Date
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.exe
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.pdb
-D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.Form1.resources
 D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\StbImageSharp.dll
 D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\AssimpNet.dll
 D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\System.Buffers.dll
@@ -42,3 +41,4 @@ D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\MimeTypesMap.dll
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.csproj.SuggestedBindingRedirects.cache
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.exe.config
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.MyRenameFolder.resources
+D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.FormMain.resources

@@ -1,6 +1,6 @@
 ﻿namespace C_WindowsFormAndOpenTK
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -29,8 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelOpenTK = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.Path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Info = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripExplorer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rename = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,23 +62,18 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanelMyParameters = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBoxExplorer = new System.Windows.Forms.GroupBox();
-            this.flowLayoutExplorer = new System.Windows.Forms.FlowLayoutPanel();
-            this.contextMenuStripExplorer = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.createFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rename = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.treeViewGameObjects = new System.Windows.Forms.TreeView();
             this.contextMenuStripHierarhy = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateGameObjectEmpty = new System.Windows.Forms.ToolStripMenuItem();
             this.cubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sphereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripExplorer.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleZ)).BeginInit();
@@ -89,8 +91,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBoxExplorer.SuspendLayout();
-            this.flowLayoutExplorer.SuspendLayout();
-            this.contextMenuStripExplorer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStripHierarhy.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +105,70 @@
             this.panelOpenTK.Name = "panelOpenTK";
             this.panelOpenTK.Size = new System.Drawing.Size(565, 560);
             this.panelOpenTK.TabIndex = 2;
+            // 
+            // listView1
+            // 
+            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.AllowDrop = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Path,
+            this.Info});
+            this.listView1.ContextMenuStrip = this.contextMenuStripExplorer;
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listView1.HideSelection = false;
+            this.listView1.LabelEdit = true;
+            this.listView1.Location = new System.Drawing.Point(0, 13);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(255, 110);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.listView1_AfterLabelEdit);
+            this.listView1.BeforeLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.listView1_BeforeLabelEdit);
+            this.listView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listView1_ItemDrag);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // Path
+            // 
+            this.Path.Text = "Name";
+            // 
+            // Info
+            // 
+            this.Info.Text = "Info";
+            // 
+            // contextMenuStripExplorer
+            // 
+            this.contextMenuStripExplorer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createFolderToolStripMenuItem,
+            this.rename,
+            this.deleteToolStrip});
+            this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
+            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 70);
+            this.contextMenuStripExplorer.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripExplorer_Opening);
+            // 
+            // createFolderToolStripMenuItem
+            // 
+            this.createFolderToolStripMenuItem.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
+            this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
+            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.createFolderToolStripMenuItem.Text = "Create Folder";
+            this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
+            // 
+            // rename
+            // 
+            this.rename.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
+            this.rename.Name = "rename";
+            this.rename.Size = new System.Drawing.Size(144, 22);
+            this.rename.Text = "Rename";
+            this.rename.Click += new System.EventHandler(this.rename_Click);
+            // 
+            // deleteToolStrip
+            // 
+            this.deleteToolStrip.Name = "deleteToolStrip";
+            this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
+            this.deleteToolStrip.Text = "Delete";
+            this.deleteToolStrip.Click += new System.EventHandler(this.deleteToolStrip_Click);
             // 
             // groupBox4
             // 
@@ -500,78 +564,17 @@
             // 
             // groupBoxExplorer
             // 
-            this.groupBoxExplorer.Controls.Add(this.flowLayoutExplorer);
+            this.groupBoxExplorer.Controls.Add(this.listView1);
             this.groupBoxExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxExplorer.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxExplorer.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxExplorer.Name = "groupBoxExplorer";
+            this.groupBoxExplorer.Padding = new System.Windows.Forms.Padding(0);
             this.groupBoxExplorer.Size = new System.Drawing.Size(255, 123);
             this.groupBoxExplorer.TabIndex = 0;
             this.groupBoxExplorer.TabStop = false;
             this.groupBoxExplorer.Text = "Explorer";
             this.groupBoxExplorer.UseCompatibleTextRendering = true;
-            // 
-            // flowLayoutExplorer
-            // 
-            this.flowLayoutExplorer.AutoScroll = true;
-            this.flowLayoutExplorer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutExplorer.ContextMenuStrip = this.contextMenuStripExplorer;
-            this.flowLayoutExplorer.Controls.Add(this.button1);
-            this.flowLayoutExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutExplorer.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutExplorer.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutExplorer.Name = "flowLayoutExplorer";
-            this.flowLayoutExplorer.Size = new System.Drawing.Size(249, 104);
-            this.flowLayoutExplorer.TabIndex = 0;
-            // 
-            // contextMenuStripExplorer
-            // 
-            this.contextMenuStripExplorer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createFolderToolStripMenuItem,
-            this.rename,
-            this.deleteToolStrip});
-            this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
-            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 70);
-            this.contextMenuStripExplorer.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripExplorer_Opening);
-            // 
-            // createFolderToolStripMenuItem
-            // 
-            this.createFolderToolStripMenuItem.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
-            this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
-            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.createFolderToolStripMenuItem.Text = "Create Folder";
-            this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
-            // 
-            // rename
-            // 
-            this.rename.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
-            this.rename.Name = "rename";
-            this.rename.Size = new System.Drawing.Size(144, 22);
-            this.rename.Text = "Rename";
-            this.rename.Click += new System.EventHandler(this.rename_Click);
-            // 
-            // deleteToolStrip
-            // 
-            this.deleteToolStrip.Name = "deleteToolStrip";
-            this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
-            this.deleteToolStrip.Text = "Delete";
-            this.deleteToolStrip.Click += new System.EventHandler(this.deleteToolStrip_Click);
-            // 
-            // button1
-            // 
-            this.button1.AutoEllipsis = true;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.fileImage;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(61, 57);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1button1button1";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -628,6 +631,13 @@
             this.delete.Size = new System.Drawing.Size(177, 22);
             this.delete.Text = "Delete";
             // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -642,28 +652,28 @@
             // CreateGameObjectEmpty
             // 
             this.CreateGameObjectEmpty.Name = "CreateGameObjectEmpty";
-            this.CreateGameObjectEmpty.Size = new System.Drawing.Size(180, 22);
+            this.CreateGameObjectEmpty.Size = new System.Drawing.Size(110, 22);
             this.CreateGameObjectEmpty.Text = "Empty";
             this.CreateGameObjectEmpty.Click += new System.EventHandler(this.CreateGameObjectEmpty_Click);
             // 
             // cubeToolStripMenuItem
             // 
             this.cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
-            this.cubeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cubeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.cubeToolStripMenuItem.Text = "Cube";
             this.cubeToolStripMenuItem.Click += new System.EventHandler(this.cubeToolStripMenuItem_Click);
             // 
             // sphereToolStripMenuItem
             // 
             this.sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
-            this.sphereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sphereToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.sphereToolStripMenuItem.Text = "Sphere";
             this.sphereToolStripMenuItem.Click += new System.EventHandler(this.sphereToolStripMenuItem_Click);
             // 
             // planeToolStripMenuItem
             // 
             this.planeToolStripMenuItem.Name = "planeToolStripMenuItem";
-            this.planeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.planeToolStripMenuItem.Text = "Plane";
             this.planeToolStripMenuItem.Click += new System.EventHandler(this.planeToolStripMenuItem_Click);
             // 
@@ -674,14 +684,7 @@
             this.cameraToolStripMenuItem.Text = "Create Camera";
             this.cameraToolStripMenuItem.Click += new System.EventHandler(this.cameraToolStripMenuItem_Click);
             // 
-            // renameToolStripMenuItem
-            // 
-            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.renameToolStripMenuItem.Text = "Rename";
-            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
-            // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -690,8 +693,9 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panelOpenTK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "VBA Project Editor";
+            this.contextMenuStripExplorer.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).EndInit();
@@ -712,8 +716,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBoxExplorer.ResumeLayout(false);
-            this.flowLayoutExplorer.ResumeLayout(false);
-            this.contextMenuStripExplorer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.contextMenuStripHierarhy.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -755,14 +757,15 @@
         private System.Windows.Forms.ToolStripMenuItem sphereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planeToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxExplorer;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutExplorer;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripExplorer;
         private System.Windows.Forms.ToolStripMenuItem createFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rename;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStrip;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Path;
+        private System.Windows.Forms.ColumnHeader Info;
     }
 }
 
