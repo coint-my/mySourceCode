@@ -7,6 +7,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL;
 using System.Diagnostics;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -24,18 +25,23 @@ namespace C_WindowsFormAndOpenTK
             return Matrix4.Transpose(Unsafe.As<Matrix4x4, Matrix4>(ref AssimpMatrix));
         }
     }
-
+    
     public class MyModel : MyComponent, IDisposable, MyIDrawable
     {
         private List<MyMesh> meshes;
         private string directory;
         private List<MyTestTexture> textures_loaded;
 
-        private MyShader myShader;
+        public string myShaderPathVert;
+        public string myShaderPathFrag;
+        [XmlIgnore]
+        public MyShader myShader;
         private MyShader myShaderOutline;
+        public string myPrefab;
         public Vector3 myTexCoord { get; set; }
         public bool MyIsVisible { get; set; }
         public string MyGetDirectory { get { return directory; } }
+        [XmlIgnore]
         public MyTestTexture MyGetTexture 
         { 
             get 
@@ -47,10 +53,16 @@ namespace C_WindowsFormAndOpenTK
             set { meshes[0].textures[0] = value; }
         }
 
+        public MyModel() 
+        {
+            
+        }
+
         public MyModel(string path)
         {
             textures_loaded = new List<MyTestTexture>();
 
+            myPrefab = path;
             loadModel(path);
             myTexCoord = Vector3.One;
         }
@@ -59,7 +71,10 @@ namespace C_WindowsFormAndOpenTK
         {
             textures_loaded = new List<MyTestTexture>();
 
+            myPrefab = path;
             loadModel(path);
+            myShaderPathVert = _myShader.MyGetPathVert;
+            myShaderPathFrag = _myShader.MyGetPathFrag;
             myShader = _myShader;
             myShaderOutline = _myShaderOutline;
             myTexCoord = Vector3.One;
@@ -112,7 +127,7 @@ namespace C_WindowsFormAndOpenTK
         public void MyDrawOutline(MyGameObject _myGo, MyHandleCamera _cam)
         {
             myShaderOutline.Use();
-            float len = Vector3.Distance(_myGo.myPosition, _cam/*.MyGetCamera*/.myPosition) * 0.001f;
+            float len = Vector3.Distance(_myGo.myPosition, _cam.myPosition) * 0.001f;
             //GL.Uniform3(GL.GetUniformLocation(myShaderOutline.Handle, "outLine"), scale);
 
             Matrix4 myNewScaleModel;
@@ -121,8 +136,8 @@ namespace C_WindowsFormAndOpenTK
                 _myGo.myRotation, _myGo.myPosition, _myGo.myPivot);
 
             myShaderOutline.SetMatrix4("model", myNewScaleModel);
-            myShaderOutline.SetMatrix4("view", _cam/*.MyGetCamera*/.GetViewMatrix());
-            myShaderOutline.SetMatrix4("projection", _cam/*.MyGetCamera*/.GetProjectionMatrix());
+            myShaderOutline.SetMatrix4("view", _cam.GetViewMatrix());
+            myShaderOutline.SetMatrix4("projection", _cam.GetProjectionMatrix());
 
             foreach (MyMesh mesh in meshes)
             {
@@ -199,7 +214,7 @@ namespace C_WindowsFormAndOpenTK
 
             if(textures.Count == 0)
             {
-                textures.Add(MyTestTexture.LoadFromFile("Resources//Textures//myWhite_8_8.jpg"));
+                textures.Add(MyTestTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg"));
             }
 
             return new MyMesh(vertices.ToArray(), indices.ToArray(), textures);
@@ -234,7 +249,7 @@ namespace C_WindowsFormAndOpenTK
             {
                 TextureSlot str;
                 mat.GetMaterialTexture(type, i, out str);
-                string filename = Path.Combine(directory, str.FilePath);
+                string filename = directory + "/" + str.FilePath;//Path.Combine(directory, str.FilePath);
                 bool skip = false;
                 for (int j = 0; j < textures_loaded.Count; j++)
                 {

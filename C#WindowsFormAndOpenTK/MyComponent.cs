@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace C_WindowsFormAndOpenTK
 {
-    public interface MyComponent
+    public class MyComponent
     {
-        
+
     }
 }

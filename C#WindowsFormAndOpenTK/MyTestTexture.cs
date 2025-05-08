@@ -1,14 +1,18 @@
 ﻿using OpenTK.Graphics.OpenGL4;
 using StbImageSharp;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
     public class MyTestTexture
     {
         public readonly int Handle;
+        [XmlIgnore]
         public string type;
         public string path;
+        [XmlIgnore]
         public string myName;
 
         public static MyTestTexture LoadFromFile(string filename, string type = "texture_diffuse")
@@ -41,6 +45,8 @@ namespace C_WindowsFormAndOpenTK
 
             return new MyTestTexture(handle, filename, type);
         }
+
+        public MyTestTexture() { }
 
         public MyTestTexture(int _glHandle, string _path, string _type)
         {

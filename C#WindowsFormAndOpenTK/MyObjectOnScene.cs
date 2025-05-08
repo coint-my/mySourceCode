@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -12,7 +14,7 @@ namespace C_WindowsFormAndOpenTK
         void MyDraw(Matrix4 _myModel, MyHandleCamera _cam);
         void MyDrawOutline(MyGameObject _myGo, MyHandleCamera _cam);
     }
-
+    
     public abstract class MyObjectOnScene : MyTransform
     {
         public int myId;

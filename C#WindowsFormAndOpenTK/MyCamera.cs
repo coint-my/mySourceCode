@@ -1,6 +1,8 @@
 ﻿using OpenTK;
 using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -27,6 +29,8 @@ namespace C_WindowsFormAndOpenTK
         private float _fov = MathHelper.DegreesToRadians(60);
 
         private Matrix4 myMatrixView;
+
+        public MyCamera() { }
 
         public MyCamera(Vector3 position, float aspectRatio)
         {

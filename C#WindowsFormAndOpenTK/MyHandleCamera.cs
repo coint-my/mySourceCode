@@ -2,6 +2,8 @@
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -17,6 +19,11 @@ namespace C_WindowsFormAndOpenTK
 
         private float mySensitivity, myCameraSpeed;
 
+        public MyHandleCamera() : this(Vector3.Zero, 1)
+        {
+            
+        }
+
         public MyHandleCamera(Vector3 _startPos, float _aspectRatio) : base(_startPos, _aspectRatio)
         {
             lastPos = new Vector2(0f, 0f);
@@ -29,6 +36,7 @@ namespace C_WindowsFormAndOpenTK
             MyTexture texture = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
             texture.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
             myPolygonTexture = new MySimplePolygonColor(ref texture, MyTexture.myCurrentIndex);
+
             myPolygonTexture.MySetScale(new Vector3(0.5f));
         }
 

@@ -73,6 +73,10 @@
             this.sphereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripExplorer.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).BeginInit();
@@ -93,6 +97,7 @@
             this.groupBoxExplorer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStripHierarhy.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOpenTK
@@ -124,10 +129,6 @@
             this.listView1.Size = new System.Drawing.Size(255, 110);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.listView1_AfterLabelEdit);
-            this.listView1.BeforeLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.listView1_BeforeLabelEdit);
-            this.listView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listView1_ItemDrag);
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // Path
             // 
@@ -145,7 +146,6 @@
             this.deleteToolStrip});
             this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
             this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 70);
-            this.contextMenuStripExplorer.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripExplorer_Opening);
             // 
             // createFolderToolStripMenuItem
             // 
@@ -153,7 +153,6 @@
             this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
             this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.createFolderToolStripMenuItem.Text = "Create Folder";
-            this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
             // 
             // rename
             // 
@@ -161,14 +160,12 @@
             this.rename.Name = "rename";
             this.rename.Size = new System.Drawing.Size(144, 22);
             this.rename.Text = "Rename";
-            this.rename.Click += new System.EventHandler(this.rename_Click);
             // 
             // deleteToolStrip
             // 
             this.deleteToolStrip.Name = "deleteToolStrip";
             this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
             this.deleteToolStrip.Text = "Delete";
-            this.deleteToolStrip.Click += new System.EventHandler(this.deleteToolStrip_Click);
             // 
             // groupBox4
             // 
@@ -231,7 +228,6 @@
             this.numericScaleX.Name = "numericScaleX";
             this.numericScaleX.Size = new System.Drawing.Size(56, 22);
             this.numericScaleX.TabIndex = 1;
-            this.numericScaleX.ValueChanged += new System.EventHandler(this.numericScaleX_ValueChanged);
             // 
             // numericScaleZ
             // 
@@ -255,7 +251,6 @@
             this.numericScaleZ.Name = "numericScaleZ";
             this.numericScaleZ.Size = new System.Drawing.Size(56, 22);
             this.numericScaleZ.TabIndex = 5;
-            this.numericScaleZ.ValueChanged += new System.EventHandler(this.numericScaleZ_ValueChanged);
             // 
             // numericScaleY
             // 
@@ -279,7 +274,6 @@
             this.numericScaleY.Name = "numericScaleY";
             this.numericScaleY.Size = new System.Drawing.Size(56, 22);
             this.numericScaleY.TabIndex = 3;
-            this.numericScaleY.ValueChanged += new System.EventHandler(this.numericScaleY_ValueChanged);
             // 
             // label9
             // 
@@ -351,7 +345,6 @@
             this.numericRotationX.Name = "numericRotationX";
             this.numericRotationX.Size = new System.Drawing.Size(56, 22);
             this.numericRotationX.TabIndex = 1;
-            this.numericRotationX.ValueChanged += new System.EventHandler(this.numericRotationX_ValueChanged);
             // 
             // numericRotationZ
             // 
@@ -375,7 +368,6 @@
             this.numericRotationZ.Name = "numericRotationZ";
             this.numericRotationZ.Size = new System.Drawing.Size(56, 22);
             this.numericRotationZ.TabIndex = 5;
-            this.numericRotationZ.ValueChanged += new System.EventHandler(this.numericRotationZ_ValueChanged);
             // 
             // numericRotationY
             // 
@@ -399,7 +391,6 @@
             this.numericRotationY.Name = "numericRotationY";
             this.numericRotationY.Size = new System.Drawing.Size(56, 22);
             this.numericRotationY.TabIndex = 3;
-            this.numericRotationY.ValueChanged += new System.EventHandler(this.numericRotationY_ValueChanged);
             // 
             // label6
             // 
@@ -471,7 +462,6 @@
             this.numericPositionX.Name = "numericPositionX";
             this.numericPositionX.Size = new System.Drawing.Size(56, 22);
             this.numericPositionX.TabIndex = 1;
-            this.numericPositionX.ValueChanged += new System.EventHandler(this.numericUpDownX_ValueChanged);
             // 
             // numericPositionZ
             // 
@@ -495,7 +485,6 @@
             this.numericPositionZ.Name = "numericPositionZ";
             this.numericPositionZ.Size = new System.Drawing.Size(56, 22);
             this.numericPositionZ.TabIndex = 5;
-            this.numericPositionZ.ValueChanged += new System.EventHandler(this.numericUpDownZ_ValueChanged);
             // 
             // numericPositionY
             // 
@@ -519,7 +508,6 @@
             this.numericPositionY.Name = "numericPositionY";
             this.numericPositionY.Size = new System.Drawing.Size(56, 22);
             this.numericPositionY.TabIndex = 3;
-            this.numericPositionY.ValueChanged += new System.EventHandler(this.numericUpDownY_ValueChanged);
             // 
             // label2
             // 
@@ -603,13 +591,6 @@
             this.treeViewGameObjects.Name = "treeViewGameObjects";
             this.treeViewGameObjects.Size = new System.Drawing.Size(257, 165);
             this.treeViewGameObjects.TabIndex = 10;
-            this.treeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewGameObjects_AfterLabelEdit);
-            this.treeViewGameObjects.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeViewGameObjects_ItemDrag);
-            this.treeViewGameObjects.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewGameObjects_AfterSelect);
-            this.treeViewGameObjects.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeViewGameObjects_DragDrop);
-            this.treeViewGameObjects.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeViewGameObjects_DragEnter);
-            this.treeViewGameObjects.DragOver += new System.Windows.Forms.DragEventHandler(this.treeViewGameObjects_DragOver);
-            this.treeViewGameObjects.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeViewGameObjects_MouseDown);
             // 
             // contextMenuStripHierarhy
             // 
@@ -622,8 +603,6 @@
             this.contextMenuStripHierarhy.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.contextMenuStripHierarhy.Size = new System.Drawing.Size(178, 92);
             this.contextMenuStripHierarhy.Text = "test";
-            this.contextMenuStripHierarhy.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripHierarhy_Opening);
-            this.contextMenuStripHierarhy.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripHierarhy_ItemClicked);
             // 
             // delete
             // 
@@ -636,7 +615,6 @@
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
             this.renameToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.renameToolStripMenuItem.Text = "Rename";
-            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -654,45 +632,76 @@
             this.CreateGameObjectEmpty.Name = "CreateGameObjectEmpty";
             this.CreateGameObjectEmpty.Size = new System.Drawing.Size(110, 22);
             this.CreateGameObjectEmpty.Text = "Empty";
-            this.CreateGameObjectEmpty.Click += new System.EventHandler(this.CreateGameObjectEmpty_Click);
             // 
             // cubeToolStripMenuItem
             // 
             this.cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
             this.cubeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.cubeToolStripMenuItem.Text = "Cube";
-            this.cubeToolStripMenuItem.Click += new System.EventHandler(this.cubeToolStripMenuItem_Click);
             // 
             // sphereToolStripMenuItem
             // 
             this.sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
             this.sphereToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.sphereToolStripMenuItem.Text = "Sphere";
-            this.sphereToolStripMenuItem.Click += new System.EventHandler(this.sphereToolStripMenuItem_Click);
             // 
             // planeToolStripMenuItem
             // 
             this.planeToolStripMenuItem.Name = "planeToolStripMenuItem";
             this.planeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.planeToolStripMenuItem.Text = "Plane";
-            this.planeToolStripMenuItem.Click += new System.EventHandler(this.planeToolStripMenuItem_Click);
             // 
             // cameraToolStripMenuItem
             // 
             this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
             this.cameraToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cameraToolStripMenuItem.Text = "Create Camera";
-            this.cameraToolStripMenuItem.Click += new System.EventHandler(this.cameraToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(861, 29);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveSceneToolStripMenuItem,
+            this.loadSceneToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveSceneToolStripMenuItem
+            // 
+            this.saveSceneToolStripMenuItem.Name = "saveSceneToolStripMenuItem";
+            this.saveSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveSceneToolStripMenuItem.Text = "Save Scene";
+            this.saveSceneToolStripMenuItem.Click += new System.EventHandler(this.saveSceneToolStripMenuItem_Click);
+            // 
+            // loadSceneToolStripMenuItem
+            // 
+            this.loadSceneToolStripMenuItem.Name = "loadSceneToolStripMenuItem";
+            this.loadSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.loadSceneToolStripMenuItem.Text = "Load Scene";
+            this.loadSceneToolStripMenuItem.Click += new System.EventHandler(this.loadSceneToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 610);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panelOpenTK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "VBA Project Editor";
             this.contextMenuStripExplorer.ResumeLayout(false);
@@ -718,54 +727,61 @@
             this.groupBoxExplorer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.contextMenuStripHierarhy.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panelOpenTK;
-        private System.Windows.Forms.NumericUpDown numericPositionX;
+        public System.Windows.Forms.NumericUpDown numericPositionX;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericPositionZ;
+        public System.Windows.Forms.NumericUpDown numericPositionZ;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericPositionY;
+        public System.Windows.Forms.NumericUpDown numericPositionY;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericRotationX;
-        private System.Windows.Forms.NumericUpDown numericRotationZ;
-        private System.Windows.Forms.NumericUpDown numericRotationY;
+        public System.Windows.Forms.NumericUpDown numericRotationX;
+        public System.Windows.Forms.NumericUpDown numericRotationZ;
+        public System.Windows.Forms.NumericUpDown numericRotationY;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericScaleX;
-        private System.Windows.Forms.NumericUpDown numericScaleZ;
-        private System.Windows.Forms.NumericUpDown numericScaleY;
+        public System.Windows.Forms.NumericUpDown numericScaleX;
+        public System.Windows.Forms.NumericUpDown numericScaleZ;
+        public System.Windows.Forms.NumericUpDown numericScaleY;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMyParameters;
-        private System.Windows.Forms.TreeView treeViewGameObjects;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripHierarhy;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMyParameters;
+        public System.Windows.Forms.TreeView treeViewGameObjects;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStripHierarhy;
         private System.Windows.Forms.ToolStripMenuItem delete;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem CreateGameObjectEmpty;
         private System.Windows.Forms.ToolStripMenuItem cubeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sphereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planeToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBoxExplorer;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripExplorer;
+        public System.Windows.Forms.GroupBox groupBoxExplorer;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStripExplorer;
         private System.Windows.Forms.ToolStripMenuItem createFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rename;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStrip;
         private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
-        private System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Path;
         private System.Windows.Forms.ColumnHeader Info;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveSceneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadSceneToolStripMenuItem;
     }
 }
 

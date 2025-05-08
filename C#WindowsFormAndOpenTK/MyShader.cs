@@ -8,12 +8,18 @@ namespace C_WindowsFormAndOpenTK
 {
     public class MyShader
     {
+        public string MyGetPathVert { get; private set; }
+        public string MyGetPathFrag { get; private set; }
+
         public readonly int Handle;
 
         private readonly Dictionary<string, int> _uniformLocations;
 
         public MyShader(string vertPath, string fragPath)
         {
+            MyGetPathVert = vertPath;
+            MyGetPathFrag = fragPath;
+
             var shaderSource = File.ReadAllText(vertPath);
 
             var vertexShader = GL.CreateShader(ShaderType.VertexShader);

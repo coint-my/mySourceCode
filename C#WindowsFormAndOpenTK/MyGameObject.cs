@@ -3,19 +3,23 @@ using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
+using System.Runtime.Serialization;
 using System.Web.UI.WebControls;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
     public class MyTransform
     {
         private List<MyTransform> myListChildren;
-
         public Vector3 myPosition;
         public Vector3 myRotation { get; set; }
         public Vector3 myScale { get; set; }
-
+        //[XmlIgnore]
         public MyTransform myParent { get; set; }
+        //[XmlArray("MyTransform")]
+        //[XmlArrayItem("MyTransform")]
         public List<MyTransform> myChild { get { return myListChildren; } }
         public Vector3 myPivot { get; set; }
 
@@ -42,7 +46,7 @@ namespace C_WindowsFormAndOpenTK
             myListChildren.Remove(_child);
         }
     }
-
+    
     public class MyGameObject : MyObjectOnScene
     {
         public static int myCounter = 0;
@@ -52,20 +56,15 @@ namespace C_WindowsFormAndOpenTK
         public Matrix4 MyGetModel {  get { return myModel; } }
         private MySimplePolygonColor myPolygonColorPivot;
 
-        private List<MyComponent> myComponents;
-
-        public List<MyComponent> MyGetComponents { get { return myComponents; } }
+        public List<MyComponent> myComponents;
 
         public bool MyIsShowPivot { get; set; }
-
-        public bool myIsVisible { get; private set; }
-
+        public bool myIsVisible { get; set; }
         public bool myIsWireframe { get; set; }
 
         public MyGameObject()
         {
-            myCounter++;
-            myId++;
+            myId = myCounter;
             myName = "GameObject_" + myCounter;
             myPolygonColorPivot = new MySimplePolygonColor();
             myModel = Matrix4.Identity;
@@ -85,12 +84,17 @@ namespace C_WindowsFormAndOpenTK
             myComponents.Clear();
         }
 
+        public static void MyIncrementID()
+        {
+            myCounter++;
+        }
+
         public void MySetName(string _name)
         {
             myName = _name + "_" + myCounter;
         }
 
-        public T MyGetComponent<T>()
+        public MyComponent MyGetComponent<T>()
         {
             MyComponent component = null;
             for (int i = 0; i < myComponents.Count; i++)
@@ -98,8 +102,7 @@ namespace C_WindowsFormAndOpenTK
                 if (myComponents[i] is T)
                     component = myComponents[i];
             }
-
-            return (T)component;
+            return component;
         }
 
         public void MySetVisible(bool _visible)
