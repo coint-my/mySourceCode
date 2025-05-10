@@ -38,6 +38,8 @@
             this.createFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rename = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.createSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBoxScene = new System.Windows.Forms.GroupBox();
             this.contextMenuStripExplorer.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).BeginInit();
@@ -98,17 +101,17 @@
             this.groupBox1.SuspendLayout();
             this.contextMenuStripHierarhy.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBoxScene.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOpenTK
             // 
-            this.panelOpenTK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOpenTK.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panelOpenTK.Location = new System.Drawing.Point(12, 38);
+            this.panelOpenTK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelOpenTK.Location = new System.Drawing.Point(1, 14);
+            this.panelOpenTK.Margin = new System.Windows.Forms.Padding(0);
             this.panelOpenTK.Name = "panelOpenTK";
-            this.panelOpenTK.Size = new System.Drawing.Size(565, 560);
+            this.panelOpenTK.Size = new System.Drawing.Size(578, 551);
             this.panelOpenTK.TabIndex = 2;
             // 
             // listView1
@@ -143,9 +146,11 @@
             this.contextMenuStripExplorer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createFolderToolStripMenuItem,
             this.rename,
-            this.deleteToolStrip});
+            this.deleteToolStrip,
+            this.toolStripSeparator1,
+            this.createSceneToolStripMenuItem});
             this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
-            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 70);
+            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 98);
             // 
             // createFolderToolStripMenuItem
             // 
@@ -166,6 +171,17 @@
             this.deleteToolStrip.Name = "deleteToolStrip";
             this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
             this.deleteToolStrip.Text = "Delete";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            // 
+            // createSceneToolStripMenuItem
+            // 
+            this.createSceneToolStripMenuItem.Name = "createSceneToolStripMenuItem";
+            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.createSceneToolStripMenuItem.Text = "Create Scene";
             // 
             // groupBox4
             // 
@@ -680,26 +696,41 @@
             // saveSceneToolStripMenuItem
             // 
             this.saveSceneToolStripMenuItem.Name = "saveSceneToolStripMenuItem";
-            this.saveSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.saveSceneToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.saveSceneToolStripMenuItem.Text = "Save Scene";
             this.saveSceneToolStripMenuItem.Click += new System.EventHandler(this.saveSceneToolStripMenuItem_Click);
             // 
             // loadSceneToolStripMenuItem
             // 
             this.loadSceneToolStripMenuItem.Name = "loadSceneToolStripMenuItem";
-            this.loadSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.loadSceneToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.loadSceneToolStripMenuItem.Text = "Load Scene";
             this.loadSceneToolStripMenuItem.Click += new System.EventHandler(this.loadSceneToolStripMenuItem_Click);
+            // 
+            // groupBoxScene
+            // 
+            this.groupBoxScene.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxScene.Controls.Add(this.panelOpenTK);
+            this.groupBoxScene.Location = new System.Drawing.Point(0, 32);
+            this.groupBoxScene.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBoxScene.Name = "groupBoxScene";
+            this.groupBoxScene.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBoxScene.Size = new System.Drawing.Size(580, 566);
+            this.groupBoxScene.TabIndex = 12;
+            this.groupBoxScene.TabStop = false;
+            this.groupBoxScene.Text = "groupBox5";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 610);
+            this.Controls.Add(this.groupBoxScene);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.panelOpenTK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
@@ -729,6 +760,7 @@
             this.contextMenuStripHierarhy.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBoxScene.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -782,6 +814,9 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveSceneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadSceneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        public System.Windows.Forms.ToolStripMenuItem createSceneToolStripMenuItem;
+        public System.Windows.Forms.GroupBox groupBoxScene;
     }
 }
 

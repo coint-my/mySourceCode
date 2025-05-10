@@ -30,7 +30,7 @@ namespace C_WindowsFormAndOpenTK
         public List<MyComponent> myComponents;
     }
 
-    public class MyScene
+    public class MyScene : IDisposable
     {
         public string MyNameScene;
 
@@ -38,11 +38,18 @@ namespace C_WindowsFormAndOpenTK
 
         public List<MySaveGameObject> mySaveObjects;
 
-        public MyScene() 
+        public MyScene(/*FormMain _main*/) 
         {
             myListObjects = new List<MyObjectOnScene>();
             mySaveObjects = new List<MySaveGameObject>();
             MyNameScene = "newScene";
+        }
+
+        public void Dispose()
+        {
+            myListObjects.Clear();
+            mySaveObjects.Clear();
+            MyNameScene = "None";
         }
 
         private void MyInitializeSaves()
@@ -82,7 +89,7 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
-        public bool MyLoadGameObject(FormMain _formMain)
+        private bool MyLoadGameObject(FormMain _formMain)
         {
             try
             {
@@ -108,11 +115,12 @@ namespace C_WindowsFormAndOpenTK
                         if (obj.myComponents[0] is MyModel)
                         {
                             MyModel mod = (MyModel)obj.myComponents[0];
-                            //MyShader myShader = new MyShader(mod.myShaderPathVert, mod.myShaderPathFrag);
-                            //MyShader myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert",
-                            //        "Resources/Shaders/shaderOutline.frag");
-                            MyModel model = new MyModel(mod.myPrefab, _formMain.myShaderLight, 
-                                _formMain.myShaderOutline);
+
+                            //MyModel model = new MyModel(mod.myPrefab, _formMain.myShaderLight, 
+                            //    _formMain.myShaderOutline);
+
+                            MyModel model = FormMain.myDictionaryPrefabs[mod.myPrefab];
+
                             model.myTexCoord = mod.myTexCoord;
                             try
                             {
@@ -192,7 +200,6 @@ namespace C_WindowsFormAndOpenTK
                     }
                 }
             }
-            //Debug.WriteLine(MyTreeViewFindNodeByText(_main.treeViewGameObjects.Nodes, "Cube_8"));
         }
 
         private TreeNode MyTreeViewFindNodeByText(TreeNodeCollection _nodes, string _text)
@@ -227,28 +234,74 @@ namespace C_WindowsFormAndOpenTK
             return null; // Если не найден
         }
 
-        public void MySaveScene()
+        //public void MySaveScene()
+        //{
+        //    MyInitializeSaves();
+
+        //    Type[] types = new Type[] { typeof(MyModel), typeof(MyHandleCamera) };
+        //    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
+
+        //    using (StreamWriter sw = new StreamWriter("saveScene//" + MyNameScene + ".xml"))
+        //    {
+        //        xmlSerializer.Serialize(sw, mySaveObjects);
+        //    }
+        //}
+
+        public void MySaveScene(string _namePath)
         {
             MyInitializeSaves();
 
             Type[] types = new Type[] { typeof(MyModel), typeof(MyHandleCamera) };
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
 
-            using (StreamWriter sw = new StreamWriter("saveScene//" + MyNameScene + ".xml"))
+            using (StreamWriter sw = new StreamWriter(_namePath))
             {
                 xmlSerializer.Serialize(sw, mySaveObjects);
             }
         }
 
-        public void MyLoadScene(MyScene _scene, FormMain _formMain)
+        //public void MyLoadScene(MyScene _scene, FormMain _formMain)
+        //{
+        //    MyNameScene = _scene.MyNameScene;
+        //    _formMain.groupBoxScene.Text = MyNameScene;
+
+        //    Type[] types = new Type[] { typeof(MyModel) };
+        //    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
+
+        //    try
+        //    {
+        //        using (TextReader tr = new StreamReader("saveScene//" + _scene.MyNameScene + ".xml"))
+        //        {
+        //            mySaveObjects = (List<MySaveGameObject>)xmlSerializer.Deserialize(tr);
+        //        }
+        //    }
+        //    catch (Exception ex) { Debug.WriteLine("Exeption = " + ex.Message); }
+
+        //    if (MyLoadGameObject(_formMain))
+        //    {
+        //        MySetChildTreeViewGameObject(_formMain);
+        //        Debug.WriteLine("load ok");
+        //    }
+        //    else
+        //        Debug.WriteLine("load error");
+        //}
+
+        public void MyLoadScene(string _namePath, FormMain _formMain)
         {
+            MyNameScene = _namePath;
+            _formMain.groupBoxScene.Text = MyNameScene;
+
             Type[] types = new Type[] { typeof(MyModel) };
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
 
-            using (TextReader tr = new StreamReader("saveScene//" + _scene.MyNameScene + ".xml"))
+            try
             {
-                mySaveObjects = (List<MySaveGameObject>)xmlSerializer.Deserialize(tr);
+                using (TextReader tr = new StreamReader(_namePath))
+                {
+                    mySaveObjects = (List<MySaveGameObject>)xmlSerializer.Deserialize(tr);
+                }
             }
+            catch (Exception ex) { Debug.WriteLine("Exeption = " + ex.Message); }
 
             if (MyLoadGameObject(_formMain))
             {

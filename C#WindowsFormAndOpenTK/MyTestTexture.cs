@@ -1,12 +1,13 @@
 ﻿using OpenTK.Graphics.OpenGL4;
 using StbImageSharp;
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
-    public class MyTestTexture
+    public class MyTestTexture : IDisposable
     {
         public readonly int Handle;
         [XmlIgnore]
@@ -14,6 +15,8 @@ namespace C_WindowsFormAndOpenTK
         public string path;
         [XmlIgnore]
         public string myName;
+        [XmlIgnore]
+        public ImageResult MyImage;
 
         public static MyTestTexture LoadFromFile(string filename, string type = "texture_diffuse")
         {
@@ -23,9 +26,11 @@ namespace C_WindowsFormAndOpenTK
             GL.BindTexture(TextureTarget.Texture2D, handle);
             StbImage.stbi_set_flip_vertically_on_load(1);
 
+            ImageResult image;
+
             using (Stream stream = File.OpenRead(filename))
             {
-                ImageResult image = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
+                image = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
 
                 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba,
                     image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
@@ -43,7 +48,10 @@ namespace C_WindowsFormAndOpenTK
 
             GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
 
-            return new MyTestTexture(handle, filename, type);
+            MyTestTexture tex = new MyTestTexture(handle, filename, type);
+            tex.MyImage = image;
+
+            return tex;
         }
 
         public MyTestTexture() { }
@@ -60,6 +68,11 @@ namespace C_WindowsFormAndOpenTK
         {
             GL.ActiveTexture(unit);
             GL.BindTexture(TextureTarget.Texture2D, Handle);
+        }
+
+        public void Dispose()
+        {
+            Dispose();
         }
     }
 }

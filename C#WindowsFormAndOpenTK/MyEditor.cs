@@ -5,22 +5,184 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StbImageSharp;
 
 namespace C_WindowsFormAndOpenTK
 {
+    public class HoverImageListView : UserControl
+    {
+        Panel panel;
+        private PictureBox pictureBox;
+        private Label labelName;
+        private Bitmap MyBmp;
+
+        private string myPrevImage;
+
+        public HoverImageListView()
+        {
+            InitializeComponents();
+        }
+
+        private void InitializeComponents()
+        {
+            panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = SystemColors.GrayText
+            };
+            // Инициализация PictureBox
+            pictureBox = new PictureBox
+            {
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Dock = DockStyle.Fill,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            labelName = new Label
+            {
+                Dock = DockStyle.Top,
+                TextAlign = ContentAlignment.TopCenter
+            };
+
+            MyBmp = new Bitmap(64, 64);
+
+            // Добавляем элементы на UserControl
+            panel.Controls.Add(labelName);
+            panel.Controls.Add(pictureBox);
+            Controls.Add(panel);
+        }
+
+        // Добавление элементов с изображением
+        public void MyAddItem(string text, MyTestTexture _texture)
+        {
+            labelName.Text = text;
+
+            if (_texture != null && myPrevImage != _texture.path)
+            {
+                myPrevImage = _texture.path;
+                MyBmp.Dispose();
+                int wid = _texture.MyImage.Width;
+                int hei = _texture.MyImage.Height;
+                MyBmp = new Bitmap(wid, hei);
+
+                for (int y = 0; y < hei; y++)
+                {
+                    for (int x = 0; x < wid; x++)
+                    {
+                        if (y % 2 == 0 || x % 2 == 0)
+                        {
+                            Color col = GetPixelColor(_texture.MyImage, x, y);
+                            MyBmp.SetPixel(x, y, col);
+                        }
+                    }
+                }
+
+                MyBmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                pictureBox.Image = MyBmp;
+            }
+        }
+
+        private static Color GetPixelColor(ImageResult image, int x, int y)
+        {
+            int width = image.Width;
+            int channels = (int)image.Comp; // Обычно 3 (RGB) или 4 (RGBA)
+            byte[] data = image.Data;
+
+            int index = (y * width + x) * channels;
+
+            byte r = data[index + 0];
+            byte g = channels > 1 ? data[index + 1] : (byte)0;
+            byte b = channels > 2 ? data[index + 2] : (byte)0;
+            byte a = channels > 3 ? data[index + 3] : (byte)255;
+
+            return Color.FromArgb(a, r, g, b);
+        }
+    }
+
     public class MyEditor : Form
     {
         private FormMain myMainForm;
         private string myPathDirectory;
 
+        private HoverImageListView myView;
+
         public MyEditor(FormMain _mainForm)
         {
             myMainForm = _mainForm;
+            myMainForm.createSceneToolStripMenuItem.Click += CreateSceneToolStripMenuItem_Click;
+
+            myView = new HoverImageListView
+            {
+                Width = 200,
+                Height = 200,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            myMainForm.MyEventResizeWindow += MyResizeWindow;
+
+            myMainForm.glControl.Controls.Add(myView);
+            myView.Hide();
+        }
+
+        private void CreateSceneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newName = "newScene";
+                for (int i = 1; i < 10000; i++)
+                {
+                    string tempName = newName + i;
+                    if (!MyIsEqualFile(tempName + ".xml"))
+                    {
+                        newName = tempName;
+                        break;
+                    }
+                }
+                FileInfo file = new FileInfo(myPathDirectory + "//" + newName + ".xml");
+                file.Create();
+
+                ListViewItem item = myMainForm.listView1.Items.Add(newName + ".xml", "file");
+                item.BeginEdit();
+            }
+            catch (Exception ex) { Debug.WriteLine(ex); }
+        }
+
+        private void MyResizeWindow(int _width, int _height)
+        {
+            Point pos = new Point(_width - myView.Width, _height - myView.Height);
+            myView.Location = pos;
+        }
+
+        public void ListView1_MouseMove(object sender, MouseEventArgs e)
+        {
+            var item = myMainForm.listView1.GetItemAt(e.X, e.Y);
+
+            if (item != null)
+            {
+                string typeName = MimeTypesMap.GetMimeType(item.Text);
+                string type = typeName.Substring(0, typeName.LastIndexOf('/'));
+
+                if (type == "image" && !myView.Visible)
+                {
+                    string newPath = myPathDirectory.Replace("//", "\\");
+                    myView.MyAddItem(item.Text, 
+                        FormMain.myDictionaryTextures[newPath + "//" + item.Text]);
+                    myView.Show();
+                }
+            }
+            else
+                myView.Hide();
+        }
+
+        private void ListView1_MouseLeave(object sender, EventArgs e)
+        {
+            myView.Hide();
         }
 
         public void MyUpdateNumericUpDown()
@@ -83,6 +245,22 @@ namespace C_WindowsFormAndOpenTK
             }
             else
                 Debug.WriteLine("Wrong Directory = " + myPathDirectory);
+
+            myMainForm.listView1.MouseMove += ListView1_MouseMove;
+            myMainForm.listView1.MouseLeave += ListView1_MouseLeave;
+        }
+
+        private bool MyIsEqualFile(string _name)
+        {
+            DirectoryInfo directoryCheck = new DirectoryInfo(myPathDirectory);
+
+            foreach (var item in directoryCheck.GetFiles())
+            {
+                if (item.Name.ToLower() == _name.ToLower())
+                    return true;
+            }
+
+            return false;
         }
 
         private bool MyIsEqualDirectory(string _name)
@@ -122,13 +300,16 @@ namespace C_WindowsFormAndOpenTK
 
         public void deleteToolStrip_Click(object sender, EventArgs e)
         {
-            foreach (var item in myMainForm.listView1.SelectedItems)
+            foreach (ListViewItem item in myMainForm.listView1.SelectedItems)
             {
-                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" +
-                    ((ListViewItem)item).Text);
+                DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + item.Text);
                 try
                 {
-                    Directory.Delete(myPathDirectory + "//" + ((ListViewItem)item).Text, true);
+                    if (item.ImageKey == "folder")
+                        Directory.Delete(myPathDirectory + "//" + item.Text, true);
+                    else
+                        File.Delete(myPathDirectory + "//" + item.Text);
+
                     MyInitializeExplorer(myPathDirectory);
                 }
                 catch (Exception ex)
@@ -740,15 +921,24 @@ namespace C_WindowsFormAndOpenTK
 
         public void listView1_DoubleClick(object sender, EventArgs e)
         {
-            string nameFolder = myMainForm.listView1.SelectedItems[0].Text;
+            if (myMainForm.listView1.SelectedItems[0].ImageKey == "folder")
+            {
+                string nameFolder = myMainForm.listView1.SelectedItems[0].Text;
 
-            if (myMainForm.listView1.SelectedItems[0].Text == "...")
-                nameFolder = myPathDirectory.Substring(0, 
-                    myPathDirectory.LastIndexOf('/') - 1);
-            else
-                nameFolder = myPathDirectory + "//" + nameFolder;
+                if (myMainForm.listView1.SelectedItems[0].Text == "...")
+                    nameFolder = myPathDirectory.Substring(0,
+                        myPathDirectory.LastIndexOf('/') - 1);
+                else
+                    nameFolder = myPathDirectory + "//" + nameFolder;
 
-            MyInitializeExplorer(nameFolder);
+                MyInitializeExplorer(nameFolder);
+            }
+            else if(Path.GetExtension(myMainForm.listView1.SelectedItems[0].Text) == ".xml")
+            {
+                string pathScene = myMainForm.listView1.SelectedItems[0].Text;
+                myMainForm.myCurrentScene.Dispose();
+                myMainForm.myCurrentScene.MyLoadScene(myPathDirectory + "//" + pathScene, myMainForm);
+            }
         }
 
         public void listView1_BeforeLabelEdit(object sender, LabelEditEventArgs e)
@@ -756,6 +946,7 @@ namespace C_WindowsFormAndOpenTK
             bool isNotPossible = true;
             string path = myMainForm.listView1.SelectedItems[0].Text;
             DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
+
             if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
                 isNotPossible = false;
 
@@ -765,8 +956,16 @@ namespace C_WindowsFormAndOpenTK
         public void listView1_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
             if (e.Label != null && !MyIsEqualDirectory(e.Label))
-                FileSystem.RenameDirectory(myPathDirectory + "//" + 
-                    myMainForm.listView1.SelectedItems[0].Text, e.Label);
+            {
+                if (File.Exists(myPathDirectory + "//" + myMainForm.listView1.SelectedItems[0].Text))
+                {
+                    FileSystem.RenameFile(myPathDirectory + "//" +
+                                            myMainForm.listView1.SelectedItems[0].Text, e.Label);
+                }
+                else
+                    FileSystem.RenameDirectory(myPathDirectory + "//" +
+                                            myMainForm.listView1.SelectedItems[0].Text, e.Label);
+            }
             else
                 e.CancelEdit = true;
         }

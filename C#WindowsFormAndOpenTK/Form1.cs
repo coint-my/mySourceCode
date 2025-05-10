@@ -50,22 +50,24 @@ namespace C_WindowsFormAndOpenTK
         public MyShader myShaderLight;
 
         MyEditor myEditor;
-        MyScene myCurrentScene;
+        public MyScene myCurrentScene;
         public static Dictionary<string, MyTestTexture> myDictionaryTextures;
+        public static Dictionary<string, MyModel> myDictionaryPrefabs;
         //List<MyObjectOnScene> myListObjects;
         //MyTransform myBufferTransform;
 
         private Timer myTimer = null;
         //private float myAngle;
-        private GLControl glControl;
+        public GLControl glControl;
+        public Action<int, int> MyEventResizeWindow;
 
         private Vector3 VecPosLight = new Vector3(0, 0, -2);
 
         public FormMain()
         {
-            myEditor = new MyEditor(this);
             InitializeComponent();
             InitGLControl();
+            myEditor = new MyEditor(this);
             myCurrentScene = new MyScene();
         }
 
@@ -317,16 +319,24 @@ namespace C_WindowsFormAndOpenTK
             myPrefabCube = new MyModel("Resources/Models/cub/cub.FBX", myShaderLight, myShaderOutline);
             myPrefabPlane = new MyModel("Resources/Models/plane/plane.FBX", myShaderLight, myShaderOutline);
 
+            myDictionaryPrefabs = new Dictionary<string, MyModel>();
+            myDictionaryPrefabs.Add(myModel.myPrefab, myModel);
+            myDictionaryPrefabs.Add(myPrefabSphere.myPrefab, myPrefabSphere);
+            myDictionaryPrefabs.Add(myPrefabCube.myPrefab, myPrefabCube);
+            myDictionaryPrefabs.Add(myPrefabPlane.myPrefab, myPrefabPlane);
+
             //myCurrentScene.myListObjects = new List<MyObjectOnScene>();
 
-            MyAddTreeViewGameObject(MyInstantiateInScene(new MyHandleCamera(Vector3.Zero, MyGetAspectRatio())));
-            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myModel));
-            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabSphere));
-            MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
+            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyHandleCamera(Vector3.Zero, MyGetAspectRatio())));
+            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myModel));
+            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabSphere));
+            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
 
             myEditor.MyInitializeExplorer("Resources");
             MyInitializeTextures();
             MyEventEditor();
+
+            myCurrentScene.MyLoadScene("Resources//Scene//scene.xml", this);
         }
 
         private void MyEventEditor()
@@ -601,6 +611,8 @@ namespace C_WindowsFormAndOpenTK
         public void GlControl_Resize(object sender, EventArgs e)
         {
             GL.Viewport(0, 0, glControl.Width, glControl.Height);
+
+            MyEventResizeWindow?.Invoke(glControl.Width, glControl.Height);
 
             if (myCameraCurrent != null)
             {
@@ -1190,12 +1202,12 @@ namespace C_WindowsFormAndOpenTK
 
         private void saveSceneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myCurrentScene.MySaveScene();
+            myCurrentScene.MySaveScene(myCurrentScene.MyNameScene);
         }
 
         private void loadSceneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myCurrentScene.MyLoadScene(myCurrentScene, this);
+            myCurrentScene.MyLoadScene(myCurrentScene.MyNameScene, this);
         }
     }
 }

@@ -139,7 +139,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="MyEditor.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
