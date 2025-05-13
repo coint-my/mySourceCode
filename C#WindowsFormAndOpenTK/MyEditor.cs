@@ -144,8 +144,7 @@ namespace C_WindowsFormAndOpenTK
                         break;
                     }
                 }
-                FileInfo file = new FileInfo(myPathDirectory + "//" + newName + ".xml");
-                file.Create();
+                File.Create(myPathDirectory + "//" + newName + ".xml").Close();
 
                 ListViewItem item = myMainForm.listView1.Items.Add(newName + ".xml", "file");
                 item.BeginEdit();
@@ -414,44 +413,44 @@ namespace C_WindowsFormAndOpenTK
                 flow.Controls.Add(checkBoxVisible);
                 flow.Controls.Add(checkBoxWireframe);
 
-                MyShowTextureParameter(model);
+                MyShowTextureParameter(_myGameObject);
             }
         }
 
-        private void MyShowTextureParameter(MyModel _model)
+        private void MyShowTextureParameter(MyGameObject _go)
         {
-            GroupBox gBox = MyCreateGroupBox("Texture", "Model " + _model.MyGetDirectory);
+            GroupBox gBox = MyCreateGroupBox("Texture", "Model " + _go.myName);
             FlowLayoutPanel flow = MyCreateFlowLayoutPanel(FlowDirection.TopDown);
             gBox.Controls.Add(flow);
             Button buttonTexture = new Button();
             buttonTexture.Size = new Size(220, 30);
-            buttonTexture.Text = _model.MyGetTexture != null ? _model.MyGetTexture.myName : "None";
+            buttonTexture.Text = /*_model.MyGetTexture != null ? _model.MyGetTexture.myName :*/ "None";
             buttonTexture.AllowDrop = true;
-            buttonTexture.Tag = _model;
+            buttonTexture.Tag = _go;
             buttonTexture.DragEnter += ButtonTextureMyParameters_DragEnter;
             buttonTexture.DragDrop += ButtonTextureMyParameters_DragDrop;
             flow.Controls.Add(buttonTexture);
-            flow.Controls.Add(MyAddLabelAndVector2("Tex Coords", _model, MyEventU_ValueChanged,
+            flow.Controls.Add(MyAddLabelAndVector2("Tex Coords", _go, MyEventU_ValueChanged,
                 MyEventV_ValueChanged));
         }
 
         private void MyEventV_ValueChanged(object _sender, EventArgs _e)
         {
             NumericUpDown nud = (NumericUpDown)_sender;
-            MyModel model = (MyModel)nud.Tag;
-            Vector3 newUV = new Vector3(model.myTexCoord.X, (float)nud.Value, 0);
-            model.myTexCoord = newUV;
+            MyGameObject go = (MyGameObject)nud.Tag;
+            Vector3 newUV = new Vector3(go.myShader.myTexCoord.X, (float)nud.Value, 0);
+            go.myShader.myTexCoord = newUV;
         }
 
         private void MyEventU_ValueChanged(object _sender, EventArgs _e)
         {
             NumericUpDown nud = (NumericUpDown)_sender;
-            MyModel model = (MyModel)nud.Tag;
-            Vector3 newUV = new Vector3((float)nud.Value, model.myTexCoord.Y, 0);
-            model.myTexCoord = newUV;
+            MyGameObject go = (MyGameObject)nud.Tag;
+            Vector3 newUV = new Vector3((float)nud.Value, go.myShader.myTexCoord.Y, 0);
+            go.myShader.myTexCoord = newUV;
         }
 
-        private Panel MyAddLabelAndVector2(string _label, MyModel _model, EventHandler _U, EventHandler _V)
+        private Panel MyAddLabelAndVector2(string _label, MyGameObject _go, EventHandler _U, EventHandler _V)
         {
             Label name = new Label();
             name.AutoSize = true;
@@ -463,8 +462,8 @@ namespace C_WindowsFormAndOpenTK
             numericV.DecimalPlaces = 1;
             numericV.Maximum = 100;
             numericV.Minimum = 0.1m;
-            numericV.Value = (decimal)_model.myTexCoord.Y;
-            numericV.Tag = _model;
+            numericV.Value = (decimal)_go.myShader.myTexCoord.Y;
+            numericV.Tag = _go;
             numericV.ValueChanged += _V;
             NumericUpDown numericU = new NumericUpDown();
             numericU.Size = new Size(38, 20);
@@ -472,8 +471,8 @@ namespace C_WindowsFormAndOpenTK
             numericU.DecimalPlaces = 1;
             numericU.Maximum = 100;
             numericU.Minimum = 0.1m;
-            numericU.Value = (decimal)_model.myTexCoord.X;
-            numericU.Tag = _model;
+            numericU.Value = (decimal)_go.myShader.myTexCoord.X;
+            numericU.Tag = _go;
             numericU.ValueChanged += _U;
             Label labelU = new Label();
             labelU.AutoSize = true;
@@ -911,12 +910,12 @@ namespace C_WindowsFormAndOpenTK
             Debug.WriteLine("full name = " + fileNameTexture);
 
             MyTestTexture texture = FormMain.myDictionaryTextures[fileNameTexture];
-            MyModel model = ((Button)sender).Tag as MyModel;
+            MyGameObject go = ((Button)sender).Tag as MyGameObject;
             Button boxTexture = sender as Button;
             string nameTexture = System.IO.Path.GetFileNameWithoutExtension((e.Data.GetData(typeof(ListViewItem))
                 as ListViewItem).Text);
             boxTexture.Text = nameTexture;
-            model.MyGetTexture = texture;
+            go.myShader.myTextures[0] = texture;
         }
 
         public void listView1_DoubleClick(object sender, EventArgs e)

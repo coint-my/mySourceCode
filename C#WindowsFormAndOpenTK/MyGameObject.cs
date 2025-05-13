@@ -62,8 +62,24 @@ namespace C_WindowsFormAndOpenTK
         public bool myIsVisible { get; set; }
         public bool myIsWireframe { get; set; }
 
+        public MyShader myShader;
+
         public MyGameObject()
         {
+            myShader = new MyShader("Resources/Shaders/shaderModel.vert",
+                "Resources/Shaders/shaderLighting.frag");
+
+            myShader.SetVector3("viewPos", Vector3.One);
+            myShader.SetInt("material.diffuse", 0);
+            myShader.SetInt("material.specular", 1);
+            myShader.SetVector3("material.specular", new Vector3(0.4f, 0.4f, 0.4f));
+            myShader.SetFloat("material.shininess", 32.0f);
+
+            myShader.SetVector3("light.direction", new Vector3(-0.2f, -1.0f, -0.3f));
+            myShader.SetVector3("light.ambient", new Vector3(0.06f));
+            myShader.SetVector3("light.diffuse", new Vector3(0.5f));
+            myShader.SetVector3("light.specular", new Vector3(0.0f));
+
             myId = myCounter;
             myName = "GameObject_" + myCounter;
             myPolygonColorPivot = new MySimplePolygonColor();
@@ -125,7 +141,18 @@ namespace C_WindowsFormAndOpenTK
 
         public void MyAddComponent(MyComponent _component)
         {
-            myComponents.Add(_component);
+            if(_component is MyModel)
+            {
+                if (myShader.myTextures.Count == 0)
+                    myShader.myTextures = ((MyModel)_component).MyGetMaterialsTextures();
+
+                myComponents.Add(_component);
+            }
+            else
+            {
+                myComponents.Add(_component);                
+            }
+
         }
 
         public override void MyDestroy()
@@ -156,7 +183,7 @@ namespace C_WindowsFormAndOpenTK
                         GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
                     
 
-                    tmpObj.MyDraw(myModel, _cam);
+                    tmpObj.MyDraw(myModel, _cam, myShader);
                 }
             }
 

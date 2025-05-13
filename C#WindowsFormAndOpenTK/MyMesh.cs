@@ -17,12 +17,12 @@ namespace C_WindowsFormAndOpenTK
     public class MyMesh : IDisposable
     {
         public readonly int indicesCount;
-        public List<MyTestTexture> textures;
+        //public List<MyTestTexture> textures;
         public readonly int VAO;
 
-        public MyMesh(Span<Vertex> vertices, Span<int> indices, List<MyTestTexture> textures)
+        public MyMesh(Span<Vertex> vertices, Span<int> indices/*, List<MyTestTexture> textures*/)
         {
-            this.textures = textures;
+            //this.textures = textures;
             indicesCount = indices.Length;
 
             // Setup Mesh
@@ -62,24 +62,24 @@ namespace C_WindowsFormAndOpenTK
             int normalNr = 1;
             int heightNr = 1;
 
-            for (int i = 0; i < textures.Count; i++)
+            for (int i = 0; i < shader.myTextures.Count; i++)
             {
-                GL.ActiveTexture(TextureUnit.Texture0 + i); 
+                GL.ActiveTexture(TextureUnit.Texture0 + i);
 
                 string number = "0";
-                string name = textures[i].type;
+                string name = shader.myTextures[i].type;
                 if (name == "texture_diffuse")
                     number = diffuseNr++.ToString();
                 else if (name == "texture_specular")
                     number = specularNr++.ToString();
                 else if (name == "texture_normal")
-                    number = normalNr++.ToString(); 
+                    number = normalNr++.ToString();
                 else if (name == "texture_height")
-                    number = heightNr++.ToString(); 
-                                                     
+                    number = heightNr++.ToString();
+
                 GL.Uniform1(GL.GetUniformLocation(shader.Handle, (name + number)), i);
-                
-                GL.BindTexture(TextureTarget.Texture2D, textures[i].Handle);
+
+                GL.BindTexture(TextureTarget.Texture2D, shader.myTextures[i].Handle);
             }
 
             GL.BindVertexArray(VAO);
@@ -91,7 +91,7 @@ namespace C_WindowsFormAndOpenTK
 
         public void Dispose()
         {
-            textures.Clear();
+            //textures.Clear();
         }
     }
 }

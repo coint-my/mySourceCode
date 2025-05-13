@@ -1,43 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfMySaveGameObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <MySaveGameObject>
-    <myName>Camera</myName>
-    <myObj>C_WindowsFormAndOpenTK.MyHandleCamera</myObj>
-    <myID>0</myID>
-    <myPosition>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>-8.4</Z>
-    </myPosition>
-    <myRotation>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </myRotation>
-    <myScale>
-      <X>1</X>
-      <Y>1</Y>
-      <Z>1</Z>
-    </myScale>
-    <myPivot>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </myPivot>
-    <myParent>-1</myParent>
-    <myChild />
-    <MyIsShowPivot>false</MyIsShowPivot>
-    <myIsVisible>true</myIsVisible>
-    <myIsWireframe>false</myIsWireframe>
-    <myComponents />
-  </MySaveGameObject>
-  <MySaveGameObject>
-    <myName>GameObject_1</myName>
+    <myName>Cube_5</myName>
     <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
-    <myTexture>Resources\image_for_opengl//ground_grass_01.png</myTexture>
-    <myID>1</myID>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Models\cub//..\..\Textures\box1.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
     <myPosition>
-      <X>-2.7</X>
+      <X>1.2</X>
       <Y>0</Y>
       <Z>0</Z>
     </myPosition>
@@ -57,7 +36,11 @@
       <Z>0</Z>
     </myPivot>
     <myParent>-1</myParent>
-    <myChild />
+    <myChild>
+      <int>2</int>
+      <int>4</int>
+      <int>3</int>
+    </myChild>
     <MyIsShowPivot>false</MyIsShowPivot>
     <myIsVisible>true</myIsVisible>
     <myIsWireframe>false</myIsWireframe>
@@ -65,24 +48,29 @@
       <MyComponent xsi:type="MyModel">
         <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
         <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
-        <myPrefab>Resources/Models/rock/rock.obj</myPrefab>
-        <myTexCoord>
-          <X>3.1</X>
-          <Y>3.1</Y>
-          <Z>0</Z>
-        </myTexCoord>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
         <MyIsVisible>false</MyIsVisible>
       </MyComponent>
     </myComponents>
   </MySaveGameObject>
   <MySaveGameObject>
-    <myName>GameObject_2</myName>
+    <myName>Cube_6</myName>
     <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
-    <myTexture>Resources\image_for_opengl//tiles_01.png</myTexture>
-    <myID>2</myID>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//barrel_self.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
     <myPosition>
-      <X>3.9</X>
-      <Y>0</Y>
+      <X>0</X>
+      <Y>-1.2</Y>
       <Z>0</Z>
     </myPosition>
     <myRotation>
@@ -100,51 +88,7 @@
       <Y>0</Y>
       <Z>0</Z>
     </myPivot>
-    <myParent>-1</myParent>
-    <myChild />
-    <MyIsShowPivot>false</MyIsShowPivot>
-    <myIsVisible>true</myIsVisible>
-    <myIsWireframe>false</myIsWireframe>
-    <myComponents>
-      <MyComponent xsi:type="MyModel">
-        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
-        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
-        <myPrefab>Resources/Models/sphere/sphere1.FBX</myPrefab>
-        <myTexCoord>
-          <X>1</X>
-          <Y>1</Y>
-          <Z>1</Z>
-        </myTexCoord>
-        <MyIsVisible>false</MyIsVisible>
-      </MyComponent>
-    </myComponents>
-  </MySaveGameObject>
-  <MySaveGameObject>
-    <myName>GameObject_3</myName>
-    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
-    <myTexture>Resources/Models/cub/..\..\Textures\box1.jpg</myTexture>
-    <myID>3</myID>
-    <myPosition>
-      <X>0</X>
-      <Y>-2.7</Y>
-      <Z>0</Z>
-    </myPosition>
-    <myRotation>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </myRotation>
-    <myScale>
-      <X>1</X>
-      <Y>1</Y>
-      <Z>1</Z>
-    </myScale>
-    <myPivot>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </myPivot>
-    <myParent>-1</myParent>
+    <myParent>3</myParent>
     <myChild />
     <MyIsShowPivot>false</MyIsShowPivot>
     <myIsVisible>true</myIsVisible>
@@ -154,27 +98,82 @@
         <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
         <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
         <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
-        <myTexCoord>
-          <X>3.1</X>
-          <Y>3.1</Y>
-          <Z>0</Z>
-        </myTexCoord>
         <MyIsVisible>false</MyIsVisible>
       </MyComponent>
     </myComponents>
   </MySaveGameObject>
   <MySaveGameObject>
-    <myName>Camera</myName>
-    <myObj>C_WindowsFormAndOpenTK.MyHandleCamera</myObj>
-    <myID>4</myID>
+    <myName>Cube_2</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Models\cub//..\..\Textures\box1.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
     <myPosition>
-      <X>-6.6</X>
-      <Y>6.6</Y>
-      <Z>-9</Z>
+      <X>1.2</X>
+      <Y>-1.2</Y>
+      <Z>0</Z>
     </myPosition>
     <myRotation>
-      <X>0.6</X>
-      <Y>0.6</Y>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>0</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>Cube_3</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//barrel_self.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>0.9</Y>
+        <Z>0</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>-1.2</Y>
+      <Z>0</Z>
+    </myPosition>
+    <myRotation>
+      <X>-0</X>
+      <Y>-0</Y>
       <Z>-0</Z>
     </myRotation>
     <myScale>
@@ -187,11 +186,169 @@
       <Y>0</Y>
       <Z>0</Z>
     </myPivot>
-    <myParent>-1</myParent>
+    <myParent>0</myParent>
+    <myChild>
+      <int>1</int>
+    </myChild>
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>Cube_4</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Models\cub//..\..\Textures\box1.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>1.2</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>0</myParent>
     <myChild />
     <MyIsShowPivot>false</MyIsShowPivot>
     <myIsVisible>true</myIsVisible>
     <myIsWireframe>false</myIsWireframe>
-    <myComponents />
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>Cube_5</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//cat_01.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>0.25</X>
+        <Y>0.5</Y>
+        <Z>0</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild>
+      <int>6</int>
+    </myChild>
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>Cube_6</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//cat_01.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>0.25</X>
+        <Y>0.5</Y>
+        <Z>0</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>-1.2</Y>
+      <Z>0</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>5</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/cub/cub.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
   </MySaveGameObject>
 </ArrayOfMySaveGameObject>

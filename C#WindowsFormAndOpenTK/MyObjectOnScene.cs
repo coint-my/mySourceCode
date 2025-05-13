@@ -11,7 +11,7 @@ namespace C_WindowsFormAndOpenTK
 {
     public interface MyIDrawable
     {
-        void MyDraw(Matrix4 _myModel, MyHandleCamera _cam);
+        void MyDraw(Matrix4 _myModel, MyHandleCamera _cam, MyShader _myShader);
         void MyDrawOutline(MyGameObject _myGo, MyHandleCamera _cam);
     }
     

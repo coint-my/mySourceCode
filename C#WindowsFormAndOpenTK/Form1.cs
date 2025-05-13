@@ -176,18 +176,18 @@ namespace C_WindowsFormAndOpenTK
             //GL.StencilFunc(StencilFunction.Always, 0, 0xFF);
             GL.Enable(EnableCap.DepthTest);
 
-            myShaderLight.SetVector3("viewPos", VecPosLight);
-
             // Here we specify to the shaders what textures they should refer to when we want to get the positions.
-            myShaderLight.SetInt("material.diffuse", 0);
-            myShaderLight.SetInt("material.specular", 1);
-            myShaderLight.SetVector3("material.specular", new Vector3(0.4f, 0.4f, 0.4f));
-            myShaderLight.SetFloat("material.shininess", 32.0f);
+
+            //myShaderLight.SetVector3("viewPos", VecPosLight);
+            //myShaderLight.SetInt("material.diffuse", 0);
+            //myShaderLight.SetInt("material.specular", 1);
+            //myShaderLight.SetVector3("material.specular", new Vector3(0.4f, 0.4f, 0.4f));
+            //myShaderLight.SetFloat("material.shininess", 32.0f);
             
-            myShaderLight.SetVector3("light.direction", new Vector3(-0.2f, -1.0f, -0.3f));
-            myShaderLight.SetVector3("light.ambient", new Vector3(0.06f));
-            myShaderLight.SetVector3("light.diffuse", new Vector3(0.5f));
-            myShaderLight.SetVector3("light.specular", new Vector3(0.0f));
+            //myShaderLight.SetVector3("light.direction", new Vector3(-0.2f, -1.0f, -0.3f));
+            //myShaderLight.SetVector3("light.ambient", new Vector3(0.06f));
+            //myShaderLight.SetVector3("light.diffuse", new Vector3(0.5f));
+            //myShaderLight.SetVector3("light.specular", new Vector3(0.0f));
 
             for (int i = 0; i < myCurrentScene.myListObjects.Count; i++)
             {
@@ -579,10 +579,10 @@ namespace C_WindowsFormAndOpenTK
         public MyGameObject MyInstantiateInScene(MyGameObject _gameObject, MyComponent _component)
         {
             MyGameObject.MyIncrementID();
-            MyGameObject _go = _gameObject;
-            _go.MyAddComponent(_component);
-            myCurrentScene.myListObjects.Add(_go);
-            return _go;
+            //MyGameObject _go = _gameObject;
+            _gameObject.MyAddComponent(_component);
+            myCurrentScene.myListObjects.Add(_gameObject);
+            return _gameObject;
         }
         public MyGameObject MyInstantiateInScene(MyGameObject _gameObject)
         {

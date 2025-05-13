@@ -3,20 +3,30 @@ using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
     public class MyShader
     {
-        public string MyGetPathVert { get; private set; }
-        public string MyGetPathFrag { get; private set; }
+        [XmlIgnore]
+        public string MyGetPathVert { get; set; }
+        [XmlIgnore]
+        public string MyGetPathFrag { get; set; }
+
+        public List<MyTestTexture> myTextures;
+        public Vector3 myTexCoord { get; set; }
 
         public readonly int Handle;
 
         private readonly Dictionary<string, int> _uniformLocations;
 
+        public MyShader() { }
+
         public MyShader(string vertPath, string fragPath)
         {
+            myTexCoord = Vector3.One;
+            myTextures = new List<MyTestTexture>();
             MyGetPathVert = vertPath;
             MyGetPathFrag = fragPath;
 

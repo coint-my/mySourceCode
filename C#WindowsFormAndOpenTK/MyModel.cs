@@ -30,28 +30,30 @@ namespace C_WindowsFormAndOpenTK
     {
         private List<MyMesh> meshes;
         private string directory;
-        private List<MyTestTexture> textures_loaded;
 
         public string myShaderPathVert;
         public string myShaderPathFrag;
-        [XmlIgnore]
-        public MyShader myShader;
+        //[XmlIgnore]
+        //public MyShader myShader;
         private MyShader myShaderOutline;
         public string myPrefab;
-        public Vector3 myTexCoord { get; set; }
+        //public Vector3 myTexCoord { get; set; }
         public bool MyIsVisible { get; set; }
         public string MyGetDirectory { get { return directory; } }
         [XmlIgnore]
-        public MyTestTexture MyGetTexture 
-        { 
-            get 
-            {
-                if (meshes[0].textures.Count > 0)
-                    return meshes[0].textures[0];
-                return null;
-            }
-            set { meshes[0].textures[0] = value; }
-        }
+        public Material MyMaterial { get; set; }
+
+        //[XmlIgnore]
+        //public MyTestTexture MyGetTexture 
+        //{ 
+        //    get 
+        //    {
+        //        if (meshes[0].textures.Count > 0)
+        //            return meshes[0].textures[0];
+        //        return null;
+        //    }
+        //    set { meshes[0].textures[0] = value; }
+        //}
 
         public MyModel() 
         {
@@ -60,24 +62,21 @@ namespace C_WindowsFormAndOpenTK
 
         public MyModel(string path)
         {
-            textures_loaded = new List<MyTestTexture>();
 
             myPrefab = path;
             loadModel(path);
-            myTexCoord = Vector3.One;
+            //myTexCoord = Vector3.One;
         }
 
         public MyModel(string path, MyShader _myShader, MyShader _myShaderOutline) : base()
         {
-            textures_loaded = new List<MyTestTexture>();
-
             myPrefab = path;
             loadModel(path);
             myShaderPathVert = _myShader.MyGetPathVert;
             myShaderPathFrag = _myShader.MyGetPathFrag;
-            myShader = _myShader;
+            //myShader = _myShader;
             myShaderOutline = _myShaderOutline;
-            myTexCoord = Vector3.One;
+            //myTexCoord = Vector3.One;
         }
 
         public void loadModel(string path)
@@ -108,19 +107,19 @@ namespace C_WindowsFormAndOpenTK
             importer.Dispose();
         }
 
-        public void MyDraw(Matrix4 _myModel, MyHandleCamera _cam)
+        public void MyDraw(Matrix4 _myModel, MyHandleCamera _cam, MyShader _myShader)
         {
-            myShader.Use();
+            _myShader.Use();
 
-            myShader.SetVector3("myUV", myTexCoord);
-            
-            myShader.SetMatrix4("model", _myModel);
-            myShader.SetMatrix4("view", _cam.GetViewMatrix());
-            myShader.SetMatrix4("projection", _cam.GetProjectionMatrix());
+            _myShader.SetVector3("myUV", _myShader.myTexCoord);
+
+            _myShader.SetMatrix4("model", _myModel);
+            _myShader.SetMatrix4("view", _cam.GetViewMatrix());
+            _myShader.SetMatrix4("projection", _cam.GetProjectionMatrix());
 
             foreach (MyMesh mesh in meshes)
             {
-                mesh.Draw(myShader);
+                mesh.Draw(_myShader);
             }
         }
 
@@ -163,7 +162,7 @@ namespace C_WindowsFormAndOpenTK
         {
             List<Vertex> vertices = new List<Vertex>();
             List<int> indices = new List<int>();
-            List<MyTestTexture> textures = new List<MyTestTexture>();
+            //List<MyTestTexture> textures = new List<MyTestTexture>();
 
             for (int i = 0; i < mesh.VertexCount; i++)
             {
@@ -196,28 +195,28 @@ namespace C_WindowsFormAndOpenTK
                     indices.Add(face.Indices[j]);
             }
 
-            Material material = scene.Materials[mesh.MaterialIndex];
+            MyMaterial = scene.Materials[mesh.MaterialIndex];
 
-            List<MyTestTexture> diffuseMaps = loadMaterialTextures(material, TextureType.Diffuse, "texture_diffuse");
-            textures.AddRange(diffuseMaps);
-            // 2. specular maps
-            List<MyTestTexture> specularMaps = loadMaterialTextures(material, TextureType.Specular, "texture_specular");
-            textures.AddRange(specularMaps);
-            // 3. normal maps
-            List<MyTestTexture> normalMaps = loadMaterialTextures(material, TextureType.Height, "texture_normal");
-            textures.AddRange(normalMaps);
-            // 4. height maps
-            List<MyTestTexture> heightMaps = loadMaterialTextures(material, TextureType.Ambient, "texture_height");
-            textures.AddRange(heightMaps);
+            //List<MyTestTexture> diffuseMaps = loadMaterialTextures(MyMaterial, TextureType.Diffuse, "texture_diffuse");
+            //textures.AddRange(diffuseMaps);
+            //// 2. specular maps
+            //List<MyTestTexture> specularMaps = loadMaterialTextures(MyMaterial, TextureType.Specular, "texture_specular");
+            //textures.AddRange(specularMaps);
+            //// 3. normal maps
+            //List<MyTestTexture> normalMaps = loadMaterialTextures(MyMaterial, TextureType.Height, "texture_normal");
+            //textures.AddRange(normalMaps);
+            //// 4. height maps
+            //List<MyTestTexture> heightMaps = loadMaterialTextures(MyMaterial, TextureType.Ambient, "texture_height");
+            //textures.AddRange(heightMaps);
 
             CenterModelPivot(vertices);
 
-            if(textures.Count == 0)
-            {
-                textures.Add(MyTestTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg"));
-            }
+            //if(textures.Count == 0)
+            //{
+            //    textures.Add(MyTestTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg"));
+            //}
 
-            return new MyMesh(vertices.ToArray(), indices.ToArray(), textures);
+            return new MyMesh(vertices.ToArray(), indices.ToArray()/*, textures*/);
         }
 
         public void CenterModelPivot(List<Vertex> _listVert)
@@ -241,15 +240,41 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
+        public List<MyTestTexture> MyGetMaterialsTextures()
+        {
+            List<MyTestTexture> textures = new List<MyTestTexture>();
+
+            List<MyTestTexture> diffuseMaps = loadMaterialTextures(MyMaterial, TextureType.Diffuse, "texture_diffuse");
+            textures.AddRange(diffuseMaps);
+            // 2. specular maps
+            List<MyTestTexture> specularMaps = loadMaterialTextures(MyMaterial, TextureType.Specular, "texture_specular");
+            textures.AddRange(specularMaps);
+            // 3. normal maps
+            List<MyTestTexture> normalMaps = loadMaterialTextures(MyMaterial, TextureType.Height, "texture_normal");
+            textures.AddRange(normalMaps);
+            // 4. height maps
+            List<MyTestTexture> heightMaps = loadMaterialTextures(MyMaterial, TextureType.Ambient, "texture_height");
+            textures.AddRange(heightMaps);
+
+            if (textures.Count == 0)
+            {
+                textures.Add(MyTestTexture.LoadFromFile("Resources\\Textures//myWhite_8_8.jpg"));
+            }
+
+            return textures;
+        }
+
         private List<MyTestTexture> loadMaterialTextures(Material mat, TextureType type, string typeName)
         {
             List<MyTestTexture> textures = new List<MyTestTexture>();
+            List<MyTestTexture> textures_loaded = new List<MyTestTexture>();
 
             for (int i = 0; i < mat.GetMaterialTextureCount(type); i++)
             {
                 TextureSlot str;
                 mat.GetMaterialTexture(type, i, out str);
-                string filename = directory + "/" + str.FilePath;//Path.Combine(directory, str.FilePath);
+                string newDIrectory = directory.Replace("/", "\\");
+                string filename = newDIrectory + "//" + str.FilePath;//Path.Combine(directory, str.FilePath);
                 bool skip = false;
                 for (int j = 0; j < textures_loaded.Count; j++)
                 {
@@ -272,7 +297,6 @@ namespace C_WindowsFormAndOpenTK
 
         public void Dispose()
         {
-            textures_loaded.Clear();
             meshes.Clear();
         }
     }

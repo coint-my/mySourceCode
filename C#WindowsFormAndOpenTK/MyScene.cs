@@ -12,8 +12,8 @@ namespace C_WindowsFormAndOpenTK
     {
         public string myName;
         public string myObj;
-        public string myTexture;
-        public int myID;
+        public MyShader myShader;
+        //public int myID;
 
         public Vector3 myPosition;
         public Vector3 myRotation;
@@ -38,7 +38,7 @@ namespace C_WindowsFormAndOpenTK
 
         public List<MySaveGameObject> mySaveObjects;
 
-        public MyScene(/*FormMain _main*/) 
+        public MyScene() 
         {
             myListObjects = new List<MyObjectOnScene>();
             mySaveObjects = new List<MySaveGameObject>();
@@ -61,15 +61,10 @@ namespace C_WindowsFormAndOpenTK
                 MySaveGameObject saveObj = new MySaveGameObject();
                 saveObj.myName = obj.myName;
 
-                if (((MyGameObject)obj).myComponents.Count > 0)
-                {
-                    saveObj.myTexture = ((MyModel)((MyGameObject)obj).myComponents[0]).MyGetTexture.path;
-                    //saveObj.myTexture = saveObj.myTexture.Replace("/", "//");
-                    
-                }
-
+                if (((MyGameObject)obj).myShader.myTextures.Count > 0)
+                     saveObj.myShader = ((MyGameObject)obj).myShader;
                 saveObj.myObj = obj.GetType().FullName;
-                saveObj.myID = obj.myId;
+                //saveObj.myID = obj.myId;
                 saveObj.myPosition = obj.myPosition;
                 saveObj.myRotation = obj.myRotation;
                 saveObj.myScale = obj.myScale;
@@ -105,7 +100,7 @@ namespace C_WindowsFormAndOpenTK
                     go.myScale = obj.myScale;
                     go.myPivot = obj.myPivot;
                     go.myName = obj.myName;
-                    go.myId = obj.myID;
+                    //go.myId = obj.myID;
                     go.MyIsShowPivot = obj.MyIsShowPivot;
                     go.myIsVisible = obj.myIsVisible;
                     go.myIsWireframe= obj.myIsWireframe;
@@ -116,19 +111,17 @@ namespace C_WindowsFormAndOpenTK
                         {
                             MyModel mod = (MyModel)obj.myComponents[0];
 
-                            //MyModel model = new MyModel(mod.myPrefab, _formMain.myShaderLight, 
-                            //    _formMain.myShaderOutline);
-
                             MyModel model = FormMain.myDictionaryPrefabs[mod.myPrefab];
 
-                            model.myTexCoord = mod.myTexCoord;
+                            go.myShader.myTexCoord = obj.myShader.myTexCoord;
                             try
                             {
-                                model.MyGetTexture = FormMain.myDictionaryTextures[obj.myTexture];
+                                go.myShader.myTextures.Add(
+                                    FormMain.myDictionaryTextures[obj.myShader.myTextures[0].path]);
                             }
                             catch (Exception ex)
                             {
-                                Debug.WriteLine("Exeption textures in list not found = " + obj.myTexture +
+                                Debug.WriteLine("Exeption textures in list not found = " + obj.myShader +
                                     " " + ex.Message);
                             }
 
@@ -234,19 +227,6 @@ namespace C_WindowsFormAndOpenTK
             return null; // Если не найден
         }
 
-        //public void MySaveScene()
-        //{
-        //    MyInitializeSaves();
-
-        //    Type[] types = new Type[] { typeof(MyModel), typeof(MyHandleCamera) };
-        //    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
-
-        //    using (StreamWriter sw = new StreamWriter("saveScene//" + MyNameScene + ".xml"))
-        //    {
-        //        xmlSerializer.Serialize(sw, mySaveObjects);
-        //    }
-        //}
-
         public void MySaveScene(string _namePath)
         {
             MyInitializeSaves();
@@ -260,35 +240,10 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
-        //public void MyLoadScene(MyScene _scene, FormMain _formMain)
-        //{
-        //    MyNameScene = _scene.MyNameScene;
-        //    _formMain.groupBoxScene.Text = MyNameScene;
-
-        //    Type[] types = new Type[] { typeof(MyModel) };
-        //    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<MySaveGameObject>), types);
-
-        //    try
-        //    {
-        //        using (TextReader tr = new StreamReader("saveScene//" + _scene.MyNameScene + ".xml"))
-        //        {
-        //            mySaveObjects = (List<MySaveGameObject>)xmlSerializer.Deserialize(tr);
-        //        }
-        //    }
-        //    catch (Exception ex) { Debug.WriteLine("Exeption = " + ex.Message); }
-
-        //    if (MyLoadGameObject(_formMain))
-        //    {
-        //        MySetChildTreeViewGameObject(_formMain);
-        //        Debug.WriteLine("load ok");
-        //    }
-        //    else
-        //        Debug.WriteLine("load error");
-        //}
-
         public void MyLoadScene(string _namePath, FormMain _formMain)
         {
             MyNameScene = _namePath;
+            MyGameObject.myCounter = 0;
             _formMain.groupBoxScene.Text = MyNameScene;
 
             Type[] types = new Type[] { typeof(MyModel) };
