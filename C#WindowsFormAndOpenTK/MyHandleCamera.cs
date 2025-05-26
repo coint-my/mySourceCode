@@ -33,17 +33,17 @@ namespace C_WindowsFormAndOpenTK
             myDeltaTime = 0;
             myIsFly = false;
 
-            MyTexture texture = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
-            texture.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
-            myPolygonTexture = new MySimplePolygonColor(ref texture, MyTexture.myCurrentIndex);
-
+            //MyTexture texture = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
+            //texture.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
+            //myPolygonTexture = new MySimplePolygonColor(ref texture, MyTexture.myCurrentIndex);
+            myPolygonTexture = new MySimplePolygonColor();
             myPolygonTexture.MySetScale(new Vector3(0.5f));
         }
 
-        public override void MyDraw(MyHandleCamera _cam)
+        public override void MyDraw(MyHandleCamera _cam, MySimpleRectGL _glRectTexure)
         {
-            base.MyDraw(_cam);
-            myPolygonTexture.MyDraw(_cam, new Vector4(0.7f));
+            base.MyDraw(_cam, _glRectTexure);
+            myPolygonTexture.MyDraw(_cam, new Vector4(0.7f), _glRectTexure);
             myPolygonTexture.MySetPosition(myModel.ExtractTranslation());
         }
 

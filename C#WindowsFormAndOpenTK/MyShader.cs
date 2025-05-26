@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
 {
-    public class MyShader
+    public class MyShader : IDisposable
     {
         [XmlIgnore]
         public string MyGetPathVert { get; set; }
@@ -149,6 +149,12 @@ namespace C_WindowsFormAndOpenTK
         {
             GL.UseProgram(Handle);
             GL.Uniform3(_uniformLocations[name], data);
+        }
+
+        public void Dispose()
+        {
+            myTextures.Clear();
+            GL.DeleteProgram(Handle);
         }
     }
 }

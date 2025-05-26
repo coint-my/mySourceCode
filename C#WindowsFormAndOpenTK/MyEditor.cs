@@ -424,7 +424,7 @@ namespace C_WindowsFormAndOpenTK
             gBox.Controls.Add(flow);
             Button buttonTexture = new Button();
             buttonTexture.Size = new Size(220, 30);
-            buttonTexture.Text = /*_model.MyGetTexture != null ? _model.MyGetTexture.myName :*/ "None";
+            buttonTexture.Text = _go.myShader.myTextures.Count > 0 ? _go.myShader.myTextures[0].myName : "None";
             buttonTexture.AllowDrop = true;
             buttonTexture.Tag = _go;
             buttonTexture.DragEnter += ButtonTextureMyParameters_DragEnter;

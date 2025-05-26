@@ -1,2 +1,6 @@
 ﻿  myLearnRaycasting.cpp
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(49,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(50,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(73,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
   myLearnRaycasting.vcxproj -> D:\Мой код\myLearnRaycasting\Debug\myLearnRaycasting.exe

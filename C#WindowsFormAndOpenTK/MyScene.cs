@@ -47,9 +47,17 @@ namespace C_WindowsFormAndOpenTK
 
         public void Dispose()
         {
+            for (int i = 0; i < myListObjects.Count; i++)
+            {
+                (myListObjects[i] as MyGameObject).Dispose();
+                myListObjects[i] = null;
+            }
+
             myListObjects.Clear();
             mySaveObjects.Clear();
             MyNameScene = "None";
+
+            GC.Collect();
         }
 
         private void MyInitializeSaves()
@@ -89,6 +97,7 @@ namespace C_WindowsFormAndOpenTK
             try
             {
                 myListObjects.Clear();
+
                 _formMain.treeViewGameObjects.Nodes.Clear();
                 MyGameObject.myCounter = 0;
 

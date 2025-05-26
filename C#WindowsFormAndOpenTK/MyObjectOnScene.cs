@@ -20,7 +20,7 @@ namespace C_WindowsFormAndOpenTK
         public int myId;
         public string myName {  get; set; }
         public bool myIsDestroy { get; protected set; }
-        public abstract void MyDraw(MyHandleCamera _cam);
+        public abstract void MyDraw(MyHandleCamera _cam, MySimpleRectGL _myGlRect);
         public abstract void MyDrawOutline(MyHandleCamera _cam);
         public abstract void MyUpdate();
         public abstract void MyInitialize();

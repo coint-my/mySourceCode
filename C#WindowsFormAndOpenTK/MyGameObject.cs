@@ -47,7 +47,7 @@ namespace C_WindowsFormAndOpenTK
         }
     }
     
-    public class MyGameObject : MyObjectOnScene
+    public class MyGameObject : MyObjectOnScene, IDisposable
     {
         public static int myCounter = 0;
 
@@ -63,11 +63,12 @@ namespace C_WindowsFormAndOpenTK
         public bool myIsWireframe { get; set; }
 
         public MyShader myShader;
+        private MyShader myShaderWireframe;
 
         public MyGameObject()
         {
-            myShader = new MyShader("Resources/Shaders/shaderModel.vert",
-                "Resources/Shaders/shaderLighting.frag");
+            myShader = new MyShader("Resources/Shaders/shaderModel.vert", "Resources/Shaders/shaderLighting.frag");
+            myShaderWireframe = new MyShader("Resources/Shaders/shader.vert", "Resources/Shaders/shader.frag");
 
             myShader.SetVector3("viewPos", Vector3.One);
             myShader.SetInt("material.diffuse", 0);
@@ -95,8 +96,13 @@ namespace C_WindowsFormAndOpenTK
             myName = _name + "_" + myCounter;
         }
 
-        ~MyGameObject()
+        public void Dispose()
         {
+            myShader.Dispose();
+            myShader = null;
+            myShaderWireframe.Dispose();
+            myShaderWireframe = null;
+            //if(myComponents.Count > 0 && myComponents[0] is MyModel) (myComponents[0] as MyModel).Dispose();
             myComponents.Clear();
         }
 
@@ -168,7 +174,7 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
-        public override void MyDraw(MyHandleCamera _cam)
+        public override void MyDraw(MyHandleCamera _cam, MySimpleRectGL _glRect)
         {
             MyTransformUpdate();
 
@@ -178,12 +184,15 @@ namespace C_WindowsFormAndOpenTK
                 if (tmpObj != null && myIsVisible)
                 {
                     if (myIsWireframe)
+                    {
                         GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
+                        tmpObj.MyDraw(myModel, _cam, myShaderWireframe);
+                    }
                     else
+                    {
                         GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
-                    
-
-                    tmpObj.MyDraw(myModel, _cam, myShader);
+                        tmpObj.MyDraw(myModel, _cam, myShader);
+                    }
                 }
             }
 
@@ -194,7 +203,7 @@ namespace C_WindowsFormAndOpenTK
                 myPolygonColorPivot.MySetPosition(
                     myParent != null ? myPositionPivot : myPivot + myPosition);
 
-                myPolygonColorPivot.MyDraw(_cam, new Vector4(0.9f, 0.9f, 0.0f, 1.0f));
+                myPolygonColorPivot.MyDraw(_cam, new Vector4(0.9f, 0.9f, 0.0f, 1.0f), _glRect);
                 GL.Enable(EnableCap.DepthTest);
             }
         }

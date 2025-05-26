@@ -111,7 +111,10 @@ namespace C_WindowsFormAndOpenTK
         {
             _myShader.Use();
 
-            _myShader.SetVector3("myUV", _myShader.myTexCoord);
+            if (Path.GetFileNameWithoutExtension(_myShader.MyGetPathVert) != "shader")
+                _myShader.SetVector3("myUV", _myShader.myTexCoord);
+            else
+                GL.Uniform4(GL.GetUniformLocation(_myShader.Handle, "ourColor"), 1.0f, 1.0f, 1.0f, 1.0f);
 
             _myShader.SetMatrix4("model", _myModel);
             _myShader.SetMatrix4("view", _cam.GetViewMatrix());

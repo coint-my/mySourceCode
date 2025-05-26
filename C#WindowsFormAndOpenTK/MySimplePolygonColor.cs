@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace C_WindowsFormAndOpenTK
 {
-    internal class MySimplePolygonColor
+    public class MySimpleRectGL
     {
         private readonly float[] myVertices =
         {
@@ -14,26 +14,20 @@ namespace C_WindowsFormAndOpenTK
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
             -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left
         };
-        private readonly uint[] myIndices =
+        public readonly uint[] myIndices =
         {
             0, 1, 3,
             1, 2, 3
         };
 
         private int myVertexBufferObject;
-        private int myVertexArrayObject;
+        public int myVertexArrayObject;
         private int myElementBufferObject;
 
-        private MyShader mySimpleShader;
+        public MyShader mySimpleShader;
 
-        private MyTransform myTransform;
-
-        public MySimplePolygonColor()
+        public MySimpleRectGL()
         {
-            myTransform = new MyTransform();
-            myTransform.myPosition = new Vector3(0.0f, 0.0f, 2.0f);
-            myTransform.myScale = new Vector3(0.1f);
-
             myVertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(myVertexArrayObject);
 
@@ -57,14 +51,8 @@ namespace C_WindowsFormAndOpenTK
                 false, 5 * sizeof(float), 0);
         }
 
-        public MySimplePolygonColor(ref MyTexture _texure, int _textureData) 
+        public MySimpleRectGL(ref MyTexture _texure, int _textureData)
         {
-            Debug.WriteLine("texture = " + MyTexture.myCurrentIndex);
-            myTransform = new MyTransform();
-            myTransform.myPosition = new Vector3(0.0f, 0.0f, 2.0f);
-            myTransform.myScale = new Vector3(0.1f);
-            //myTransform.myRotation = new Vector3(0.0f, 0.0f, 0.0f);
-
             myVertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(myVertexArrayObject);
 
@@ -94,6 +82,19 @@ namespace C_WindowsFormAndOpenTK
 
             mySimpleShader.SetInt("texture0", _textureData);
         }
+    }
+
+    internal class MySimplePolygonColor
+    {
+        private MyTransform myTransform;
+        private MySimpleRectGL mySimpleRectGL;
+
+        public MySimplePolygonColor()
+        {
+            myTransform = new MyTransform();
+            myTransform.myPosition = new Vector3(0.0f, 0.0f, 2.0f);
+            myTransform.myScale = new Vector3(0.1f);
+        }
 
         public void MySetScale(Vector3 _scale) => myTransform.myScale = _scale;
 
@@ -102,7 +103,7 @@ namespace C_WindowsFormAndOpenTK
             myTransform.myPosition = _position;
         }
 
-        public void MyDraw(MyHandleCamera _camera, Vector4 _color)
+        public void MyDraw(MyHandleCamera _camera, Vector4 _color, MySimpleRectGL _glRect)
         {
             Matrix4 model = Matrix4.Identity;
 
@@ -118,14 +119,14 @@ namespace C_WindowsFormAndOpenTK
 
             GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
 
-            mySimpleShader.Use();
-            GL.Uniform4(GL.GetUniformLocation(mySimpleShader.Handle, "Color"), _color);
-            mySimpleShader.SetMatrix4("view", _camera.GetViewMatrix());
-            mySimpleShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
-            mySimpleShader.SetMatrix4("model", model);
+            _glRect.mySimpleShader.Use();
+            GL.Uniform4(GL.GetUniformLocation(_glRect.mySimpleShader.Handle, "Color"), _color);
+            _glRect.mySimpleShader.SetMatrix4("view", _camera.GetViewMatrix());
+            _glRect.mySimpleShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _glRect.mySimpleShader.SetMatrix4("model", model);
 
-            GL.BindVertexArray(myVertexArrayObject);
-            GL.DrawElements(PrimitiveType.Triangles, myIndices.Length, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(_glRect.myVertexArrayObject);
+            GL.DrawElements(PrimitiveType.Triangles, _glRect.myIndices.Length, DrawElementsType.UnsignedInt, 0);
         }
     }
 }

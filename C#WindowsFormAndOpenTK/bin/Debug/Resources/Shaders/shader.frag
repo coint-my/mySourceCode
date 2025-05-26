@@ -27,6 +27,6 @@ void main()
 	//}
 
 
-    	outputColor = mix(texture(texture0, texCoord), texture(texture1, texCoord), 0.2) * ourColor;
-	//outputColor = texture(texture0, texCoord) * texture(texture1, texCoord) * ourColor;
+    //outputColor = mix(texture(texture0, texCoord), texture(texture1, texCoord), 0.2) * ourColor;
+	outputColor = ourColor;
 }

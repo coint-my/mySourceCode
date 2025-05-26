@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Assimp.Unmanaged;
 using HeyRed.Mime;
 using OpenTK;
 using OpenTK.Graphics;
@@ -43,6 +44,8 @@ namespace C_WindowsFormAndOpenTK
         //private MySimplePolygonColor myTestPolygon;
 
         MyModel myModel;
+        MySimpleRectGL myGLRect;
+        MySimpleRectGL myGLRectCamera;
         public MyShader myShaderOutline;
         public MyModel myPrefabSphere;
         public MyModel myPrefabCube;
@@ -196,7 +199,12 @@ namespace C_WindowsFormAndOpenTK
                     testDepth = myCurrentScene.myListObjects[i];
                 }
                 else
-                    myCurrentScene.myListObjects[i].MyDraw(myCameraCurrent);
+                {
+                    if (myCurrentScene.myListObjects[i] is MyHandleCamera)
+                        myCurrentScene.myListObjects[i].MyDraw(myCameraCurrent, myGLRectCamera);
+                    else
+                        myCurrentScene.myListObjects[i].MyDraw(myCameraCurrent, myGLRect);
+                }
             }
 
             if (testDepth != null)
@@ -204,7 +212,7 @@ namespace C_WindowsFormAndOpenTK
                 GL.Disable(EnableCap.DepthTest);
                 testDepth.MyDrawOutline(myCameraCurrent);
                 GL.Enable(EnableCap.DepthTest);
-                testDepth.MyDraw(myCameraCurrent);
+                testDepth.MyDraw(myCameraCurrent, myGLRect);
             }
 
             glControl.SwapBuffers();
@@ -259,7 +267,7 @@ namespace C_WindowsFormAndOpenTK
 
         private void GlControl_Load(object sender, EventArgs e)
         {
-            GL.Enable(EnableCap.DepthTest);
+            //GL.Enable(EnableCap.DepthTest);
             //GL.Enable(EnableCap.CullFace);
             //GL.CullFace(CullFaceMode.Front);
             //GL.FrontFace(FrontFaceDirection.Cw);
@@ -309,6 +317,11 @@ namespace C_WindowsFormAndOpenTK
             //myTextureWhite_8_8.Use(TextureUnit.Texture2);
             //myTestPolygon = new MySimplePolygonColor(ref myTextureWhite_8_8, 2);
             //myTestPolygon = new MySimplePolygonColor();
+
+            myGLRect = new MySimpleRectGL();
+            MyTexture texCamera = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
+            texCamera.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
+            myGLRectCamera = new MySimpleRectGL(ref texCamera, MyTexture.myCurrentIndex);
 
             myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert", 
                                     "Resources/Shaders/shaderOutline.frag");
