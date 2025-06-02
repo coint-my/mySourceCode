@@ -111,7 +111,7 @@
             this.panelOpenTK.Location = new System.Drawing.Point(1, 14);
             this.panelOpenTK.Margin = new System.Windows.Forms.Padding(0);
             this.panelOpenTK.Name = "panelOpenTK";
-            this.panelOpenTK.Size = new System.Drawing.Size(578, 551);
+            this.panelOpenTK.Size = new System.Drawing.Size(578, 554);
             this.panelOpenTK.TabIndex = 2;
             // 
             // listView1
@@ -717,7 +717,7 @@
             this.groupBoxScene.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxScene.Name = "groupBoxScene";
             this.groupBoxScene.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBoxScene.Size = new System.Drawing.Size(580, 566);
+            this.groupBoxScene.Size = new System.Drawing.Size(580, 569);
             this.groupBoxScene.TabIndex = 12;
             this.groupBoxScene.TabStop = false;
             this.groupBoxScene.Text = "groupBox5";
@@ -767,7 +767,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelOpenTK;
         public System.Windows.Forms.NumericUpDown numericPositionX;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.NumericUpDown numericPositionZ;
@@ -817,6 +816,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         public System.Windows.Forms.ToolStripMenuItem createSceneToolStripMenuItem;
         public System.Windows.Forms.GroupBox groupBoxScene;
+        public System.Windows.Forms.Panel panelOpenTK;
     }
 }
 

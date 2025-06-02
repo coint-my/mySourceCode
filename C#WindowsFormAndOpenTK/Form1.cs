@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Assimp.Unmanaged;
 using HeyRed.Mime;
@@ -43,35 +45,51 @@ namespace C_WindowsFormAndOpenTK
         //private MyTestCamera myTestCamera;
         //private MySimplePolygonColor myTestPolygon;
 
-        MyModel myModel;
+        //MyModel myModel;
         MySimpleRectGL myGLRect;
         MySimpleRectGL myGLRectCamera;
         public MyShader myShaderOutline;
-        public MyModel myPrefabSphere;
-        public MyModel myPrefabCube;
-        public MyModel myPrefabPlane;
+        //public MyModel myPrefabSphere;
+        //public MyModel myPrefabCube;
+        //public MyModel myPrefabPlane;
         public MyShader myShaderLight;
 
         MyEditor myEditor;
         public MyScene myCurrentScene;
         public static Dictionary<string, MyTestTexture> myDictionaryTextures;
-        public static Dictionary<string, MyModel> myDictionaryPrefabs;
+        public static Dictionary<string, MyModel> myDictionaryModelPrefabs;
         //List<MyObjectOnScene> myListObjects;
         //MyTransform myBufferTransform;
 
-        private Timer myTimer = null;
+        private System.Windows.Forms.Timer myTimer = null;
+        private System.Windows.Forms.Timer myTimerInitialize = null;
         //private float myAngle;
         public GLControl glControl;
         public Action<int, int> MyEventResizeWindow;
 
-        private Vector3 VecPosLight = new Vector3(0, 0, -2);
+        MyLoad myLoad;
 
         public FormMain()
         {
             InitializeComponent();
+            
+            myLoad = new MyLoad();
+            myLoad.Show(this);
+
+            myTimerInitialize = new System.Windows.Forms.Timer();
+            myTimerInitialize.Tick += MyInitialize;
+            myTimerInitialize.Interval = 500;   // 1000 ms per sec / 50 ms per frame = 20 FPS
+            myTimerInitialize.Start();
+            //InitGLControl();
+            //myEditor = new MyEditor(this);
+            //myCurrentScene = new MyScene();
+        }
+
+        private void MyInitialize(object sender, EventArgs e)
+        {
+            Debug.WriteLine("start initialize");
             InitGLControl();
-            myEditor = new MyEditor(this);
-            myCurrentScene = new MyScene();
+            myTimerInitialize.Stop();
         }
 
         private void InitGLControl()
@@ -90,7 +108,7 @@ namespace C_WindowsFormAndOpenTK
             panelOpenTK.Controls.Add(glControl);
 
             // Redraw the screen every 1/20 of a second.
-            myTimer = new Timer();
+            myTimer = new System.Windows.Forms.Timer();
             myTimer.Tick += MyUpdate;
             myTimer.Interval = 30;   // 1000 ms per sec / 50 ms per frame = 20 FPS
             myTimer.Start();
@@ -247,32 +265,15 @@ namespace C_WindowsFormAndOpenTK
             }
         }
 
-        //public void MyUpdateNumericUpDown()
-        //{
-        //    if (testDepth != null)
-        //    {
-        //        numericPositionX.Value = (decimal)testDepth.myPosition.X;
-        //        numericPositionY.Value = (decimal)testDepth.myPosition.Y;
-        //        numericPositionZ.Value = (decimal)testDepth.myPosition.Z;
-
-        //        numericRotationX.Value = (decimal)testDepth.myRotation.X;
-        //        numericRotationY.Value = (decimal)testDepth.myRotation.Y;
-        //        numericRotationZ.Value = (decimal)testDepth.myRotation.Z;
-
-        //        numericScaleX.Value = (decimal)testDepth.myScale.X;
-        //        numericScaleY.Value = (decimal)testDepth.myScale.Y;
-        //        numericScaleZ.Value = (decimal)testDepth.myScale.Z;
-        //    }
-        //}
-
         private void GlControl_Load(object sender, EventArgs e)
         {
+            MyInitializationStartContent();
             //GL.Enable(EnableCap.DepthTest);
             //GL.Enable(EnableCap.CullFace);
             //GL.CullFace(CullFaceMode.Front);
             //GL.FrontFace(FrontFaceDirection.Cw);
 
-            GL.ClearColor(System.Drawing.Color.MidnightBlue);
+            ////GL.ClearColor(System.Drawing.Color.MidnightBlue);
 
             //_vertexArrayObject = GL.GenVertexArray();
             //GL.BindVertexArray(_vertexArrayObject);
@@ -309,54 +310,107 @@ namespace C_WindowsFormAndOpenTK
             //_shader.SetInt("texture0", 0);
             //_shader.SetInt("texture1", 1);
 
-            myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, MyGetAspectRatio());
-            myCameraCurrent = myCameraFly;
-            myCameraCurrent.myIsFly = true;
+            ////myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, MyGetAspectRatio());
+            ////myCameraCurrent = myCameraFly;
+            ////myCameraCurrent.myIsFly = true;
 
             //myTextureWhite_8_8 = MyTexture.LoadFromFile("Resources/Textures/myWhite_8_8.jpg");
             //myTextureWhite_8_8.Use(TextureUnit.Texture2);
             //myTestPolygon = new MySimplePolygonColor(ref myTextureWhite_8_8, 2);
             //myTestPolygon = new MySimplePolygonColor();
 
+            ////myGLRect = new MySimpleRectGL();
+            ////MyTexture texCamera = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
+            ////texCamera.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
+            ////myGLRectCamera = new MySimpleRectGL(ref texCamera, MyTexture.myCurrentIndex);
+
+            ////myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert", 
+            ////                        "Resources/Shaders/shaderOutline.frag");
+            ////myShaderLight = new MyShader("Resources/Shaders/shaderModel.vert",
+            ////    "Resources/Shaders/shaderLighting.frag");
+            ////myModel = new MyModel("Resources/Models/rock/rock.obj", myShaderLight, myShaderOutline);
+            ////myPrefabSphere = new MyModel("Resources/Models/sphere/sphere1.FBX", myShaderLight, myShaderOutline);
+            ////myPrefabCube = new MyModel("Resources/Models/cub/cub.FBX", myShaderLight, myShaderOutline);
+            ////myPrefabPlane = new MyModel("Resources/Models/plane/plane.FBX", myShaderLight, myShaderOutline);
+
+            ////myDictionaryPrefabs = new Dictionary<string, MyModel>();
+            ////myDictionaryPrefabs.Add(myModel.myPrefab, myModel);
+            ////myDictionaryPrefabs.Add(myPrefabSphere.myPrefab, myPrefabSphere);
+            ////myDictionaryPrefabs.Add(myPrefabCube.myPrefab, myPrefabCube);
+            ////myDictionaryPrefabs.Add(myPrefabPlane.myPrefab, myPrefabPlane);
+
+            ////myEditor.MyInitializeExplorer("Resources");
+            ////MyInitializeTextures();
+            ////MyEventEditor();
+
+            ////myCurrentScene.MyLoadScene("Resources//Scene//scene.xml", this);
+
+            //Debug.WriteLine("end thread = ");
+        }
+
+        private void MyInitializationStartContent()
+        {
+            myLoad.MyLoadProgressBar("start Load", 5);
+
+            GL.ClearColor(System.Drawing.Color.MidnightBlue);
+
+            myLoad.MyLoadProgressBar("Load Camera", 5);
+
+            myCameraFly = new MyHandleCamera(Vector3.UnitZ * 3, MyGetAspectRatio());
+            myCameraCurrent = myCameraFly;
+            myCameraCurrent.myIsFly = true;
+
+            myLoad.MyLoadProgressBar("Load Camera texture", 5);
+
             myGLRect = new MySimpleRectGL();
             MyTexture texCamera = MyTexture.LoadFromFile("Resources/Textures/myCam.png");
             texCamera.Use(TextureUnit.Texture0 + MyTexture.myCurrentIndex);
             myGLRectCamera = new MySimpleRectGL(ref texCamera, MyTexture.myCurrentIndex);
 
-            myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert", 
+            myLoad.MyLoadProgressBar("Load Model all", 25);
+
+            myShaderOutline = new MyShader("Resources/Shaders/shaderOutline.vert",
                                     "Resources/Shaders/shaderOutline.frag");
             myShaderLight = new MyShader("Resources/Shaders/shaderModel.vert",
                 "Resources/Shaders/shaderLighting.frag");
-            myModel = new MyModel("Resources/Models/rock/rock.obj", myShaderLight, myShaderOutline);
-            myPrefabSphere = new MyModel("Resources/Models/sphere/sphere1.FBX", myShaderLight, myShaderOutline);
-            myPrefabCube = new MyModel("Resources/Models/cub/cub.FBX", myShaderLight, myShaderOutline);
-            myPrefabPlane = new MyModel("Resources/Models/plane/plane.FBX", myShaderLight, myShaderOutline);
+            //myModel = new MyModel("Resources/Models/rock/rock.obj", myShaderLight, myShaderOutline);
+            //myPrefabSphere = new MyModel("Resources/Models/sphere/sphere1.FBX", myShaderLight, myShaderOutline);
+            //myPrefabCube = new MyModel("Resources/Models/cub/cub.FBX", myShaderLight, myShaderOutline);
+            //myPrefabPlane = new MyModel("Resources/Models/plane/plane.FBX", myShaderLight, myShaderOutline);
 
-            myDictionaryPrefabs = new Dictionary<string, MyModel>();
-            myDictionaryPrefabs.Add(myModel.myPrefab, myModel);
-            myDictionaryPrefabs.Add(myPrefabSphere.myPrefab, myPrefabSphere);
-            myDictionaryPrefabs.Add(myPrefabCube.myPrefab, myPrefabCube);
-            myDictionaryPrefabs.Add(myPrefabPlane.myPrefab, myPrefabPlane);
+            //myDictionaryModelPrefabs = new Dictionary<string, MyModel>();
+            //myDictionaryModelPrefabs.Add(myModel.myPrefab, myModel);
+            //myDictionaryPrefabs.Add(myPrefabSphere.myPrefab, myPrefabSphere);
+            //myDictionaryPrefabs.Add(myPrefabCube.myPrefab, myPrefabCube);
+            //myDictionaryPrefabs.Add(myPrefabPlane.myPrefab, myPrefabPlane);
 
-            //myCurrentScene.myListObjects = new List<MyObjectOnScene>();
+            MyInitializeModels();
 
-            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyHandleCamera(Vector3.Zero, MyGetAspectRatio())));
-            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myModel));
-            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabSphere));
-            //MyAddTreeViewGameObject(MyInstantiateInScene(new MyGameObject(), myPrefabCube));
+            myLoad.MyLoadProgressBar("Load Editor Event", 15);
 
+            myEditor = new MyEditor(this);
             myEditor.MyInitializeExplorer("Resources");
+
+            myLoad.MyLoadProgressBar("Load Textures all", 25);
+
             MyInitializeTextures();
             MyEventEditor();
 
+            myLoad.MyLoadProgressBar("Load Scene", 15);
+
+            myCurrentScene = new MyScene();
             myCurrentScene.MyLoadScene("Resources//Scene//scene.xml", this);
+
+            myLoad.Close();
+
+            Debug.WriteLine("end task = " + DateTime.Now);
         }
 
         private void MyEventEditor()
         {
             listView1.AfterLabelEdit += new LabelEditEventHandler(myEditor.listView1_AfterLabelEdit);
             listView1.BeforeLabelEdit += new LabelEditEventHandler(myEditor.listView1_BeforeLabelEdit);
-            listView1.ItemDrag += new ItemDragEventHandler(myEditor.listView1_ItemDrag);
+            //listView1.ItemDrag += new ItemDragEventHandler(myEditor.listView1_ItemDrag);
             listView1.DoubleClick += new EventHandler(myEditor.listView1_DoubleClick);
 
             contextMenuStripExplorer.Opening += new CancelEventHandler(myEditor.contextMenuStripExplorer_Opening);
@@ -426,6 +480,31 @@ namespace C_WindowsFormAndOpenTK
                     }
                 }
             }
+        }
+
+        private void MyInitializeModels()
+        {
+            DirectoryInfo baseDirectory = new DirectoryInfo("Resources");
+            myDictionaryModelPrefabs = new Dictionary<string, MyModel>();
+
+            foreach (var dir in baseDirectory.GetDirectories("*", System.IO.SearchOption.AllDirectories))
+            {
+                foreach (var files in dir.GetFiles())
+                {
+                    string typeName = System.IO.Path.GetExtension(files.Name);
+
+                    if (typeName.ToLower() == ".FBX".ToLower() || typeName.ToLower() == ".obj".ToLower())
+                    {
+                        string nameDirectory = dir.FullName.Substring(dir.FullName.LastIndexOf("Resources"));
+                        nameDirectory += "/" + files.Name;
+                        string newPath = nameDirectory.Replace("\\", "/");
+                        MyModel model = new MyModel(newPath, myShaderLight, myShaderOutline);
+                        myDictionaryModelPrefabs.Add(model.myPrefab, model);
+                    }
+                }
+            }
+
+            Debug.WriteLine("Models Loaded");
         }
 
         //public void MyInitializeExplorer(string _nameDir)
@@ -592,7 +671,6 @@ namespace C_WindowsFormAndOpenTK
         public MyGameObject MyInstantiateInScene(MyGameObject _gameObject, MyComponent _component)
         {
             MyGameObject.MyIncrementID();
-            //MyGameObject _go = _gameObject;
             _gameObject.MyAddComponent(_component);
             myCurrentScene.myListObjects.Add(_gameObject);
             return _gameObject;
@@ -1222,5 +1300,10 @@ namespace C_WindowsFormAndOpenTK
         {
             myCurrentScene.MyLoadScene(myCurrentScene.MyNameScene, this);
         }
+
+        //private void groupBoxScene_DragEnter(object sender, DragEventArgs e)
+        //{
+        //    Debug.WriteLine("enter");
+        //}
     }
 }

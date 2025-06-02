@@ -120,7 +120,7 @@ namespace C_WindowsFormAndOpenTK
                         {
                             MyModel mod = (MyModel)obj.myComponents[0];
 
-                            MyModel model = FormMain.myDictionaryPrefabs[mod.myPrefab];
+                            MyModel model = FormMain.myDictionaryModelPrefabs[mod.myPrefab];
 
                             go.myShader.myTexCoord = obj.myShader.myTexCoord;
                             try

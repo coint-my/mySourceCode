@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StbImageSharp;
+using static System.Net.WebRequestMethods;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -128,6 +129,11 @@ namespace C_WindowsFormAndOpenTK
 
             myMainForm.glControl.Controls.Add(myView);
             myView.Hide();
+
+            myMainForm.glControl.AllowDrop = true;
+            myMainForm.glControl.DragEnter += myGlControl_DragEnter;
+            myMainForm.glControl.DragDrop += myGlControlDragDrop;
+            myMainForm.listView1.ItemDrag += listView1_ItemDrag;
         }
 
         private void CreateSceneToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,7 +150,7 @@ namespace C_WindowsFormAndOpenTK
                         break;
                     }
                 }
-                File.Create(myPathDirectory + "//" + newName + ".xml").Close();
+                System.IO.File.Create(myPathDirectory + "//" + newName + ".xml").Close();
 
                 ListViewItem item = myMainForm.listView1.Items.Add(newName + ".xml", "file");
                 item.BeginEdit();
@@ -307,7 +313,7 @@ namespace C_WindowsFormAndOpenTK
                     if (item.ImageKey == "folder")
                         Directory.Delete(myPathDirectory + "//" + item.Text, true);
                     else
-                        File.Delete(myPathDirectory + "//" + item.Text);
+                        System.IO.File.Delete(myPathDirectory + "//" + item.Text);
 
                     MyInitializeExplorer(myPathDirectory);
                 }
@@ -730,7 +736,8 @@ namespace C_WindowsFormAndOpenTK
 
         public void treeViewGameObjects_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = e.AllowedEffect;
+            if ((TreeNode)e.Data.GetData(typeof(TreeNode)) is TreeNode)
+                e.Effect = e.AllowedEffect;
         }
 
         public void treeViewGameObjects_DragOver(object sender, DragEventArgs e)
@@ -741,45 +748,48 @@ namespace C_WindowsFormAndOpenTK
 
         public void treeViewGameObjects_DragDrop(object sender, DragEventArgs e)
         {
-            Point targetPoint = myMainForm.treeViewGameObjects.PointToClient(new Point(e.X, e.Y));
-            TreeNode targetNode = myMainForm.treeViewGameObjects.GetNodeAt(targetPoint);
-
-            TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
-
-            if (targetNode == null)
+            if ((TreeNode)e.Data.GetData(typeof(TreeNode)) is TreeNode)
             {
-                draggedNode.Remove();
-                MyGameObject goDrag = (MyGameObject)draggedNode.Tag;
+                Point targetPoint = myMainForm.treeViewGameObjects.PointToClient(new Point(e.X, e.Y));
+                TreeNode targetNode = myMainForm.treeViewGameObjects.GetNodeAt(targetPoint);
 
-                if (goDrag.myParent != null)
-                    goDrag.myParent.MyRemoveChild(goDrag);
+                TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
 
-                goDrag.myParent = null;
-
-                myMainForm.treeViewGameObjects.Nodes.Add((TreeNode)draggedNode.Clone());
-                return;
-            }
-
-            if (!draggedNode.Equals(targetNode) && !MyContainsNode(draggedNode, targetNode))
-            {
-                Debug.WriteLine("drop parent");
-                if (e.Effect == DragDropEffects.Move)
+                if (targetNode == null)
                 {
                     draggedNode.Remove();
-
                     MyGameObject goDrag = (MyGameObject)draggedNode.Tag;
-                    MyGameObject goTarget = (MyGameObject)targetNode.Tag;
 
                     if (goDrag.myParent != null)
                         goDrag.myParent.MyRemoveChild(goDrag);
 
-                    goDrag.myParent = goTarget;
-                    goTarget.MyAddChild(goDrag);
+                    goDrag.myParent = null;
 
-                    targetNode.Nodes.Add(draggedNode);
+                    myMainForm.treeViewGameObjects.Nodes.Add((TreeNode)draggedNode.Clone());
+                    return;
                 }
 
-                targetNode.Expand();
+                if (!draggedNode.Equals(targetNode) && !MyContainsNode(draggedNode, targetNode))
+                {
+                    Debug.WriteLine("drop parent");
+                    if (e.Effect == DragDropEffects.Move)
+                    {
+                        draggedNode.Remove();
+
+                        MyGameObject goDrag = (MyGameObject)draggedNode.Tag;
+                        MyGameObject goTarget = (MyGameObject)targetNode.Tag;
+
+                        if (goDrag.myParent != null)
+                            goDrag.myParent.MyRemoveChild(goDrag);
+
+                        goDrag.myParent = goTarget;
+                        goTarget.MyAddChild(goDrag);
+
+                        targetNode.Nodes.Add(draggedNode);
+                    }
+
+                    targetNode.Expand();
+                }
             }
         }
 
@@ -835,8 +845,12 @@ namespace C_WindowsFormAndOpenTK
         public void cubeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MyGameObject gameObject = new MyGameObject("Cube");
-            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject,
-                myMainForm.myPrefabCube));
+            
+            MyComponent com = null;
+            if(FormMain.myDictionaryModelPrefabs.ContainsKey("Resources/Models/cub/cub.FBX"))
+                com = FormMain.myDictionaryModelPrefabs["Resources/Models/cub/cub.FBX"];
+            
+            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject, com));
 
             if (myMainForm.treeViewGameObjects.SelectedNode != null)
                 myMainForm.treeViewGameObjects.SelectedNode.Expand();
@@ -845,8 +859,12 @@ namespace C_WindowsFormAndOpenTK
         public void sphereToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MyGameObject gameObject = new MyGameObject("Sphere");
-            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject,
-                myMainForm.myPrefabSphere));
+
+            MyComponent com = null;
+            if (FormMain.myDictionaryModelPrefabs.ContainsKey("Resources/Models/sphere/sphere1.FBX"))
+                com = FormMain.myDictionaryModelPrefabs["Resources/Models/sphere/sphere1.FBX"];
+
+            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject, com));
 
             if (myMainForm.treeViewGameObjects.SelectedNode != null)
                 myMainForm.treeViewGameObjects.SelectedNode.Expand();
@@ -855,8 +873,12 @@ namespace C_WindowsFormAndOpenTK
         public void planeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MyGameObject gameObject = new MyGameObject("Plane");
-            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject, 
-                myMainForm.myPrefabPlane));
+
+            MyComponent com = null;
+            if (FormMain.myDictionaryModelPrefabs.ContainsKey("Resources/Models/plane/plane.FBX"))
+                com = FormMain.myDictionaryModelPrefabs["Resources/Models/plane/plane.FBX"];
+
+            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(gameObject, com));
 
             if (myMainForm.treeViewGameObjects.SelectedNode != null)
                 myMainForm.treeViewGameObjects.SelectedNode.Expand();
@@ -956,7 +978,7 @@ namespace C_WindowsFormAndOpenTK
         {
             if (e.Label != null && !MyIsEqualDirectory(e.Label))
             {
-                if (File.Exists(myPathDirectory + "//" + myMainForm.listView1.SelectedItems[0].Text))
+                if (System.IO.File.Exists(myPathDirectory + "//" + myMainForm.listView1.SelectedItems[0].Text))
                 {
                     FileSystem.RenameFile(myPathDirectory + "//" +
                                             myMainForm.listView1.SelectedItems[0].Text, e.Label);
@@ -972,6 +994,32 @@ namespace C_WindowsFormAndOpenTK
         public void listView1_ItemDrag(object sender, ItemDragEventArgs e)
         {
             DoDragDrop(e.Item, DragDropEffects.Move);
+        }
+
+        private void myGlControl_DragEnter(object sender, DragEventArgs e)
+        {
+            string typeName = ((ListViewItem)e.Data.GetData(typeof(ListViewItem))).Text;
+
+            if (typeName != null)
+            {
+                string nameExt = System.IO.Path.GetExtension(typeName);
+
+                if (nameExt.ToLower() == ".FBX".ToLower() || nameExt.ToLower() == ".obj".ToLower())
+                    e.Effect = e.AllowedEffect;
+            }
+        }
+
+        private void myGlControlDragDrop(object sender, DragEventArgs e)
+        {
+            string typeName = ((ListViewItem)e.Data.GetData(typeof(ListViewItem))).Text;
+            string typePath = myPathDirectory + "//" + typeName;
+            string myPath = typePath.Replace("//", "/");
+            string name = System.IO.Path.GetFileNameWithoutExtension(myPath);
+
+            myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(new MyGameObject(name),
+                FormMain.myDictionaryModelPrefabs[myPath]));
+
+            Debug.WriteLine("drop = " + myPath);
         }
     }
 }

@@ -42,3 +42,9 @@ D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.csproj.
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.exe.config
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.MyRenameFolder.resources
 D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.FormMain.resources
+D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\C#WindowsFormAndOpenTK.exe.manifest
+D:\Мой код\C#WindowsFormAndOpenTK\bin\Debug\C#WindowsFormAndOpenTK.application
+D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.exe.manifest
+D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.application
+D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C#WindowsFormAndOpenTK.TrustInfo.xml
+D:\Мой код\C#WindowsFormAndOpenTK\obj\Debug\C_WindowsFormAndOpenTK.MyLoad.resources

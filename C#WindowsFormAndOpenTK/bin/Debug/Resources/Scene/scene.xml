@@ -404,13 +404,13 @@
     <myName>Camera</myName>
     <myObj>C_WindowsFormAndOpenTK.MyHandleCamera</myObj>
     <myPosition>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>7.5</Z>
+      <X>3</X>
+      <Y>3.6</Y>
+      <Z>15.6</Z>
     </myPosition>
     <myRotation>
       <X>0</X>
-      <Y>3</Y>
+      <Y>3.3</Y>
       <Z>0</Z>
     </myRotation>
     <myScale>
@@ -475,6 +475,202 @@
         <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
         <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
         <myPrefab>Resources/Models/plane/plane.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>my_book_10</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Textures//stone.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>-5.4</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>0.1</X>
+      <Y>0.1</Y>
+      <Z>0.1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/misc/my_book.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>my_sword_11</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Textures//box1.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>4.8</X>
+      <Y>-0</Y>
+      <Z>-11.1</Z>
+    </myPosition>
+    <myRotation>
+      <X>-1.6</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>0.1</X>
+      <Y>0.1</Y>
+      <Z>0.1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/misc/my_sword.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>my_candle_12</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//ground_01.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>-8.7</X>
+      <Y>0</Y>
+      <Z>-5.1</Z>
+    </myPosition>
+    <myRotation>
+      <X>-1.6</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>0.1</X>
+      <Y>0.1</Y>
+      <Z>0.1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/misc/my_candle.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>my_shield_13</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\image_for_opengl//ground_grass_01.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>-1.2</X>
+      <Y>6.6</Y>
+      <Z>-11.7</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>0.1</X>
+      <Y>0.1</Y>
+      <Z>0.1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/misc/my_shield.FBX</myPrefab>
         <MyIsVisible>false</MyIsVisible>
       </MyComponent>
     </myComponents>
