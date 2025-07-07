@@ -80,6 +80,8 @@
             this.saveSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadSceneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxScene = new System.Windows.Forms.GroupBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.addModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripExplorer.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericScaleX)).BeginInit();
@@ -148,39 +150,41 @@
             this.rename,
             this.deleteToolStrip,
             this.toolStripSeparator1,
-            this.createSceneToolStripMenuItem});
+            this.createSceneToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.addModelToolStripMenuItem});
             this.contextMenuStripExplorer.Name = "contextMenuStripExplorer";
-            this.contextMenuStripExplorer.Size = new System.Drawing.Size(145, 98);
+            this.contextMenuStripExplorer.Size = new System.Drawing.Size(181, 148);
             // 
             // createFolderToolStripMenuItem
             // 
             this.createFolderToolStripMenuItem.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
             this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
-            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createFolderToolStripMenuItem.Text = "Create Folder";
             // 
             // rename
             // 
             this.rename.Image = global::C_WindowsFormAndOpenTK.Properties.Resources.folder;
             this.rename.Name = "rename";
-            this.rename.Size = new System.Drawing.Size(144, 22);
+            this.rename.Size = new System.Drawing.Size(180, 22);
             this.rename.Text = "Rename";
             // 
             // deleteToolStrip
             // 
             this.deleteToolStrip.Name = "deleteToolStrip";
-            this.deleteToolStrip.Size = new System.Drawing.Size(144, 22);
+            this.deleteToolStrip.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStrip.Text = "Delete";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // createSceneToolStripMenuItem
             // 
             this.createSceneToolStripMenuItem.Name = "createSceneToolStripMenuItem";
-            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.createSceneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createSceneToolStripMenuItem.Text = "Create Scene";
             // 
             // groupBox4
@@ -722,6 +726,17 @@
             this.groupBoxScene.TabStop = false;
             this.groupBoxScene.Text = "groupBox5";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // addModelToolStripMenuItem
+            // 
+            this.addModelToolStripMenuItem.Name = "addModelToolStripMenuItem";
+            this.addModelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addModelToolStripMenuItem.Text = "Add Model";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,6 +832,8 @@
         public System.Windows.Forms.ToolStripMenuItem createSceneToolStripMenuItem;
         public System.Windows.Forms.GroupBox groupBoxScene;
         public System.Windows.Forms.Panel panelOpenTK;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem addModelToolStripMenuItem;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using OpenTK.Graphics.OpenGL;
 using OpenTK;
 using System.Diagnostics;
+using Assimp.Unmanaged;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -25,6 +26,9 @@ namespace C_WindowsFormAndOpenTK
         private int myElementBufferObject;
 
         public MyShader mySimpleShader;
+        private int myTextureData;
+        private MyTexture myTexture;
+        public bool myIsTexture;
 
         public MySimpleRectGL()
         {
@@ -49,9 +53,11 @@ namespace C_WindowsFormAndOpenTK
             GL.EnableVertexAttribArray(vertexLocation);
             GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float,
                 false, 5 * sizeof(float), 0);
+
+            myIsTexture = false;
         }
 
-        public MySimpleRectGL(ref MyTexture _texure, int _textureData)
+        public MySimpleRectGL(ref MyTexture _texture, int _textureData)
         {
             myVertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(myVertexArrayObject);
@@ -80,14 +86,21 @@ namespace C_WindowsFormAndOpenTK
             GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float,
                 false, 5 * sizeof(float), 3 * sizeof(float));
 
-            mySimpleShader.SetInt("texture0", _textureData);
+            myTextureData = _textureData;
+            myTexture = _texture;
+            myIsTexture = true;
+        }
+
+        public void MySetTexture()
+        {
+            myTexture.Use(TextureUnit.Texture0 + myTextureData);
+            mySimpleShader.SetInt("texture0", myTextureData);
         }
     }
 
     internal class MySimplePolygonColor
     {
         private MyTransform myTransform;
-        private MySimpleRectGL mySimpleRectGL;
 
         public MySimplePolygonColor()
         {
@@ -127,6 +140,12 @@ namespace C_WindowsFormAndOpenTK
 
             GL.BindVertexArray(_glRect.myVertexArrayObject);
             GL.DrawElements(PrimitiveType.Triangles, _glRect.myIndices.Length, DrawElementsType.UnsignedInt, 0);
+        }
+
+        public void MyDrawTexture(MyHandleCamera _camera, Vector4 _color, MySimpleRectGL _glRect)
+        {
+            _glRect.MySetTexture();
+            MyDraw(_camera, _color, _glRect);
         }
     }
 }

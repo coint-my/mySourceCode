@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StbImageSharp;
 using static System.Net.WebRequestMethods;
+using System.Security.Cryptography;
+using Assimp.Unmanaged;
+using System.Runtime.InteropServices;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -57,6 +60,36 @@ namespace C_WindowsFormAndOpenTK
             panel.Controls.Add(labelName);
             panel.Controls.Add(pictureBox);
             Controls.Add(panel);
+        }
+
+        public void TextureToImage(MyTestTexture _texture, int width, int height)
+        {
+            // Привязка текстуры
+            //OpenTK.Graphics.OpenGL4.GL.BindTexture(OpenTK.Graphics.OpenGL4.TextureTarget.Texture2D,
+            //    _texture.Handle);
+
+            //// Буфер под пиксели (RGBA)
+            //byte[] pixelData = new byte[width * height * 4];
+            //OpenTK.Graphics.OpenGL4.GL.GetTexImage(OpenTK.Graphics.OpenGL4.TextureTarget.Texture2D,
+            //    0, OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, OpenTK.Graphics.OpenGL4.PixelType.UnsignedByte,
+            //    _texture.MyImage.Data);
+
+            MyBmp.Dispose();
+            // Создание bitmap'а
+            MyBmp = new Bitmap(width, height, PixelFormat.Format32bppArgb);
+            var bmpData = MyBmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly,
+                MyBmp.PixelFormat);
+
+            // Копируем данные (возможно нужно перевернуть по Y)
+            System.Runtime.InteropServices.Marshal.Copy(_texture.MyImage.Data, 0, bmpData.Scan0,
+                _texture.MyImage.Data.Length);
+
+            MyBmp.UnlockBits(bmpData);
+
+            // Важно! OpenGL (0,0) — нижний левый, GDI+ — верхний левый, нужно перевернуть:
+            MyBmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+            pictureBox.Image = MyBmp;
         }
 
         // Добавление элементов с изображением
@@ -136,6 +169,37 @@ namespace C_WindowsFormAndOpenTK
             myMainForm.listView1.ItemDrag += listView1_ItemDrag;
         }
 
+        public void addModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "3D Model | *.obj; *.FBX";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string myFormatFilePath = myPathDirectory +"//" + openFileDialog.SafeFileName;
+
+                    if (!System.IO.File.Exists(myFormatFilePath))
+                    {
+                        System.IO.File.Copy(openFileDialog.FileName, myFormatFilePath);
+
+                        string myModelPath = myPathDirectory + "//" + openFileDialog.SafeFileName;
+                        string newModelPath = myModelPath.Replace("//", "/");
+
+                        MyModel model = new MyModel(newModelPath, myMainForm.myShaderLight,
+                            myMainForm.myShaderOutline);
+
+                        FormMain.myDictionaryModelPrefabs.Add(model.myPrefab, model);
+
+                        MyInitializeExplorer(myPathDirectory);
+                    }
+                    else
+                        MessageBox.Show("File is exist in Directory (" + openFileDialog.SafeFileName + ")",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void CreateSceneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -176,8 +240,10 @@ namespace C_WindowsFormAndOpenTK
                 if (type == "image" && !myView.Visible)
                 {
                     string newPath = myPathDirectory.Replace("//", "\\");
-                    myView.MyAddItem(item.Text, 
-                        FormMain.myDictionaryTextures[newPath + "//" + item.Text]);
+                    //myView.MyAddItem(item.Text, 
+                    //    FormMain.myDictionaryTextures[newPath + "//" + item.Text]);
+                    MyTestTexture texture = FormMain.myDictionaryTextures[newPath + "//" + item.Text];
+                    myView.TextureToImage(texture, texture.MyImage.Width, texture.MyImage.Height);
                     myView.Show();
                 }
             }
@@ -296,6 +362,7 @@ namespace C_WindowsFormAndOpenTK
                     }
                 }
                 DirectoryInfo directory = Directory.CreateDirectory(myPathDirectory + "//" + newName);
+                directory.Attributes = FileAttributes.Directory | FileAttributes.Archive;
 
                 ListViewItem item = myMainForm.listView1.Items.Add(newName, "folder");
                 item.BeginEdit();
@@ -344,7 +411,8 @@ namespace C_WindowsFormAndOpenTK
                 string path = myMainForm.listView1.SelectedItems[0].Text;
                 DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
                 if (path == "...") return;
-                if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+                if (dInfo.Attributes == (FileAttributes.Directory | FileAttributes.Archive) ||
+                    dInfo.Attributes == FileAttributes.Archive)
                 {
                     itemRename = myMainForm.contextMenuStripExplorer.Items.Find("Rename", false)[0];
                     itemRename.Enabled = true;
@@ -358,7 +426,8 @@ namespace C_WindowsFormAndOpenTK
                 {
                     DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + ((ListViewItem)item).Text);
                     if (((ListViewItem)item).Text == "...") return;
-                    if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+                    if (dInfo.Attributes == (FileAttributes.Directory | FileAttributes.Archive) ||
+                        dInfo.Attributes == FileAttributes.Archive)
                         continue;
                     else
                         return;
@@ -968,7 +1037,8 @@ namespace C_WindowsFormAndOpenTK
             string path = myMainForm.listView1.SelectedItems[0].Text;
             DirectoryInfo dInfo = new DirectoryInfo(myPathDirectory + "//" + path);
 
-            if (dInfo.Attributes == FileAttributes.Directory || dInfo.Attributes == FileAttributes.Archive)
+            if (dInfo.Attributes == (FileAttributes.Directory | FileAttributes.Archive) || 
+                dInfo.Attributes == FileAttributes.Archive)
                 isNotPossible = false;
 
             e.CancelEdit = isNotPossible;

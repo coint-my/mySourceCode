@@ -416,6 +416,7 @@ namespace C_WindowsFormAndOpenTK
             contextMenuStripExplorer.Opening += new CancelEventHandler(myEditor.contextMenuStripExplorer_Opening);
 
             createFolderToolStripMenuItem.Click += new EventHandler(myEditor.createFolderToolStripMenuItem_Click);
+            addModelToolStripMenuItem.Click += myEditor.addModelToolStripMenuItem_Click;
 
             rename.Click += new EventHandler(myEditor.rename_Click);
 
@@ -1300,10 +1301,5 @@ namespace C_WindowsFormAndOpenTK
         {
             myCurrentScene.MyLoadScene(myCurrentScene.MyNameScene, this);
         }
-
-        //private void groupBoxScene_DragEnter(object sender, DragEventArgs e)
-        //{
-        //    Debug.WriteLine("enter");
-        //}
     }
 }

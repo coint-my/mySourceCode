@@ -178,6 +178,8 @@
     </Compile>
     <None Include="bin\Debug\Resources\Shaders\shaderOutline.vert" />
     <None Include="bin\Debug\Resources\Shaders\simpleShaderColor.vert" />
+    <None Include="bin\Debug\Resources\Shaders\testOutline.frag" />
+    <None Include="bin\Debug\Resources\Shaders\testOutline.vert" />
     <None Include="C#WindowsFormAndOpenTK_TemporaryKey.pfx" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />

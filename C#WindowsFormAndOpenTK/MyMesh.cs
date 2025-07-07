@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using static System.Windows.Forms.LinkLabel;
 
 namespace C_WindowsFormAndOpenTK
 {
@@ -87,6 +88,16 @@ namespace C_WindowsFormAndOpenTK
             GL.BindVertexArray(0);
 
             GL.ActiveTexture(TextureUnit.Texture0);
+        }
+        
+        public void MyDrawOutline()
+        {
+            GL.BindVertexArray(VAO);
+            GL.LineWidth(3.0f);
+            GL.DrawElements(PrimitiveType.Triangles, indicesCount, DrawElementsType.UnsignedInt, 0);
+            //GL.DrawArrays(PrimitiveType.Lines, 0, indicesCount);
+            //GL.DrawElements(PrimitiveType.Lines, indicesCount, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
         }
 
         public void Dispose()

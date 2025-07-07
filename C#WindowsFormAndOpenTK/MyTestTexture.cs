@@ -24,7 +24,7 @@ namespace C_WindowsFormAndOpenTK
 
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, handle);
-            StbImage.stbi_set_flip_vertically_on_load(1);
+            //StbImage.stbi_set_flip_vertically_on_load(1);
 
             ImageResult image;
 
@@ -34,6 +34,8 @@ namespace C_WindowsFormAndOpenTK
 
                 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba,
                     image.Width, image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, image.Data);
+
+                GL.GetTexImage(TextureTarget.Texture2D, 0, PixelFormat.Bgra, PixelType.UnsignedByte, image.Data);
             }
 
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,

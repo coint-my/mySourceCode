@@ -382,7 +382,7 @@ void render()
 
 void processNormalKeys(unsigned char key, int x, int y)
 {
-    if (key == 27) { exit(0); }
+    if (key == 27) { exit(0); }//выход из приложения кнопка ESC
 
     if (key == 'a') { isKeyDown[MyKeyDown::LEFT] = true; }
     if (key == 'd') { isKeyDown[MyKeyDown::RIGHT] = true; }
@@ -420,7 +420,6 @@ void changeSize(int w, int h)
 void myUpdate(int _time)
 {
     if (isKeyDown[MyKeyDown::UP])
-        //movePlayer(dirX * moveSpeed, dirY * moveSpeed);
     {
         float nextX = playerX + dirX * moveSpeed * time_temp;
         float nextY = playerY + dirY * moveSpeed * time_temp;
@@ -428,7 +427,6 @@ void myUpdate(int _time)
         if (!isWall(playerX, nextY)) playerY = nextY;
     }
     if (isKeyDown[MyKeyDown::DOWN])
-        //movePlayer(-dirX * moveSpeed, -dirY * moveSpeed);
     {
         float nextX = playerX - dirX * moveSpeed * time_temp;
         float nextY = playerY - dirY * moveSpeed * time_temp;
@@ -436,7 +434,6 @@ void myUpdate(int _time)
         if (!isWall(playerX, nextY)) playerY = nextY;
     }
     if (isKeyDown[MyKeyDown::LEFT])
-        //movePlayer(-planeX * moveSpeed, -planeY * moveSpeed);  // Strafe влево
     {
         float nextX = playerX - planeX * moveSpeed * time_temp;
         float nextY = playerY - planeY * moveSpeed * time_temp;
@@ -444,7 +441,6 @@ void myUpdate(int _time)
         if (!isWall(playerX, nextY)) playerY = nextY;
     }
     if (isKeyDown[MyKeyDown::RIGHT])
-        //movePlayer(planeX * moveSpeed, planeY * moveSpeed);   // Strafe вправо
     {
         float nextX = playerX + planeX * moveSpeed * time_temp;
         float nextY = playerY + planeY * moveSpeed * time_temp;
@@ -457,8 +453,7 @@ void myUpdate(int _time)
     glutTimerFunc(_time, myUpdate, _time);
 }
 
-// Обработка движения мыши
-void mouseMotion(int _x, int _y)
+void mouseMotion(int _x, int _y)// Обработка движения мыши
 {
     int deltaX = _x - lastMouseX;
     lastMouseX = WID / 2;  // Центрируем мышь после обработки
@@ -466,12 +461,12 @@ void mouseMotion(int _x, int _y)
     float rotSpeed = deltaX * mouseSensitivity * time_temp;  // Угол поворота
 
     float oldDirX = dirX;
-    dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
-    dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
+    dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);//вычисляем поворот направления игрока по X
+    dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);//вычисляем поворот направления игрока по Y
 
     float oldPlaneX = planeX;
-    planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
-    planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
+    planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);//вычисляем поворот угла обзора игрока по X
+    planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);//вычисляем поворот угла обзора игрока по Y
 
     glutWarpPointer(WID / 2, HEI / 2);  // Возвращаем курсор в центр экрана
 }
@@ -500,15 +495,15 @@ int main(int argc, char** argv)
 
     myUpdate(16);
 
-	glutIgnoreKeyRepeat(1);
-	glutKeyboardFunc(processNormalKeys);
-	glutSpecialFunc(preesKeys);
-    glutSpecialUpFunc(releaseKey);
-	glutKeyboardUpFunc(releaseNormalKeys);
+	glutIgnoreKeyRepeat(1);//игнорировать задержку клавишь
+	glutKeyboardFunc(processNormalKeys);//события нажатия клавиши
+	glutSpecialFunc(preesKeys);//события нажатия специальной клавиши
+    glutSpecialUpFunc(releaseKey);//события отпускания клавиши
+	glutKeyboardUpFunc(releaseNormalKeys);//события отпускания клавиши
+	glutPassiveMotionFunc(mouseMotion);
 
 	/*glutMouseFunc(mouseButton);
 	glutMotionFunc(mouseMove);*/
-	glutPassiveMotionFunc(mouseMotion);
 
 	// Новая функция изменения размеров окна
 	glutReshapeFunc(changeSize);

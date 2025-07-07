@@ -16,6 +16,7 @@ namespace C_WindowsFormAndOpenTK
         private float myDeltaTime;
 
         private long myTime;
+        public static float myTotalSeconds;
 
         private float mySensitivity, myCameraSpeed;
 
@@ -43,7 +44,12 @@ namespace C_WindowsFormAndOpenTK
         public override void MyDraw(MyHandleCamera _cam, MySimpleRectGL _glRectTexure)
         {
             base.MyDraw(_cam, _glRectTexure);
-            myPolygonTexture.MyDraw(_cam, new Vector4(0.7f), _glRectTexure);
+
+            if (_glRectTexure.myIsTexture)
+                myPolygonTexture.MyDrawTexture(_cam, new Vector4(0.7f), _glRectTexure);
+            else
+                myPolygonTexture.MyDraw(_cam, new Vector4(0.7f), _glRectTexure);
+
             myPolygonTexture.MySetPosition(myModel.ExtractTranslation());
         }
 
@@ -71,6 +77,8 @@ namespace C_WindowsFormAndOpenTK
             long currFrame = DateTime.Now.Ticks;
             long test = currFrame - myTime;
             myDeltaTime = test * 0.0000001f;
+            myTotalSeconds = myTotalSeconds + myDeltaTime % 65000;
+
             myTime = currFrame;
 
             if (!myIsFly)

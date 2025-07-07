@@ -1,11 +1,12 @@
 ﻿using Assimp;
 using AssimpMesh = Assimp.Mesh;
 using OpenTK;
+using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
-using OpenTK.Graphics.OpenGL;
+//using OpenTK.Graphics.OpenGL;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
@@ -114,7 +115,9 @@ namespace C_WindowsFormAndOpenTK
             if (Path.GetFileNameWithoutExtension(_myShader.MyGetPathVert) != "shader")
                 _myShader.SetVector3("myUV", _myShader.myTexCoord);
             else
-                GL.Uniform4(GL.GetUniformLocation(_myShader.Handle, "ourColor"), 1.0f, 1.0f, 1.0f, 1.0f);
+            {
+                //GL.Uniform4(GL.GetUniformLocation(_myShader.Handle, "ourColor"), 1.0f, 1.0f, 1.0f, 1.0f);
+            }
 
             _myShader.SetMatrix4("model", _myModel);
             _myShader.SetMatrix4("view", _cam.GetViewMatrix());
@@ -134,17 +137,29 @@ namespace C_WindowsFormAndOpenTK
 
             Matrix4 myNewScaleModel;
             Vector3 newScale = new Vector3(1.005f + len, 1.005f + len, 1.005f + len);
-            _myGo.MyTransformUpdate(out myNewScaleModel, _myGo.myScale * newScale, 
+
+            myShaderOutline.SetFloat("u_time", MyHandleCamera.myTotalSeconds);
+
+            _myGo.MyTransformUpdate(out myNewScaleModel, _myGo.myScale/* * newScale*/,
                 _myGo.myRotation, _myGo.myPosition, _myGo.myPivot);
 
             myShaderOutline.SetMatrix4("model", myNewScaleModel);
             myShaderOutline.SetMatrix4("view", _cam.GetViewMatrix());
             myShaderOutline.SetMatrix4("projection", _cam.GetProjectionMatrix());
 
+            GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Line);
             foreach (MyMesh mesh in meshes)
             {
-                mesh.Draw(myShaderOutline);
+                mesh.MyDrawOutline();
             }
+
+            GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
+            foreach (MyMesh mesh in meshes)
+            {
+                mesh.MyDrawOutline();
+            }
+
+            GL.LineWidth(1.0f);
         }
 
         private void ProcessNode(Node node, Scene scene)

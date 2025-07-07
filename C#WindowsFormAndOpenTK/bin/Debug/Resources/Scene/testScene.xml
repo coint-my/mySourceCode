@@ -204,12 +204,12 @@
     <myObj>C_WindowsFormAndOpenTK.MyHandleCamera</myObj>
     <myPosition>
       <X>0</X>
-      <Y>1.2</Y>
+      <Y>6.9</Y>
       <Z>21</Z>
     </myPosition>
     <myRotation>
       <X>0</X>
-      <Y>-3</Y>
+      <Y>-3.1</Y>
       <Z>0</Z>
     </myRotation>
     <myScale>
@@ -228,5 +228,103 @@
     <myIsVisible>true</myIsVisible>
     <myIsWireframe>false</myIsWireframe>
     <myComponents />
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>Sphere_5</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Textures//myWhite_8_8.jpg</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>1.5</Y>
+      <Z>0</Z>
+    </myPosition>
+    <myRotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>1</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/sphere/sphere1.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
+  </MySaveGameObject>
+  <MySaveGameObject>
+    <myName>berrel_01_6</myName>
+    <myObj>C_WindowsFormAndOpenTK.MyGameObject</myObj>
+    <myShader>
+      <myTextures>
+        <MyTestTexture>
+          <path>Resources\Models\misc//barrel_01_barell_material_01_BaseColor.png</path>
+        </MyTestTexture>
+      </myTextures>
+      <myTexCoord>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </myTexCoord>
+    </myShader>
+    <myPosition>
+      <X>0</X>
+      <Y>1.2</Y>
+      <Z>-12</Z>
+    </myPosition>
+    <myRotation>
+      <X>4.71</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myRotation>
+    <myScale>
+      <X>0.03</X>
+      <Y>0.03</Y>
+      <Z>0.03</Z>
+    </myScale>
+    <myPivot>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </myPivot>
+    <myParent>-1</myParent>
+    <myChild />
+    <MyIsShowPivot>false</MyIsShowPivot>
+    <myIsVisible>true</myIsVisible>
+    <myIsWireframe>false</myIsWireframe>
+    <myComponents>
+      <MyComponent xsi:type="MyModel">
+        <myShaderPathVert>Resources/Shaders/shaderModel.vert</myShaderPathVert>
+        <myShaderPathFrag>Resources/Shaders/shaderLighting.frag</myShaderPathFrag>
+        <myPrefab>Resources/Models/misc/berrel_01.FBX</myPrefab>
+        <MyIsVisible>false</MyIsVisible>
+      </MyComponent>
+    </myComponents>
   </MySaveGameObject>
 </ArrayOfMySaveGameObject>

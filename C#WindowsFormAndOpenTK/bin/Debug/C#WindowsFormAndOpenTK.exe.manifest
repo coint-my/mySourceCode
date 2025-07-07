@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C#WindowsFormAndOpenTK.exe" size="88032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="C#WindowsFormAndOpenTK.exe" size="89568">
       <assemblyIdentity name="C#WindowsFormAndOpenTK" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8hMGP+D2zdipkjL9ZlMfUols6rIi/OaR90INB3Z2FrA=</dsig:DigestValue>
+        <dsig:DigestValue>FoNltDDHAzvUjyAJpCws+yDxam0YKro+pM+QBGx+ewM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

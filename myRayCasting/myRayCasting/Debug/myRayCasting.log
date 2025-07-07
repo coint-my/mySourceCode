@@ -1,6 +1,8 @@
 ﻿  myRayCasting.cpp
-D:\Мой код\myRayCasting\myRayCasting.cpp(48,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myRayCasting\myRayCasting.cpp(49,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myRayCasting\myRayCasting.cpp(62,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myRayCasting\myRayCasting.cpp(72,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myRayCasting\myRayCasting.cpp(39,27): warning C4305: инициализация: усечение из "double" в "float"
+D:\Мой код\myRayCasting\myRayCasting.cpp(41,24): warning C4305: инициализация: усечение из "double" в "float"
+D:\Мой код\myRayCasting\myRayCasting.cpp(146,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myRayCasting\myRayCasting.cpp(147,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myRayCasting\myRayCasting.cpp(160,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myRayCasting\myRayCasting.cpp(170,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
   myRayCasting.vcxproj -> D:\Мой код\myRayCasting\Debug\myRayCasting.exe

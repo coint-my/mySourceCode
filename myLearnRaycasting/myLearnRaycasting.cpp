@@ -33,7 +33,104 @@ struct MyPlayer
 Vector2 myRay{ 0, 0 };
 Vector2 myDeltaDistance{ 0, 0 };
 
-float myRotation = 0;
+enum MyKeyDown { LEFT, RIGHT, UP, DOWN };
+bool isKeyDown[4] = { false, false, false, false };
+unsigned int lastMouseX = WID / 2;  // Начальная позиция курсора (центр экрана)
+const float myMoveSpeed = 0.1;
+float moveSpeed = myMoveSpeed; // Скорость движения
+float mouseSensitivity = 0.003;  // Чувствительность мыши
+
+void initOpenGL()
+{
+	glutSetCursor(GLUT_CURSOR_NONE);  // Скрываем курсор
+	glutWarpPointer(WID / 2, HEI / 2);  // Центрируем курсор
+}
+
+void myUpdate(int _time)
+{
+	if (isKeyDown[MyKeyDown::UP])
+	{
+		float nextX = myPlayer.myPosition.x + myPlayer.myDirection.x * moveSpeed;//вычисляем направление игрока по X
+		float nextY = myPlayer.myPosition.y + myPlayer.myDirection.y * moveSpeed;//вычисляем направление игрока по Y
+
+		Vector2 myNewPosition = { nextX, nextY };
+		myPlayer.myPosition = myNewPosition;
+	}
+	if (isKeyDown[MyKeyDown::DOWN])
+	{
+		float nextX = myPlayer.myPosition.x - myPlayer.myDirection.x * moveSpeed;//вычисляем направление игрока по X
+		float nextY = myPlayer.myPosition.y - myPlayer.myDirection.y * moveSpeed;//вычисляем направление игрока по Y
+
+		Vector2 myNewPosition = { nextX, nextY };
+		myPlayer.myPosition = myNewPosition;
+	}
+	if (isKeyDown[MyKeyDown::LEFT])
+	{
+		float nextX = myPlayer.myPosition.x - myPlayer.myPlane.x * moveSpeed;//вычисляем направление игрока по X
+		float nextY = myPlayer.myPosition.y - myPlayer.myPlane.y * moveSpeed;//вычисляем направление игрока по Y
+
+		Vector2 myNewPosition = { nextX, nextY };
+		myPlayer.myPosition = myNewPosition;
+	}
+	if (isKeyDown[MyKeyDown::RIGHT])
+	{
+		float nextX = myPlayer.myPosition.x + myPlayer.myPlane.x * moveSpeed;//вычисляем направление игрока по X
+		float nextY = myPlayer.myPosition.y + myPlayer.myPlane.y * moveSpeed;//вычисляем направление игрока по Y
+
+		Vector2 myNewPosition = { nextX, nextY };
+		myPlayer.myPosition = myNewPosition;
+	}
+
+	glutTimerFunc(_time, myUpdate, _time);
+}
+
+void processNormalKeys(unsigned char key, int x, int y)
+{
+	if (key == 27) { exit(0); }//выход из приложения кнопка ESC
+
+	if (key == 'a') { isKeyDown[MyKeyDown::LEFT] = true; }
+	if (key == 'd') { isKeyDown[MyKeyDown::RIGHT] = true; }
+	if (key == 'w') { isKeyDown[MyKeyDown::UP] = true; }
+	if (key == 's') { isKeyDown[MyKeyDown::DOWN] = true; }
+}
+
+void releaseNormalKeys(unsigned char key, int x, int y)//когда отпускаем клавишу
+{
+	if (key == 'a') { isKeyDown[MyKeyDown::LEFT] = false; }
+	if (key == 'd') { isKeyDown[MyKeyDown::RIGHT] = false; }
+	if (key == 'w') { isKeyDown[MyKeyDown::UP] = false; }
+	if (key == 's') { isKeyDown[MyKeyDown::DOWN] = false; }
+}
+
+void preesKeys(int key, int x, int y)
+{
+	if (key == GLUT_KEY_SHIFT_L) { moveSpeed = myMoveSpeed * 2; }
+}
+
+void releaseKey(int key, int x, int y)
+{
+	if (key == GLUT_KEY_SHIFT_L) { moveSpeed = myMoveSpeed; }
+}
+
+void mouseMotion(int _x, int _y)// Обработка движения мыши
+{
+	int deltaX = _x - lastMouseX;
+	lastMouseX = WID / 2;  // Центрируем мышь после обработки
+
+	float rotSpeed = deltaX * mouseSensitivity;  // Угол поворота
+
+	float oldDirX = myPlayer.myDirection.x;
+	Vector2 myNewDir = { myPlayer.myDirection.x * cos(-rotSpeed) - myPlayer.myDirection.y * sin(-rotSpeed),
+	oldDirX * sin(-rotSpeed) + myPlayer.myDirection.y * cos(-rotSpeed) };//вычисляем поворот направления игрока
+	myPlayer.myDirection = myNewDir;
+
+	float oldPlaneX = myPlayer.myPlane.x;
+	Vector2 myNewPlane = { myPlayer.myPlane.x * cos(-rotSpeed) - myPlayer.myPlane.y * sin(-rotSpeed),
+	oldPlaneX * sin(-rotSpeed) + myPlayer.myPlane.y * cos(-rotSpeed) };//вычисляем поворот угла обзора игрока
+	myPlayer.myPlane = myNewPlane;
+
+	glutWarpPointer(WID / 2, HEI / 2);  // Возвращаем курсор в центр экрана
+}
 
 void myDrawScene()
 {
@@ -121,16 +218,6 @@ void myRender()
 	glClear(GL_COLOR_BUFFER_BIT);//очистим экран предыдущего цвета
 
 	myDrawScene();
-	
-	myRotation += 0.0001f;//тест для поворота
-
-	float oldDirX = myPlayer.myDirection.x;
-	myPlayer.myDirection.x = myPlayer.myDirection.x * cos(-myRotation) - myPlayer.myDirection.y * sin(-myRotation);
-	myPlayer.myDirection.y = oldDirX * sin(-myRotation) + myPlayer.myDirection.y * cos(-myRotation);
-
-	float oldPlaneX = myPlayer.myPlane.x;
-	myPlayer.myPlane.x = myPlayer.myPlane.x * cos(-myRotation) - myPlayer.myPlane.y * sin(-myRotation);
-	myPlayer.myPlane.y = oldPlaneX * sin(-myRotation) + myPlayer.myPlane.y * cos(-myRotation);
 
 	Sleep(30);//задержка
 	glutPostRedisplay();//заставить перерисовать экран
@@ -160,7 +247,20 @@ int main(int argc, char** argv)
 	glViewport(0, 0, WID, HEI);
 	gluOrtho2D(0, WID, HEI, 0);
 	glClearColor(0, 0, 0, 1);
+
+	initOpenGL();
+
 	glutDisplayFunc(myRender);
+
+	myUpdate(16);//вызываем метод обновления кадра, чем меньше число тем больше кадров
+
+	glutIgnoreKeyRepeat(1);//игнорировать задержку клавишь
+	glutKeyboardFunc(processNormalKeys);//события нажатия клавиши
+	glutSpecialFunc(preesKeys);//события нажатия специальной клавиши
+	glutSpecialUpFunc(releaseKey);//события отпускания клавиши
+	glutKeyboardUpFunc(releaseNormalKeys);//события отпускания клавиши
+	glutPassiveMotionFunc(mouseMotion);//события поворота мыши
+
 	glutReshapeFunc(myChangeSize);
 
 	glutMainLoop();
