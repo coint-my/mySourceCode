@@ -1,8 +1,110 @@
 ﻿  myLearnRaycasting.cpp
 D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(39,27): warning C4305: инициализация: усечение из "double" в "float"
 D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(41,24): warning C4305: инициализация: усечение из "double" в "float"
-D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(146,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(147,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(160,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(170,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,17): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,17): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,25): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,25): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(63,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,27): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,27): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,45): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,45): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,59): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(64,59): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,27): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,27): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,45): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,45): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,59): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(65,59): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,27): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,27): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,45): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,45): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,59): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(66,59): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,17): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,17): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,25): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,25): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(67,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,27): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,27): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,45): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,45): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,59): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(68,59): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,27): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,27): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,45): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,45): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,59): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(69,59): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,9): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,9): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,17): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,17): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,25): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,25): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,71): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(70,71): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(192,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(193,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(206,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(216,53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(271,22): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myLearnRaycasting\myLearnRaycasting.cpp(272,22): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
   myLearnRaycasting.vcxproj -> D:\Мой код\myLearnRaycasting\Debug\myLearnRaycasting.exe

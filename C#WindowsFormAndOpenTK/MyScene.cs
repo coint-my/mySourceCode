@@ -182,7 +182,7 @@ namespace C_WindowsFormAndOpenTK
                             myListObjects[ind].myParent = myListObjects[i];
         }
 
-        private void MySetChildTreeViewGameObject(FormMain _main)
+        public void MySetChildTreeViewGameObject(FormMain _main)
         {
             foreach (var parents in myListObjects)
             {

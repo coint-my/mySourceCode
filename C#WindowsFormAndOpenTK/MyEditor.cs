@@ -150,6 +150,7 @@ namespace C_WindowsFormAndOpenTK
         {
             myMainForm = _mainForm;
             myMainForm.createSceneToolStripMenuItem.Click += CreateSceneToolStripMenuItem_Click;
+            myMainForm.contextMenuStripHierarhy.ItemClicked += ContextMenuStripHierarhyDuplicate_Click;
 
             myView = new HoverImageListView
             {
@@ -878,18 +879,21 @@ namespace C_WindowsFormAndOpenTK
             {
                 myMainForm.contextMenuStripHierarhy.Items["Delete"].Enabled = true;
                 myMainForm.contextMenuStripHierarhy.Items["renameToolStripMenuItem"].Enabled = true;
+
+                myMainForm.contextMenuStripHierarhy.Items["duplicateToolStripMenuItem"].Enabled = true;
+                Debug.WriteLine("node = " + myMainForm.treeViewGameObjects.SelectedNode.ToString());
             }
             else
             {
                 myMainForm.contextMenuStripHierarhy.Items["Delete"].Enabled = false;
                 myMainForm.contextMenuStripHierarhy.Items["renameToolStripMenuItem"].Enabled = false;
+
+                myMainForm.contextMenuStripHierarhy.Items["duplicateToolStripMenuItem"].Enabled = false;
             }
         }
 
         public void contextMenuStripHierarhy_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            Debug.WriteLine("empty " + e.ClickedItem);
-
             if (e.ClickedItem.ToString() == "Delete")
             {
                 MyGameObject goDelete = (MyGameObject)myMainForm.treeViewGameObjects.SelectedNode.Tag;
@@ -899,6 +903,26 @@ namespace C_WindowsFormAndOpenTK
                 myMainForm.flowLayoutPanelMyParameters.Controls.Clear();
                 myMainForm.treeViewGameObjects.SelectedNode = null;
                 myMainForm.testDepth = null;
+            }
+        }
+
+        private void ContextMenuStripHierarhyDuplicate_Click(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.ToString() == "Duplicate")
+            {
+                Debug.WriteLine("Duplicate = " + myMainForm.treeViewGameObjects.SelectedNode);
+
+                MyGameObject tempGO = myMainForm.treeViewGameObjects.SelectedNode.Tag as MyGameObject;
+                myMainForm.treeViewGameObjects.SelectedNode = null;
+
+                List<MyGameObject> copy = tempGO.MyGetCopyGameObject();
+                for (int i = 0; i < copy.Count; i++)
+                {
+                    myMainForm.MyAddTreeViewGameObject(myMainForm.MyInstantiateInScene(copy[i]));
+                    Debug.WriteLine("Copy Duplicate = " + copy[i].myName + " id = " + copy[i].myId);
+                }
+
+                myMainForm.myCurrentScene.MySetChildTreeViewGameObject(myMainForm);
             }
         }
 

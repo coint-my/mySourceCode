@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|d:\\\u043C\u043E\u0439 \u043A\u043E\u0434\\c#windowsformandopentk\\myeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|d:\\\u043C\u043E\u0439 \u043A\u043E\u0434\\c#windowsformandopentk\\myscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mygameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mygameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myobjectonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\myscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:myscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7188DE4B-01CE-4622-9BF8-82212039C01F}|C#WindowsFormAndOpenTK.csproj|solutionrelative:mytesttexture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,31 +42,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MyTestTexture.cs",
-              "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestTexture.cs",
-              "RelativeDocumentMoniker": "MyTestTexture.cs",
-              "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestTexture.cs",
-              "RelativeToolTip": "MyTestTexture.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAADwvyAAAABaAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "MyObjectOnScene.cs",
+              "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyObjectOnScene.cs",
+              "RelativeDocumentMoniker": "MyObjectOnScene.cs",
+              "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyObjectOnScene.cs",
+              "RelativeToolTip": "MyObjectOnScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T09:24:20.021Z",
+              "WhenOpened": "2025-07-11T08:31:47.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MyGameObject.cs",
+              "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyGameObject.cs",
+              "RelativeDocumentMoniker": "MyGameObject.cs",
+              "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyGameObject.cs",
+              "RelativeToolTip": "MyGameObject.cs",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAqwOYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T08:28:06.361Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T15:23:26.853Z"
+              "WhenOpened": "2025-07-11T08:00:58.371Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MyTestTexture.cs",
+              "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestTexture.cs",
+              "RelativeDocumentMoniker": "MyTestTexture.cs",
+              "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyTestTexture.cs",
+              "RelativeToolTip": "MyTestTexture.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T09:24:20.021Z"
             },
             {
               "$type": "Document",
@@ -68,43 +101,45 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAOkAAAAAAAAAAAAqwHMBAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAK8BAAAAAAAAAAAawL4BAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T10:41:16.208Z"
+              "WhenOpened": "2025-03-15T10:41:16.208Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MyModel.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyModel.cs",
               "RelativeDocumentMoniker": "MyModel.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyModel.cs",
               "RelativeToolTip": "MyModel.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAqwJsAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAqwJsAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T19:49:32.032Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "MyScene.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyScene.cs",
               "RelativeDocumentMoniker": "MyScene.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyScene.cs",
               "RelativeToolTip": "MyScene.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAqwHoAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAALgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T17:03:37.565Z"
+              "WhenOpened": "2025-04-29T17:03:37.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MyEditor.cs",
               "DocumentMoniker": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyEditor.cs",
               "RelativeDocumentMoniker": "MyEditor.cs",
               "ToolTip": "D:\\\u041C\u043E\u0439 \u043A\u043E\u0434\\C#WindowsFormAndOpenTK\\MyEditor.cs",
               "RelativeToolTip": "MyEditor.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEwAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAGsDAAAAAAAAAADgv5EDAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T15:46:05.042Z",
               "EditorCaption": ""

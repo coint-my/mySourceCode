@@ -1,33 +1,133 @@
 ﻿  main.cpp
 D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(47,26): warning C4305: инициализация: усечение из "double" в "float"
 D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(64,24): warning C4305: инициализация: усечение из "double" в "float"
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(155,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(163,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(197,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(198,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(216,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(217,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(230,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(238,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(272,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(273,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(302,47): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(302,33): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(305,47): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(305,33): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(369,16): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(370,25): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(370,16): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(371,23): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(425,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(426,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(433,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(434,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(441,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(442,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(449,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(450,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(466,20): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,73): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,73): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,81): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,81): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,89): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(141,89): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,51): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,51): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,69): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,69): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,83): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(142,83): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,51): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,51): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,69): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,69): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,83): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(143,83): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,51): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,51): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,69): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,69): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,83): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(144,83): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,73): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,73): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,81): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,81): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,89): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(145,89): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,51): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,51): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,69): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,69): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,83): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(146,83): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,51): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,51): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,69): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,69): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,83): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(147,83): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,33): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,33): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,41): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,41): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,49): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,49): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,57): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,57): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,65): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,65): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,73): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,73): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,81): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,81): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,89): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,89): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,95): warning C4838: Преобразование из "int" в "const char" требует сужающего преобразования.
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(148,95): warning C4309: инициализация: усечение константного значения
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(170,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(171,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(184,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(192,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(226,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(227,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(245,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(246,26): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(259,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(267,48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(301,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(302,28): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(331,47): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(331,33): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(334,47): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(334,33): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(398,16): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(399,25): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(399,16): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(400,23): warning C4244: аргумент: преобразование "int" в "GLfloat", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(453,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(454,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(460,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(461,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(467,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(468,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(474,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(475,21): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\main.cpp(490,20): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
   myC++_GPT4_raycasting_freeglut.vcxproj -> D:\Мой код\myC++_GPT4_raycasting_freeglut\myC++_GPT4_raycasting_freeglut\Debug\myC++_GPT4_raycasting_freeglut.exe

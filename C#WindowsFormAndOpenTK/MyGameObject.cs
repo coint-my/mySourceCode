@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace C_WindowsFormAndOpenTK
@@ -47,7 +48,7 @@ namespace C_WindowsFormAndOpenTK
         }
     }
     
-    public class MyGameObject : MyObjectOnScene, IDisposable
+    public class MyGameObject : MyObjectOnScene, IDisposable, ICloneable
     {
         public static int myCounter = 0;
 
@@ -61,6 +62,7 @@ namespace C_WindowsFormAndOpenTK
         public bool MyIsShowPivot { get; set; }
         public bool myIsVisible { get; set; }
         public bool myIsWireframe { get; set; }
+        public int myHesh { get; set; }
 
         public MyShader myShader;
         private MyShader myShaderWireframe;
@@ -82,6 +84,7 @@ namespace C_WindowsFormAndOpenTK
             myShader.SetVector3("light.specular", new Vector3(0.0f));
 
             myId = myCounter;
+            myHesh = GetHashCode();
             myName = "GameObject_" + myCounter;
             myPolygonColorPivot = new MySimplePolygonColor();
             myModel = Matrix4.Identity;
@@ -94,6 +97,30 @@ namespace C_WindowsFormAndOpenTK
         public MyGameObject(string _name) : this()
         {
             myName = _name + "_" + myCounter;
+        }
+
+        public MyGameObject(MyGameObject myCopyObject) : this()
+        {
+            myName = "copy" + myCounter + "_" + myCopyObject.myName;
+            myModel = myCopyObject.myModel;
+            myComponents = myCopyObject.myComponents;
+            myIsVisible = myCopyObject.myIsVisible;
+            myIsWireframe = myCopyObject.myIsWireframe;
+            MyIsShowPivot = myCopyObject.MyIsShowPivot;
+            myIsDestroy = myCopyObject.myIsDestroy;
+
+            myPosition = myCopyObject.myPosition;
+            myRotation = myCopyObject.myRotation;
+            myScale = myCopyObject.myScale;
+        }
+
+        public object Clone()
+        {
+            MyGameObject obj = (MyGameObject)MemberwiseClone(); // встроенный метод поверхностного копирования
+            obj.myName = "copy" + myCounter + "_" + myName;
+            obj.myId = myCounter;
+            MyIncrementID();
+            return obj;
         }
 
         public void Dispose()
@@ -172,6 +199,67 @@ namespace C_WindowsFormAndOpenTK
                     ((MyGameObject)myChild[i]).MyDestroy();
                 }
             }
+        }
+
+        public void MyGetAllChildGameObjectRecursion(ref List<MyGameObject> _childOut, MyGameObject _child)
+        {
+            for (int i = 0; i < _child.myChild.Count; i++)
+            {
+                _childOut.Add(_child.myChild[i] as MyGameObject);
+                MyGetAllChildGameObjectRecursion(ref _childOut, _child.myChild[i] as MyGameObject);
+            }
+        }
+
+        public List<MyGameObject> MyGetCopyGameObject()
+        {
+            List<MyGameObject> listFindObject = new List<MyGameObject>();
+            listFindObject.Add(this);
+
+            MyGetAllChildGameObjectRecursion(ref listFindObject, this);
+
+            List<MyGameObject> listCopyGameObject = new List<MyGameObject>();
+
+            for (int i = 0; i < listFindObject.Count; i++)
+            {
+                //listCopyGameObject.Add(new MyGameObject(listFindObject[i]));
+                listCopyGameObject.Add((MyGameObject) listFindObject[i].Clone());
+            }
+
+            MySetChildrenNewGameObject(ref listCopyGameObject);
+            MySetParentNewGameObject(ref listCopyGameObject);
+            
+            return listCopyGameObject;
+        }
+
+        private void MySetParentNewGameObject(ref List<MyGameObject> _listGO)
+        {
+            for (int go = 0; go < _listGO.Count; go++)
+            {
+                if (_listGO[go].myParent != null)
+                {
+                    for (int par = 0; par < _listGO.Count; par++)
+                    {
+                        if (((MyGameObject)_listGO[go].myParent).myHesh == _listGO[par].myHesh)
+                        {
+                            _listGO[go].myParent = _listGO[par];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void MySetChildrenNewGameObject(ref List<MyGameObject> _listGO)
+        {
+            for (int go = 0; go < _listGO.Count; go++)
+                if (_listGO[go].myChild.Count > 0)
+                    for (int child = 0; child < _listGO[go].myChild.Count; child++)
+                        for (int i = 0; i < _listGO.Count; i++)
+                            if (((MyGameObject)_listGO[go].myChild[child]).myHesh == _listGO[i].myHesh)
+                            {
+                                _listGO[go].myChild[child] = _listGO[i];
+                                break;
+                            }
         }
 
         public override void MyDraw(MyHandleCamera _cam, MySimpleRectGL _glRect)

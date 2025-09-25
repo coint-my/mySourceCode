@@ -40,10 +40,47 @@ const float myMoveSpeed = 0.1;
 float moveSpeed = myMoveSpeed; // Скорость движения
 float mouseSensitivity = 0.003;  // Чувствительность мыши
 
+// Текстуры
+GLuint textures[2];
+//простой метод загрузки текстуры в OpenGL
+GLuint myLoadTexture(const char* _data, int _wid, int _hei)
+{
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, _wid, _hei, 0, GL_RGB, GL_UNSIGNED_BYTE, _data);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	return textureID;
+}
+
 void initOpenGL()
 {
+	//создаю пиксели из чисел
+	const char data[192] = {
+								254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,
+								254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+								254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+								254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+								254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,
+								254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+								254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+								254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,254
+	};
+	//загружаю в память OpenGL
+	textures[0] = myLoadTexture(data, 8, 8);
+
 	glutSetCursor(GLUT_CURSOR_NONE);  // Скрываем курсор
 	glutWarpPointer(WID / 2, HEI / 2);  // Центрируем курсор
+}
+
+// Проверка столкновения
+bool myIsWall(float x, float y) {
+	int mapX = (int)x;
+	int mapY = (int)y;
+	return myWorldMap[mapX][mapY] > 0;
 }
 
 void myUpdate(int _time)
@@ -53,7 +90,9 @@ void myUpdate(int _time)
 		float nextX = myPlayer.myPosition.x + myPlayer.myDirection.x * moveSpeed;//вычисляем направление игрока по X
 		float nextY = myPlayer.myPosition.y + myPlayer.myDirection.y * moveSpeed;//вычисляем направление игрока по Y
 
-		Vector2 myNewPosition = { nextX, nextY };
+		Vector2 myNewPosition = myPlayer.myPosition;
+		if (!myIsWall(nextX, myPlayer.myPosition.y)) myNewPosition.x = nextX;//если мы не выходим за стену по x
+		if (!myIsWall(myPlayer.myPosition.x, nextY)) myNewPosition.y = nextY;//если мы не выходим за стену по y
 		myPlayer.myPosition = myNewPosition;
 	}
 	if (isKeyDown[MyKeyDown::DOWN])
@@ -61,7 +100,9 @@ void myUpdate(int _time)
 		float nextX = myPlayer.myPosition.x - myPlayer.myDirection.x * moveSpeed;//вычисляем направление игрока по X
 		float nextY = myPlayer.myPosition.y - myPlayer.myDirection.y * moveSpeed;//вычисляем направление игрока по Y
 
-		Vector2 myNewPosition = { nextX, nextY };
+		Vector2 myNewPosition = myPlayer.myPosition;
+		if (!myIsWall(nextX, myPlayer.myPosition.y)) myNewPosition.x = nextX;//если мы не выходим за стену по x
+		if (!myIsWall(myPlayer.myPosition.x, nextY)) myNewPosition.y = nextY;//если мы не выходим за стену по y
 		myPlayer.myPosition = myNewPosition;
 	}
 	if (isKeyDown[MyKeyDown::LEFT])
@@ -69,7 +110,9 @@ void myUpdate(int _time)
 		float nextX = myPlayer.myPosition.x - myPlayer.myPlane.x * moveSpeed;//вычисляем направление игрока по X
 		float nextY = myPlayer.myPosition.y - myPlayer.myPlane.y * moveSpeed;//вычисляем направление игрока по Y
 
-		Vector2 myNewPosition = { nextX, nextY };
+		Vector2 myNewPosition = myPlayer.myPosition;
+		if (!myIsWall(nextX, myPlayer.myPosition.y)) myNewPosition.x = nextX;//если мы не выходим за стену по x
+		if (!myIsWall(myPlayer.myPosition.x, nextY)) myNewPosition.y = nextY;//если мы не выходим за стену по y
 		myPlayer.myPosition = myNewPosition;
 	}
 	if (isKeyDown[MyKeyDown::RIGHT])
@@ -77,7 +120,9 @@ void myUpdate(int _time)
 		float nextX = myPlayer.myPosition.x + myPlayer.myPlane.x * moveSpeed;//вычисляем направление игрока по X
 		float nextY = myPlayer.myPosition.y + myPlayer.myPlane.y * moveSpeed;//вычисляем направление игрока по Y
 
-		Vector2 myNewPosition = { nextX, nextY };
+		Vector2 myNewPosition = myPlayer.myPosition;
+		if (!myIsWall(nextX, myPlayer.myPosition.y)) myNewPosition.x = nextX;//если мы не выходим за стену по x
+		if (!myIsWall(myPlayer.myPosition.x, nextY)) myNewPosition.y = nextY;//если мы не выходим за стену по y
 		myPlayer.myPosition = myNewPosition;
 	}
 
@@ -132,9 +177,10 @@ void mouseMotion(int _x, int _y)// Обработка движения мыши
 	glutWarpPointer(WID / 2, HEI / 2);  // Возвращаем курсор в центр экрана
 }
 
-void myDrawScene()
+void myDrawScene(unsigned short _quality)
 {
-	for (int x = 0; x < WID; x++)// Проходим по каждому пикселю экрана (по горизонтали)
+	glEnable(GL_TEXTURE_2D);//включаем текстурирование
+	for (int x = 0; x < WID; x += _quality)// Проходим по каждому пикселю экрана (по горизонтали)
 	{
 		float cameraX = 2 * x / (float)WID - 1; // Преобразование в нормализованное пространство
 		myRay.x = myPlayer.myDirection.x + myPlayer.myPlane.x * cameraX;//направление куда будет лететь луч x
@@ -201,23 +247,39 @@ void myDrawScene()
 		int drawStart = -lineHeight / 2 + (HEI / 2);//начало рисование стены
 		int drawEnd = lineHeight / 2 + (HEI / 2);//конец рисование стены
 
-		if (side == 0) 
+		float wallX;
+		if (side == 0)
+		{
+			wallX = myPlayer.myPosition.y + perpWallDist * myRay.y;//смотрим откуда начинаеться стена по Y
 			glColor3ub(50, 50, 50);
-		else 
+		}
+		else
+		{
+			wallX = myPlayer.myPosition.x + perpWallDist * myRay.x;//смотрим откуда начинаеться стена по X
 			glColor3ub(150, 150, 150);
+		}
+		wallX -= floor(wallX);
 
-		glBegin(GL_LINES);
+		/*glBegin(GL_LINES);
 		glVertex2i(x, drawStart);
-		glVertex2i(x, drawEnd);
+		glVertex2i(x, drawEnd);*/
+
+		glBindTexture(GL_TEXTURE_2D, textures[myWorldMap[mapX][mapY] - 1]);
+		glBegin(GL_QUADS);
+		glTexCoord2f(wallX, 0); glVertex2i(x - _quality, drawStart);
+		glTexCoord2f(wallX, 1); glVertex2i(x - _quality, drawEnd);
+		glTexCoord2f(wallX + 0.01, 1); glVertex2i(x, drawEnd);
+		glTexCoord2f(wallX + 0.01, 0); glVertex2i(x, drawStart);
 		glEnd();
 	}
+	glDisable(GL_TEXTURE_2D);//отключаем текстурирование
 }
 
 void myRender()
 {
 	glClear(GL_COLOR_BUFFER_BIT);//очистим экран предыдущего цвета
 
-	myDrawScene();
+	myDrawScene(2);//выбираем качество отрисовки текстур
 
 	Sleep(30);//задержка
 	glutPostRedisplay();//заставить перерисовать экран

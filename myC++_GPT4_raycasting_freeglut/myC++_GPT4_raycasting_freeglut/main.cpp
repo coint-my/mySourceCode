@@ -23,7 +23,7 @@ int worldMap[32][32] =
     { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,1 },
     { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,3,3,3,0,0,0,1 },
     { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,3,3,0,3,0,0,0,1 },
-    { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,3,0,0,3,0,0,0,1 },
+    { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,2,0,0,3,0,0,3,0,0,0,1 },
     { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,3,0,0,3,0,0,0,1 },
     { 1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,2,1 },
     { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,1 },
@@ -65,7 +65,7 @@ float mouseSensitivity = 0.065;  // Чувствительность мыши
 const unsigned short myQuality = 2;//качество игры чем меньше тем лучше
 
 // Текстуры
-GLuint textures[3];
+GLuint textures[4];
 GLuint floorTexture;
 
 // Функция загрузки текстуры
@@ -87,6 +87,20 @@ GLuint loadTexture(const char* filename)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     stbi_image_free(data);
+    return textureID;
+}
+
+//моя функция текстуры
+GLuint myLoadTexture(const char* _data, int _wid, int _hei)
+{
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, _wid, _hei, 0, GL_RGB, GL_UNSIGNED_BYTE, _data);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
     return textureID;
 }
 
@@ -121,6 +135,21 @@ void initOpenGL()
     textures[1] = loadTexture("texture/wall2.bmp");
     textures[2] = loadTexture("texture/floor.bmp");
     floorTexture = loadTexture("texture/floor3.bmp");
+
+    //test
+    const char data[192] = { 
+                                254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1, 
+                                254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+                                254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1, 
+                                254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1, 
+                                254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,
+                                254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+                                254,1,1,1,1,1,1,1,254,1,254,1,1,1,1,254,1,1,1,1,1,254,1,1,
+                                254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,1,254,1,254
+                              };
+
+    textures[3] = myLoadTexture(data, 8, 8);
+    //конец теста
 
     glutSetCursor(GLUT_CURSOR_NONE);  // Скрываем курсор
     glutWarpPointer(WID / 2, HEI / 2);  // Центрируем курсор
